@@ -1,0 +1,28 @@
+Specials (Attack, Defense, Passive, Clutch)
+
+A
+Beast:		Doubles character roll [Attack, Defense]
+C
+Dodge:		Defense cancels out Attack [Defense]
+E
+F
+G
+Heal: 		Heals self or ally [All]
+I
+J
+K
+Lock-in:	50% chance to endure fatal attack with 1HP remaining [Clutch]
+Multi-hit:	1+ additional hits; max number determined by difference in Power [Attack]
+N
+O
+P
+Q
+R
+S
+Tactical: 	Targets opponent with highest power or lowest health
+U
+V
+W
+X
+Y
+Z

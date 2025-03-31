@@ -1,0 +1,281 @@
+{
+	"characters": [
+		{
+			"name": "Alyssa",
+			"power": 4,
+			"specials": {
+				"attack": "multi-hit",
+				"defense": "counter",
+				"passive": "tactical",
+				"clutch": "lock-in"
+			}
+		},
+		{
+			"name": "Barney",
+			"power": 4,
+			"specials": {
+				"attack": "none",
+				"defense": "none",
+				"passive": "none",
+				"clutch": "none"
+			}
+		},
+		{
+			"name": "Charles",
+			"power": 4,
+			"specials": {
+				"attack": "none",
+				"defense": "none",
+				"passive": "none",
+				"clutch": "none"
+			}
+		},
+		{
+			"name": "Doug",
+			"power": 4,
+			"specials": {
+				"attack": "none",
+				"defense": "none",
+				"passive": "none",
+				"clutch": "none"
+			}
+		},
+		{
+			"name": "E",
+			"power": 4,
+			"specials": {
+				"attack": "none",
+				"defense": "none",
+				"passive": "none",
+				"clutch": "none"
+			}
+		},
+		{
+			"name": "F",
+			"power": 4,
+			"specials": {
+				"attack": "none",
+				"defense": "none",
+				"passive": "none",
+				"clutch": "none"
+			}
+		},
+		{
+			"name": "G",
+			"power": 4,
+			"specials": {
+				"attack": "none",
+				"defense": "none",
+				"passive": "none",
+				"clutch": "none"
+			}
+		},
+		{
+			"name": "Haramatsu",
+			"power": 4,
+			"specials": {
+				"attack": "none",
+				"defense": "none",
+				"passive": "none",
+				"clutch": "none"
+			}
+		},
+		{
+			"name": "Isolde",
+			"power": 4,
+			"specials": {
+				"attack": "none",
+				"defense": "none",
+				"passive": "none",
+				"clutch": "none"
+			}
+		},
+		{
+			"name": "Jarome",
+			"power": 4,
+			"specials": {
+				"attack": "none",
+				"defense": "none",
+				"passive": "none",
+				"clutch": "none"
+			}
+		},
+		{
+			"name": "Kori",
+			"power": 4,
+			"specials": {
+				"attack": "none",
+				"defense": "none",
+				"passive": "none",
+				"clutch": "none"
+			}
+		},
+		{
+			"name": "Leif",
+			"power": 6,
+			"specials": {
+				"attack": "none",
+				"defense": "none",
+				"passive": "none",
+				"clutch": "none"
+			}
+		},
+		{
+			"name": "Melvin",
+			"power": 4,
+			"specials": {
+				"attack": "none",
+				"defense": "none",
+				"passive": "none",
+				"clutch": "none"
+			}
+		},
+		{
+			"name": "Niamh",
+			"power": 4,
+			"specials": {
+				"attack": "none",
+				"defense": "none",
+				"passive": "none",
+				"clutch": "none"
+			}
+		},
+		{
+			"name": "Orick",
+			"power": 4,
+			"specials": {
+				"attack": "none",
+				"defense": "none",
+				"passive": "none",
+				"clutch": "none"
+			}
+		},
+		{
+			"name": "P",
+			"power": 4,
+			"specials": {
+				"attack": "none",
+				"defense": "none",
+				"passive": "none",
+				"clutch": "none"
+			}
+		},
+		{
+			"name": "Q",
+			"power": 4,
+			"specials": {
+				"attack": "none",
+				"defense": "none",
+				"passive": "none",
+				"clutch": "none"
+			}
+		},
+		{
+			"name": "Ray Louis",
+			"power": 4,
+			"specials": {
+				"attack": "none",
+				"defense": "none",
+				"passive": "none",
+				"clutch": "none"
+			}
+		},
+		{
+			"name": "Sara",
+			"power": 4,
+			"specials": {
+				"attack": "none",
+				"defense": "none",
+				"passive": "none",
+				"clutch": "none"
+			}
+		},
+		{
+			"name": "Tomoe",
+			"power": 4,
+			"specials": {
+				"attack": "none",
+				"defense": "none",
+				"passive": "none",
+				"clutch": "none"
+			}
+		},
+		{
+			"name": "U",
+			"power": 4,
+			"specials": {
+				"attack": "none",
+				"defense": "none",
+				"passive": "none",
+				"clutch": "none"
+			}
+		},
+		{
+			"name": "V",
+			"power": 4,
+			"specials": {
+				"attack": "none",
+				"defense": "none",
+				"passive": "none",
+				"clutch": "none"
+			}
+		},
+		{
+			"name": "W",
+			"power": 4,
+			"specials": {
+				"attack": "none",
+				"defense": "none",
+				"passive": "none",
+				"clutch": "none"
+			}
+		},
+		{
+			"name": "Xia",
+			"power": 4,
+			"specials": {
+				"attack": "none",
+				"defense": "none",
+				"passive": "none",
+				"clutch": "none"
+			}
+		},
+		{
+			"name": "Yumi",
+			"power": 4,
+			"specials": {
+				"attack": "none",
+				"defense": "none",
+				"passive": "none",
+				"clutch": "none"
+			}
+		},
+		{
+			"name": "Z",
+			"power": 4,
+			"specials": {
+				"attack": "none",
+				"defense": "none",
+				"passive": "none",
+				"clutch": "none"
+			}
+		}
+	],
+	"traits": [
+		// Trait Key:
+		// 1 - clutch
+		// 2 - passive
+		// 4 - defense
+		// 8 - attack
+		{
+			"name": "beast",
+			"description": "Doubles Power roll.",
+			"type": 9
+		},
+		{
+			"name": "none",
+			"description": "Does nothing.",
+			"type": 0
+		}
+	]
+}
