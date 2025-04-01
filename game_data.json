@@ -2,275 +2,326 @@
 	"characters": [
 		{
 			"name": "Alyssa",
-			"power": 4,
+			"power": 6,
+			"focus": 10,
 			"specials": {
-				"attack": "multi-hit",
-				"defense": "counter",
-				"passive": "tactical",
-				"clutch": "lock-in"
+				"attack": "none",
+				"breaker": "psychic",
+				"clutch": "none",
+				"defense": "none"
 			}
 		},
 		{
 			"name": "Barney",
 			"power": 4,
+			"focus": 2,
 			"specials": {
-				"attack": "none",
-				"defense": "none",
-				"passive": "none",
-				"clutch": "none"
+				"attack": "beast",
+				"breaker": "none",
+				"clutch": "none",
+				"defense": "none"
 			}
 		},
 		{
 			"name": "Charles",
 			"power": 4,
+			"focus": 10,
 			"specials": {
 				"attack": "none",
-				"defense": "none",
-				"passive": "none",
-				"clutch": "none"
+				"breaker": "none",
+				"clutch": "none",
+				"defense": "none"
 			}
 		},
 		{
 			"name": "Doug",
 			"power": 4,
+			"focus": 10,
 			"specials": {
 				"attack": "none",
-				"defense": "none",
-				"passive": "none",
-				"clutch": "none"
+				"breaker": "none",
+				"clutch": "none",
+				"defense": "none"
 			}
 		},
 		{
 			"name": "E",
 			"power": 4,
+			"focus": 10,
 			"specials": {
 				"attack": "none",
-				"defense": "none",
-				"passive": "none",
-				"clutch": "none"
+				"breaker": "none",
+				"clutch": "none",
+				"defense": "none"
 			}
 		},
 		{
 			"name": "F",
 			"power": 4,
+			"focus": 10,
 			"specials": {
 				"attack": "none",
-				"defense": "none",
-				"passive": "none",
-				"clutch": "none"
+				"breaker": "none",
+				"clutch": "none",
+				"defense": "none"
 			}
 		},
 		{
 			"name": "G",
 			"power": 4,
+			"focus": 10,
 			"specials": {
 				"attack": "none",
-				"defense": "none",
-				"passive": "none",
-				"clutch": "none"
+				"breaker": "none",
+				"clutch": "none",
+				"defense": "none"
 			}
 		},
 		{
 			"name": "Haramatsu",
 			"power": 4,
+			"focus": 10,
 			"specials": {
 				"attack": "none",
-				"defense": "none",
-				"passive": "none",
-				"clutch": "none"
+				"breaker": "none",
+				"clutch": "none",
+				"defense": "none"
 			}
 		},
 		{
 			"name": "Isolde",
 			"power": 4,
+			"focus": 10,
 			"specials": {
 				"attack": "none",
-				"defense": "none",
-				"passive": "none",
-				"clutch": "none"
+				"breaker": "none",
+				"clutch": "none",
+				"defense": "none"
 			}
 		},
 		{
 			"name": "Jarome",
 			"power": 4,
+			"focus": 10,
 			"specials": {
 				"attack": "none",
-				"defense": "none",
-				"passive": "none",
-				"clutch": "none"
+				"breaker": "none",
+				"clutch": "none",
+				"defense": "none"
 			}
 		},
 		{
 			"name": "Kori",
 			"power": 4,
+			"focus": 10,
 			"specials": {
 				"attack": "none",
-				"defense": "none",
-				"passive": "none",
-				"clutch": "none"
+				"breaker": "none",
+				"clutch": "none",
+				"defense": "none"
 			}
 		},
 		{
 			"name": "Leif",
 			"power": 6,
+			"focus": 10,
 			"specials": {
 				"attack": "none",
-				"defense": "none",
-				"passive": "none",
-				"clutch": "none"
+				"breaker": "none",
+				"clutch": "none",
+				"defense": "none"
 			}
 		},
 		{
 			"name": "Melvin",
 			"power": 4,
+			"focus": 10,
 			"specials": {
 				"attack": "none",
-				"defense": "none",
-				"passive": "none",
-				"clutch": "none"
+				"breaker": "none",
+				"clutch": "none",
+				"defense": "none"
 			}
 		},
 		{
 			"name": "Niamh",
 			"power": 4,
+			"focus": 10,
 			"specials": {
 				"attack": "none",
-				"defense": "none",
-				"passive": "none",
-				"clutch": "none"
+				"breaker": "none",
+				"clutch": "none",
+				"defense": "none"
 			}
 		},
 		{
 			"name": "Orick",
 			"power": 4,
+			"focus": 10,
 			"specials": {
 				"attack": "none",
-				"defense": "none",
-				"passive": "none",
-				"clutch": "none"
+				"breaker": "none",
+				"clutch": "none",
+				"defense": "none"
 			}
 		},
 		{
 			"name": "P",
 			"power": 4,
+			"focus": 10,
 			"specials": {
 				"attack": "none",
-				"defense": "none",
-				"passive": "none",
-				"clutch": "none"
+				"breaker": "none",
+				"clutch": "none",
+				"defense": "none"
 			}
 		},
 		{
 			"name": "Q",
 			"power": 4,
+			"focus": 10,
 			"specials": {
 				"attack": "none",
-				"defense": "none",
-				"passive": "none",
-				"clutch": "none"
+				"breaker": "none",
+				"clutch": "none",
+				"defense": "none"
 			}
 		},
 		{
 			"name": "Ray Louis",
 			"power": 4,
+			"focus": 10,
 			"specials": {
 				"attack": "none",
-				"defense": "none",
-				"passive": "none",
-				"clutch": "none"
+				"breaker": "none",
+				"clutch": "none",
+				"defense": "none"
 			}
 		},
 		{
 			"name": "Sara",
 			"power": 4,
+			"focus": 10,
 			"specials": {
 				"attack": "none",
-				"defense": "none",
-				"passive": "none",
-				"clutch": "none"
+				"breaker": "none",
+				"clutch": "none",
+				"defense": "none"
 			}
 		},
 		{
 			"name": "Tomoe",
-			"power": 4,
+			"power": 12,
+			"focus": 10,
 			"specials": {
-				"attack": "none",
-				"defense": "none",
-				"passive": "none",
-				"clutch": "none"
+				"attack": "beast",
+				"breaker": "none",
+				"clutch": "none",
+				"defense": "beast"
 			}
 		},
 		{
 			"name": "U",
 			"power": 4,
+			"focus": 10,
 			"specials": {
 				"attack": "none",
-				"defense": "none",
-				"passive": "none",
-				"clutch": "none"
+				"breaker": "none",
+				"clutch": "none",
+				"defense": "none"
 			}
 		},
 		{
 			"name": "V",
 			"power": 4,
+			"focus": 10,
 			"specials": {
 				"attack": "none",
-				"defense": "none",
-				"passive": "none",
-				"clutch": "none"
+				"breaker": "none",
+				"clutch": "none",
+				"defense": "none"
 			}
 		},
 		{
 			"name": "W",
 			"power": 4,
+			"focus": 10,
 			"specials": {
 				"attack": "none",
-				"defense": "none",
-				"passive": "none",
-				"clutch": "none"
+				"breaker": "none",
+				"clutch": "none",
+				"defense": "none"
 			}
 		},
 		{
 			"name": "Xia",
-			"power": 4,
+			"power": 20,
+			"focus": 10,
 			"specials": {
 				"attack": "none",
-				"defense": "none",
-				"passive": "none",
-				"clutch": "none"
+				"breaker": "none",
+				"clutch": "none",
+				"defense": "none"
 			}
 		},
 		{
 			"name": "Yumi",
 			"power": 4,
+			"focus": 10,
 			"specials": {
 				"attack": "none",
-				"defense": "none",
-				"passive": "none",
-				"clutch": "none"
+				"breaker": "none",
+				"clutch": "none",
+				"defense": "none"
 			}
 		},
 		{
 			"name": "Z",
 			"power": 4,
+			"focus": 10,
 			"specials": {
 				"attack": "none",
-				"defense": "none",
-				"passive": "none",
-				"clutch": "none"
+				"breaker": "none",
+				"clutch": "none",
+				"defense": "none"
 			}
 		}
 	],
 	"traits": [
 		// Trait Key:
-		// 1 - clutch
-		// 2 - passive
-		// 4 - defense
-		// 8 - attack
+		// 1 - attack
+		// 2 - breaker
+		// 4 - clutch
+		// 8 - defense
 		{
 			"name": "beast",
 			"description": "Doubles Power roll.",
 			"type": 9
+		},
+		{
+			"name": "dodge", 
+			"description": "Makes Defense equal Attack.",
+			"type": 8
+		},
+		{
+			"name": "heal", 
+			"description": "Restores Health to self or ally based on Power.",
+			"type": 6
+		},
+		{
+			"name": "lock-in", 
+			"description": "50% chance to endure fatal attack with 1HP remaining.",
+			"type": 1
+		},
+		{
+			"name": "multi-hit", 
+			"description": "1+ additional hits; max number determined by difference in Power.",
+			"type": 1
+		},
+		{
+			"name": "psychic", 
+			"description": "Roll Focus.",
+			"type": 2
 		},
 		{
 			"name": "none",

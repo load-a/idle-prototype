@@ -9,19 +9,19 @@ class Trait
   end
 
   def attack?
-    type & 0b1000 == 8
+    type & 0b0001 == 1
   end
 
-  def defense?
-    type & 0b0100 == 4
-  end
-
-  def passive?
+  def breaker?
     type & 0b0010 == 2
   end
 
   def clutch?
-    type & 0b0001 == 1
+    type & 0b0100 == 4
+  end
+
+  def defense?
+    type & 0b1000 == 8
   end
 
   def to_s
@@ -32,9 +32,9 @@ class Trait
     types = []
 
     types << "Attack" if attack?
-    types << "Defense" if defense?
-    types << "Passive" if passive?
+    types << "Breaker" if breaker?
     types << "Clutch" if clutch?
+    types << "Defense" if defense?
 
     types.join(', ')
   end

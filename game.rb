@@ -10,6 +10,9 @@ module Game
     attack = Dice.roll(attacker.power)
     defense = Dice.roll(defender.power)
 
+    attacker.charge_meter if attack.crit
+    defender.charge_meter if defense.crit
+
     Context.new(attacker, defender, Encounter.new(attack, defense), {attacker: [], defender: []})
   end
 
@@ -33,17 +36,35 @@ module Game
     end
   end
 
+  def add_breaker_moves(context)
+    if context.attacker.charged?
+      context.specials[:attacker] << context.attacker.specials[:breaker]
+    end
+
+    if context.defender.charged?
+      context.specials[:defender] << context.defender.specials[:breaker]
+    end 
+  end
+
   def use_active_traits(context)
     context.specials[:attacker].each do |action|
-      Special.send(action, context, :attack)
+      next unless action.attack?
+      Special.send(action.name, context, :attack)
     end
 
     context.specials[:defender].each do |action|
-      Special.send(action, context, :defense)
+      next unless action.defense?
+      Special.send(action.name, context, :defense)
     end
   end
 
-  def use_passive_traits(context)
+  def use_breaker(context)
+    context.specials[:attacker].each do |action|
+      next unless action.breaker?
+
+      Special.send(action.name.downcase, context, :attack)
+      context.attacker.deplete_meter
+    end
   end
 
   def inflict_damage(context)
@@ -52,10 +73,12 @@ module Game
     context.defender.health -= damage
 
     if damage.zero?
-      puts "The attack missed!"
+      puts "#{context.defender.name} put up #{context.encounter.defense.result} defense!", "The attack missed!"
     else
       puts "#{context.defender.name} blocked #{context.encounter.defense.result} and took #{damage} damage!"
     end
+
+    context
   end
 
   def play_round(attacker, defender)
@@ -65,13 +88,11 @@ module Game
 
     add_crit_moves(context)
     add_clutch_moves(context)
+    add_breaker_moves(context)
 
     use_active_traits(context)
-    use_passive_traits(context)
+    use_breaker(context)
 
     inflict_damage(context)
-
-    # puts context.specials
-    # puts context.encounter
   end
 end

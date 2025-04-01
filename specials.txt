@@ -2,12 +2,12 @@ Specials (Attack, Defense, Passive, Clutch)
 
 A
 Beast:		Doubles character roll [Attack, Defense]
-C
+Charge: 	Spend turn preparing action
 Dodge:		Defense cancels out Attack [Defense]
 E
 F
 G
-Heal: 		Heals self or ally [All]
+Healer: 	Can heal allies
 I
 J
 K
@@ -15,9 +15,9 @@ Lock-in:	50% chance to endure fatal attack with 1HP remaining [Clutch]
 Multi-hit:	1+ additional hits; max number determined by difference in Power [Attack]
 N
 O
-P
+Psychic:	Roll focus
 Q
-R
+Recover: 	Gain Health based on Power roll
 S
 Tactical: 	Targets opponent with highest power or lowest health
 U

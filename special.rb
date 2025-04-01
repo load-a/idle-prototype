@@ -3,8 +3,6 @@
 module Special
   module_function
 
-  Trait = Struct.new(:name, :types)
-
   def beast(context, type)
     character = type == :attack ? "attacker" : "defender"
 
@@ -45,6 +43,15 @@ module Special
     context.encounter.attack.result += total
 
     puts "#{context.attacker.name} gets #{hits} more hits in for +#{total} damage!"
+  end
+
+  def psychic(context, type)
+    character = context.send(type == :attack ? "attacker" : "defender")
+    roll = Dice.roll(character.focus).result
+
+    context.encounter.send(type).result += roll
+
+    puts "#{character.name} used psychic power for +#{roll} #{type}!"
   end
 
   def none(_encounter, _type); end
