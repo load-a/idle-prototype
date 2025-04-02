@@ -5,7 +5,7 @@ Beast:		Doubles character roll [Attack, Defense]
 Charge: 	Spend turn preparing action
 Dodge:		Defense cancels out Attack [Defense]
 E
-F
+Finisher	Insta-kill opponent if they are in low health
 G
 Healer: 	Can heal allies
 I

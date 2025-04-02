@@ -1,16 +1,17 @@
 # frozen_string_literal: true
 
 class Character
-  attr_accessor :name, :health, :max_health, :power, :focus, :specials, :meter
+  attr_accessor :name, :health, :max_health, :power, :focus, :speed, :traits, :meter
 
-  def initialize(name, power, focus, specials)
+  def initialize(name, power, focus, speed, traits)
     self.name = name
     self.max_health = 20
     self.health = max_health
     self.power = power
     self.focus = focus
+    self.speed = speed
     self.meter = 0
-    self.specials = specials
+    self.traits = traits
   end
 
   def charge_meter
@@ -26,8 +27,8 @@ class Character
     self.meter = 0
   end
 
-  def alive?
-    health > 0
+  def down?
+    health <= 0
   end
 
   def low_health?
@@ -43,17 +44,17 @@ class Character
     deplete_meter
   end
 
-  def status_line
+  def status
     format('%s: HP(%i/%i) P(%i) MP(%i/%i)%s%s', 
     name, health, max_health, power, meter, focus,
-    (" BREAKER(#{specials[:breaker].name.capitalize})" if charged? && specials[:breaker].name != 'none'),
-    (" CLUTCH(#{specials[:clutch].name.capitalize})" if low_health? && specials[:clutch].name != 'none'))
+    (" BREAKER(#{traits[:breaker].name.capitalize})" if charged? && traits[:breaker].name != 'none'),
+    (" CLUTCH(#{traits[:clutch].name.capitalize})" if low_health? && traits[:clutch].name != 'none'))
   end
 
   def to_s
     format('%s: HEALTH(%i/%i) POWER(%i) FOCUS(%i/%i) TRAITS(%s, %s, %s, %s)', 
       name, health, max_health, power, meter, focus,
-      specials[:attack].name.capitalize, specials[:breaker].name.capitalize, 
-      specials[:clutch].name.capitalize, specials[:defense].name.capitalize)
+      traits[:attack].name.capitalize, traits[:breaker].name.capitalize, 
+      traits[:clutch].name.capitalize, traits[:defense].name.capitalize)
   end
 end

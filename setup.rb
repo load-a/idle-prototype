@@ -20,10 +20,12 @@ CHARACTER_DATA.each do |character|
   name = character["name"]
   symbol = name.downcase.to_sym
 
-  CHARACTERS[symbol] = Character.new(name, character["power"].to_i, character["focus"].to_i, {})
+  CHARACTERS[symbol] = Character.new(name, 
+                                     character["power"].to_i, character["speed"].to_i, character["focus"].to_i, 
+                                     {})
 
-  character["specials"].each do |type, trait|
-    CHARACTERS[symbol].specials[type.to_sym] = TRAITS[trait.to_sym]
+  character["traits"].each do |type, trait|
+    CHARACTERS[symbol].traits[type.to_sym] = TRAITS[trait.to_sym]
   end
 end
 CHARACTERS.freeze

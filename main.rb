@@ -9,37 +9,33 @@ require_relative 'special'
 
 require_relative 'setup'
 
-listing = [CHARACTERS[:alyssa], CHARACTERS[:barney]]
-players = listing.dup
-count = 0
+players = [CHARACTERS[:alyssa], CHARACTERS[:barney]]
+order = players.dup
 
-tally = {}
+round = 0
 
-listing.each do |character|
-  tally[character.name] = 0
+def status_text(players, width)
+  side_length = (width - 4) / 2
+  right = players[0].status.rjust(side_length)
+  left = players[1].status.ljust(side_length)
+  '%s vs %s' % [right, left]
 end
 
-100.times do
+loop do
+  round += 1
+  order.reverse!
 
-  count = 0
-  listing.each(&:full_reset)
+  puts "~~Round #{round}~~".center(120)
+  puts status_text(players, 120)
 
-  loop do
-    count += 1
-    players.reverse!
+  battle_log = Game.round_of_combat(order[0], order[1])
+  puts battle_log.join("\n  ")
 
-    puts "~ Round #{count} ~".center(120), "#{listing[0].status_line} / #{listing[1].status_line}".center(120)
-    Game.play_round(*players)
-
-    if !listing[0].alive?
-      puts "#{listing[1].name} wins!"
-      tally[listing[1].name] += 1
-      break 
-    elsif !listing[1].alive?
-      puts "#{listing[0].name} wins!"
-      tally[listing[0].name] += 1
-      break 
-    end
+  if players[0].down?
+    puts "#{players[1].name} wins!"
+    break
+  elsif players[1].down?
+    puts "#{players[0].name} wins!"
+    break
   end
 end
-puts "Final Tally:", tally

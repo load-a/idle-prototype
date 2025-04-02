@@ -3,96 +3,137 @@
 module Game
   module_function
 
-  Context = Struct.new(:attacker, :defender, :encounter, :specials)
-  Encounter = Struct.new(:attack, :defense)
+  Context = Struct.new(:attacker, :defender, :encounter, :special_moves)
+  Encounter = Struct.new(:attack, :defense, :counters)
 
-  def run_combat(attacker, defender)
+  # TODO: Method is too big; trim it down somehow
+  def round_of_combat(attacker, defender)
+    # Base attack, defense and counters calculated
+    # Round Context created
+    battle_log = []
+    context = Context.new(attacker, defender, roll_encounter(attacker, defender), {attack: [], defense: []})
+    attack_damage = 0
+    counter_damage = 0
+    breaker_damage = 0
+
+    # Both character's traits are added to context
+    add_traits(context, :attack)
+    add_traits(context, :defense)
+
+    # Attacker winds up
+    battle_log << "#{attacker.name} winds up..."
+    resolve_crit(context, :attack)
+
+    # Defender gets some hits in
+    counter_damage = counter_attack(defender, context.encounter.counters)
+    if counter_damage > 0
+      battle_log << "#{defender.name} got #{context.encounter.counters} hits in before the attack landed."
+
+      take_damage(attacker, counter_damage) 
+      battle_log << damage_text(attacker, counter_damage, 'counter ')
+    end
+
+    # Defender raises their guard
+    resolve_crit(context, :defense)
+    battle_log << "#{defender.name} put up #{context.encounter.defense.result} defense."
+
+    # Attack damage calculated
+    attack_damage = context.encounter.attack.result - context.encounter.defense.result
+
+    # Attack follows through
+    battle_log << "#{attacker.name} attacked for #{context.encounter.attack.result} damage!"
+    take_damage(defender, attack_damage)
+    battle_log << damage_text(defender, attack_damage)
+
+    # Attacker uses breaker
+    if context.special_moves[:attack].include? :breaker
+      battle_log << "#{attacker.name} follows up with #{attacker.traits[:breaker].name}!" 
+      breaker_damage = resolve_breaker(context)
+      attacker.deplete_meter
+    end
+
+    take_damage(defender, breaker_damage)
+    battle_log << damage_text(defender, breaker_damage, 'extra ') if breaker_damage > 0
+
+    # Defender uses clutch
+    if context.special_moves[:defense].include? :clutch
+      battle_log << "#{defender.name} tries to clutch this with #{defender.traits[:clutch].name}!" 
+      resolve_clutch(context)
+    end
+
+    battle_log
+  end
+
+  def roll_encounter(attacker, defender)
     attack = Dice.roll(attacker.power)
     defense = Dice.roll(defender.power)
+    counters = attack.result / defender.power
 
-    attacker.charge_meter if attack.crit
-    defender.charge_meter if defense.crit
-
-    Context.new(attacker, defender, Encounter.new(attack, defense), {attacker: [], defender: []})
+    Encounter.new(attack, defense, counters)
   end
 
-  def add_crit_moves(context)
-    if context.encounter.attack.crit
-      context.specials[:attacker] << context.attacker.specials[:attack]
+  def add_traits(context, type)
+    character = context.send(type_to_character(type))
+
+    # Add breaker before critical charge
+    context.special_moves[type] << :breaker if character.charged? && character.traits[:breaker].name != 'none'
+
+    if context.encounter.send(type).crit
+      context.special_moves[type] << type unless character.traits[type].name != 'none'
+      character.charge_meter
     end
 
-    if context.encounter.defense.crit
-      context.specials[:defender] << context.defender.specials[:defense]
-    end
+    context.special_moves[type] << :clutch if character.low_health? && character.traits[:clutch].name != 'none'
   end
 
-  def add_clutch_moves(context)
-    # if context.attacker.low_health?
-    #   context.specials[:attacker] << context.attacker.specials[:clutch]
-    # end
-
-    if context.defender.low_health?
-      context.specials[:defender] << context.defender.specials[:clutch]
-    end
+  def type_to_character(type)
+    type == :attack ? :attacker : :defender
   end
 
-  def add_breaker_moves(context)
-    if context.attacker.charged?
-      context.specials[:attacker] << context.attacker.specials[:breaker]
-    end
+  def resolve_crit(context, type)
+    return unless context.special_moves[type].include? :crit
 
-    if context.defender.charged?
-      context.specials[:defender] << context.defender.specials[:breaker]
-    end 
+    character = context.send(type_to_character(type))
+
+    Criticals.send(character.traits[type], context, type)
   end
 
-  def use_active_traits(context)
-    context.specials[:attacker].each do |action|
-      next unless action.attack?
-      Special.send(action.name, context, :attack)
-    end
+  def resolve_breaker(context)
+    return unless context.special_moves[:attack].include? :breaker
 
-    context.specials[:defender].each do |action|
-      next unless action.defense?
-      Special.send(action.name, context, :defense)
-    end
+    Breakers.send(context.attacker.traits[:breaker].name, context)
   end
 
-  def use_breaker(context)
-    context.specials[:attacker].each do |action|
-      next unless action.breaker?
+  def resolve_clutch(context)
+    return unless context.special_moves[:defense].include? :clutch
 
-      Special.send(action.name.downcase, context, :attack)
-      context.attacker.deplete_meter
-    end
+    ClutchPlays.send(context.defender.traits[:clutch].name, context, :defense)
   end
 
-  def inflict_damage(context)
-    damage = [context.encounter.attack.result - context.encounter.defense.result, 0].max
+  def counter_attack(character, hits)
+    return 0 if hits.zero?
 
-    context.defender.health -= damage
+    total = 0
 
+    hits.times do 
+      total += Dice.roll(character.power).result
+    end
+
+    total
+  end
+
+  def take_damage(character, damage)
+    character.health -= damage
+    character.health = 0 if character.health < 0
+  end
+
+  def damage_text(character, damage, modifier = '')
     if damage.zero?
-      puts "#{context.defender.name} put up #{context.encounter.defense.result} defense!", "The attack missed!"
+      "#{character.name} dodged it!"
+    elsif damage < 0
+      "#{character.name} blocked it!"
     else
-      puts "#{context.defender.name} blocked #{context.encounter.defense.result} and took #{damage} damage!"
+      "#{character.name} took #{damage} #{modifier}damage!"
     end
-
-    context
-  end
-
-  def play_round(attacker, defender)
-    context = run_combat(attacker, defender)
-
-    puts "#{context.attacker.name} attacks #{context.defender.name} for #{context.encounter.attack.result} damage!"
-
-    add_crit_moves(context)
-    add_clutch_moves(context)
-    add_breaker_moves(context)
-
-    use_active_traits(context)
-    use_breaker(context)
-
-    inflict_damage(context)
   end
 end
