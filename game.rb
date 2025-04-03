@@ -21,11 +21,16 @@ module Game
     add_traits(context, :defense)
 
     # Attacker winds up
-    battle_log << "#{attacker.name} winds up..."
-    resolve_crit(context, :attack)
+    battle_log << "#{attacker.name} prepares to attack."
+    
+    if context.special_moves[:attack].include? :attack
+      battle_log << "#{attacker.name} critted and uses #{attacker.traits[:attack].name}!"
+      resolve_crit_attack(context)
+    end
 
     # Defender gets some hits in
     counter_damage = counter_attack(defender, context.encounter.counters)
+    # battle_log << "#{context.encounter.attack.result} / #{defender.speed} = #{context.encounter.counters}"
     if counter_damage > 0
       battle_log << "#{defender.name} got #{context.encounter.counters} hits in before the attack landed."
 
@@ -34,7 +39,7 @@ module Game
     end
 
     # Defender raises their guard
-    resolve_crit(context, :defense)
+    resolve_crit_defense(context)
     battle_log << "#{defender.name} put up #{context.encounter.defense.result} defense."
 
     # Attack damage calculated
@@ -47,7 +52,7 @@ module Game
 
     # Attacker uses breaker
     if context.special_moves[:attack].include? :breaker
-      battle_log << "#{attacker.name} follows up with #{attacker.traits[:breaker].name}!" 
+      battle_log << "FOLLOW UP: #{attacker.name} comes back with #{attacker.traits[:breaker].name}!" 
       breaker_damage = resolve_breaker(context)
       attacker.deplete_meter
     end
@@ -67,7 +72,7 @@ module Game
   def roll_encounter(attacker, defender)
     attack = Dice.roll(attacker.power)
     defense = Dice.roll(defender.power)
-    counters = attack.result / defender.power
+    counters = attack.result / defender.speed
 
     Encounter.new(attack, defense, counters)
   end
@@ -79,7 +84,7 @@ module Game
     context.special_moves[type] << :breaker if character.charged? && character.traits[:breaker].name != 'none'
 
     if context.encounter.send(type).crit
-      context.special_moves[type] << type unless character.traits[type].name != 'none'
+      context.special_moves[type] << type unless character.traits[type].name == 'none'
       character.charge_meter
     end
 
@@ -90,12 +95,16 @@ module Game
     type == :attack ? :attacker : :defender
   end
 
-  def resolve_crit(context, type)
-    return unless context.special_moves[type].include? :crit
+  def resolve_crit_attack(context)
+    return unless context.special_moves[:attack].include? :attack
 
-    character = context.send(type_to_character(type))
+    CriticalAttacks.send(context.attacker.traits[:attack].name, context)
+  end
 
-    Criticals.send(character.traits[type], context, type)
+  def resolve_crit_defense(context)
+    return unless context.special_moves[:defense].include? :defense
+
+    CriticalDefenses.send(context.defender.traits[:defense].name, context)
   end
 
   def resolve_breaker(context)
@@ -107,7 +116,7 @@ module Game
   def resolve_clutch(context)
     return unless context.special_moves[:defense].include? :clutch
 
-    ClutchPlays.send(context.defender.traits[:clutch].name, context, :defense)
+    ClutchPlays.send(context.defender.traits[:clutch].name, context)
   end
 
   def counter_attack(character, hits)
@@ -123,7 +132,7 @@ module Game
   end
 
   def take_damage(character, damage)
-    character.health -= damage
+    character.health -= [damage, 0].max
     character.health = 0 if character.health < 0
   end
 
@@ -133,7 +142,7 @@ module Game
     elsif damage < 0
       "#{character.name} blocked it!"
     else
-      "#{character.name} took #{damage} #{modifier}damage!"
+      "* #{character.name} took #{damage} #{modifier}damage! *"
     end
   end
 end

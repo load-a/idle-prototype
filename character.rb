@@ -5,7 +5,7 @@ class Character
 
   def initialize(name, power, focus, speed, traits)
     self.name = name
-    self.max_health = 20
+    self.max_health = 25
     self.health = max_health
     self.power = power
     self.focus = focus
@@ -45,15 +45,15 @@ class Character
   end
 
   def status
-    format('%s: HP(%i/%i) P(%i) MP(%i/%i)%s%s', 
-    name, health, max_health, power, meter, focus,
+    format('%s: HP(%i/%i) MP(%i/%i) P(%i) S(%i) %s%s', 
+    name, health, max_health, meter, focus, power, speed,
     (" BREAKER(#{traits[:breaker].name.capitalize})" if charged? && traits[:breaker].name != 'none'),
     (" CLUTCH(#{traits[:clutch].name.capitalize})" if low_health? && traits[:clutch].name != 'none'))
   end
 
   def to_s
-    format('%s: HEALTH(%i/%i) POWER(%i) FOCUS(%i/%i) TRAITS(%s, %s, %s, %s)', 
-      name, health, max_health, power, meter, focus,
+    format('%s: HEALTH(%i/%i) FOCUS(%i/%i) POWER(%i) SPEED(%i) TRAITS(%s, %s, %s, %s)', 
+      name, health, max_health, meter, focus, power, speed,
       traits[:attack].name.capitalize, traits[:breaker].name.capitalize, 
       traits[:clutch].name.capitalize, traits[:defense].name.capitalize)
   end

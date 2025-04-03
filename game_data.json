@@ -3,22 +3,22 @@
 		{
 			"name": "Alyssa",
 			"power": 4,
-			"focus": 10,
-			"speed": 6,
+			"focus": 4,
+			"speed": 4,
 			"traits": {
 				"attack": "none",
-				"breaker": "psychic",
+				"breaker": "none",
 				"clutch": "none",
 				"defense": "none"
 			}
 		},
 		{
 			"name": "Barney",
-			"power": 4,
-			"focus": 2,
-			"speed": 2,
+			"power": 20,
+			"focus": 4,
+			"speed": 4,
 			"traits": {
-				"attack": "beast",
+				"attack": "none",
 				"breaker": "none",
 				"clutch": "none",
 				"defense": "none"
@@ -279,8 +279,8 @@
 		{
 			"name": "Xia",
 			"power": 20,
-			"focus": 10,
-			"speed": 6,
+			"focus": 20,
+			"speed": 20,
 			"traits": {
 				"attack": "none",
 				"breaker": "none",
@@ -319,6 +319,11 @@
 		// 2 - breaker: Special offensive save
 		// 4 - clutch: Special defensive save
 		// 8 - defense: Normal Crit defensive move
+		{
+			"name": "attack",
+			"description": "Rolls an extra Power die.",
+			"type": 1
+		},
 		{
 			"name": "beast",
 			"description": "Doubles Power roll.",
