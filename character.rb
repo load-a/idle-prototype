@@ -3,9 +3,9 @@
 class Character
   attr_accessor :name, :health, :max_health, :power, :focus, :speed, :traits, :meter
 
-  def initialize(name, power, focus, speed, traits)
+  def initialize(name, health, power, focus, speed, traits)
     self.name = name
-    self.max_health = 25
+    self.max_health = health
     self.health = max_health
     self.power = power
     self.focus = focus

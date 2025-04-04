@@ -6,6 +6,67 @@ module Game
   Context = Struct.new(:attacker, :defender, :encounter, :special_moves)
   Encounter = Struct.new(:attack, :defense, :counters)
 
+  def play_match(team1, team2)
+    master_log = []
+    standings = [team1.dup, team2.dup]
+    round = 0
+
+    match_header = -> (teams, width) do
+      side_length = (width - 4) / 2
+      right = players[0].status.rjust(side_length)
+      left = players[1].status.ljust(side_length)
+      '%s vs %s' % [right, left]
+    end
+
+    round_header = -> (players, width) do
+      side_length = (width - 4) / 2
+      right = players[0].status.rjust(side_length)
+      left = players[1].status.ljust(side_length)
+      '%s vs %s' % [right, left]
+    end
+
+    loop do
+      round += 1
+      standings.reverse!
+
+      standings[0].each do |player|
+        target = standings[1].sample
+
+        master_log << "~~Round #{round}~~".center(120)
+        master_log << round_header.call([player, target], 120)
+
+        master_log << round_of_combat(player, target).join("\n  ")
+
+        if player.down?
+          master_log << "#{player.name} was defeated!" 
+          standings[0].delete(player)
+          break 
+        elsif target.down?
+          master_log << "#{target.name} was defeated!" 
+          standings[1].delete(target)
+          break 
+        end
+      end
+
+      if standings.all?(&:empty?)
+        master_log << "It's a draw!"
+        puts master_log.join("\n")
+        raise "Tied game not accounted for."
+      elsif standings.any?(&:empty?)
+        last_standing = standings.select { |team| !team.empty? }[0]
+
+        winners = ((team1 & last_standing).any? ? team1 : team2)
+
+        master_log << "Team: "
+        master_log << winners.map(&:status).join("\n")
+        master_log << "Has won"
+        break 
+      end
+    end
+
+    master_log
+  end
+
   # TODO: Method is too big; trim it down somehow
   def round_of_combat(attacker, defender)
     # Base attack, defense and counters calculated
@@ -24,7 +85,7 @@ module Game
     battle_log << "#{attacker.name} prepares to attack."
     
     if context.special_moves[:attack].include? :attack
-      battle_log << "#{attacker.name} critted and uses #{attacker.traits[:attack].name}!"
+      battle_log << "CRIT! #{attacker.name} used #{attacker.traits[:attack].name}!"
       resolve_crit_attack(context)
     end
 
@@ -39,20 +100,24 @@ module Game
     end
 
     # Defender raises their guard
-    resolve_crit_defense(context)
-    battle_log << "#{defender.name} put up #{context.encounter.defense.result} defense."
+    if context.encounter.defense.crit && defender.traits[:defense].name != 'none'
+      resolve_crit_defense(context)
+      battle_log << "CRIT! #{defender.name} used #{defender.traits[:defense].name}!"
+    else
+      battle_log << "#{defender.name} put up #{context.encounter.defense.result} defense."
+    end
 
     # Attack damage calculated
     attack_damage = context.encounter.attack.result - context.encounter.defense.result
 
     # Attack follows through
-    battle_log << "#{attacker.name} attacked for #{context.encounter.attack.result} damage!"
+    battle_log << "#{attacker.name} attacked for #{context.encounter.attack.result} damage."
     take_damage(defender, attack_damage)
     battle_log << damage_text(defender, attack_damage)
 
     # Attacker uses breaker
     if context.special_moves[:attack].include? :breaker
-      battle_log << "FOLLOW UP: #{attacker.name} comes back with #{attacker.traits[:breaker].name}!" 
+      battle_log << "BREAKER: #{attacker.name} comes back with #{attacker.traits[:breaker].name}!" 
       breaker_damage = resolve_breaker(context)
       attacker.deplete_meter
     end
@@ -61,9 +126,13 @@ module Game
     battle_log << damage_text(defender, breaker_damage, 'extra ') if breaker_damage > 0
 
     # Defender uses clutch
-    if context.special_moves[:defense].include? :clutch
-      battle_log << "#{defender.name} tries to clutch this with #{defender.traits[:clutch].name}!" 
-      resolve_clutch(context)
+    if context.special_moves[:defense].include? :clutch 
+      if Dice.roll(defender.power).crit
+        battle_log << "CLUTCH: #{defender.name} saved with #{defender.traits[:clutch].name}!" 
+        resolve_clutch(context)
+      else
+        battle_log << "#{defender.name} tried to clutch this but choked!" 
+      end
     end
 
     battle_log

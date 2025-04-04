@@ -21,7 +21,8 @@ CHARACTER_DATA.each do |character|
   symbol = name.downcase.to_sym
 
   CHARACTERS[symbol] = Character.new(name, 
-                                     character["power"].to_i, character["focus"].to_i, character["speed"].to_i, 
+                                     character["health"].to_i, character["power"].to_i, 
+                                     character["focus"].to_i, character["speed"].to_i, 
                                      {})
 
   character["traits"].each do |type, trait|
