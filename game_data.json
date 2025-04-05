@@ -107,8 +107,8 @@
 		{
 			"name": "Isolde",
 			"health": 50,
-			"power": 4,
-			"focus": 10,
+			"power": 8,
+			"focus": 12,
 			"speed": 6,
 			"traits": {
 				"attack": "none",
@@ -118,11 +118,11 @@
 			}
 		},
 		{
-			"name": "Jarome",
-			"health": 50,
-			"power": 4,
-			"focus": 10,
-			"speed": 6,
+			"name": "Jamal",
+			"health": 35,
+			"power": 10,
+			"focus": 20,
+			"speed": 10,
 			"traits": {
 				"attack": "none",
 				"breaker": "none",
@@ -159,12 +159,12 @@
 		{
 			"name": "Melvin",
 			"health": 50,
-			"power": 4,
-			"focus": 10,
+			"power": 8,
+			"focus": 12,
 			"speed": 6,
 			"traits": {
 				"attack": "none",
-				"breaker": "none",
+				"breaker": "focus_roll",
 				"clutch": "none",
 				"defense": "none"
 			}
@@ -222,11 +222,11 @@
 			}
 		},
 		{
-			"name": "Ray Louis",
+			"name": "Ray",
 			"health": 50,
-			"power": 4,
-			"focus": 10,
-			"speed": 6,
+			"power": 12,
+			"focus": 6,
+			"speed": 8,
 			"traits": {
 				"attack": "none",
 				"breaker": "none",
