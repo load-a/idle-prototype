@@ -1,9 +1,10 @@
 # frozen_string_literal: true
 
 class Character
-  attr_accessor :name, :health, :max_health, :power, :focus, :speed, :traits, :meter
+  attr_accessor :name, :health, :max_health, :power, :focus, :speed, :traits, :meter, :behavior, :assignment, :schedule,
+  :tasks
 
-  def initialize(name, health, power, focus, speed, traits)
+  def initialize(name, health, power, focus, speed, traits, behavior)
     self.name = name
     self.max_health = health
     self.health = max_health
@@ -12,6 +13,10 @@ class Character
     self.speed = speed
     self.meter = 0
     self.traits = traits
+    self.behavior = behavior
+    self.assignment = "rest"
+    self.schedule = []
+    self.tasks = schedule.dup
   end
 
   def charge_meter

@@ -2,6 +2,13 @@
 
 require 'json'
 
+require_relative 'character'
+
+require_relative 'trait'
+require_relative 'dice'
+require_relative 'game/game'
+require_relative 'special'
+
 data_file = File.read('game_data.json').freeze
 
 game_data = JSON.parse(data_file).freeze
@@ -23,10 +30,14 @@ CHARACTER_DATA.each do |character|
   CHARACTERS[symbol] = Character.new(name, 
                                      character["health"].to_i, character["power"].to_i, 
                                      character["focus"].to_i, character["speed"].to_i, 
-                                     {})
+                                     {}, {})
 
   character["traits"].each do |type, trait|
     CHARACTERS[symbol].traits[type.to_sym] = TRAITS[trait.to_sym]
+  end
+
+  character["behavior"].each do |type, length|
+    CHARACTERS[symbol].behavior[type.to_sym] = length.to_i 
   end
 end
 CHARACTERS.freeze
