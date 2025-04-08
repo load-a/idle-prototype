@@ -13,19 +13,6 @@ module OffTime
     'Match scheduled for %02i:00' % time
   end
 
-  def show_schedule(character)
-    check_times(character)
-
-    times = []
-
-    character.schedule.each_with_index do |activity, hour|
-      times << '%02i:00 - %s' % [hour, activity]
-    end
-
-
-    times
-  end
-
   def spend_hour(character)
     activity = character.tasks.shift.to_sym
 

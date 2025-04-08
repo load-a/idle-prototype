@@ -1,18 +1,18 @@
 # frozen_string_literal: true
 
 class Calendar
-  attr_accessor :year, :month, :day, :time
+  attr_accessor :year, :month, :day, :hour
 
   def initialize()
-    self.year, self.month, self.day, self.time = [3019, 1, 1, 10]
+    self.year, self.month, self.day, self.hour = [3019, 1, 1, 10]
   end
 
   def advance_hour(amount = 1)
     amount.times do 
-      self.time += 1
+      self.hour += 1
 
-      if time >= 24
-        self.time %= 24
+      if hour >= 24
+        self.hour %= 24
         advance_day
       end
     end
@@ -52,15 +52,15 @@ class Calendar
   end
 
   def date
-    '%s, %s %i %02i:00 ~ %i/%02i/%02i' % [day_of_the_week, months_of_the_year, day, time, year, month, day]
+    '%s, %s %i %02i:00 ~ %i/%02i/%02i' % [day_of_the_week, months_of_the_year, day, hour, year, month, day]
   end
 
   def formal_date
-    '%s, %s %i %02i:00' % [day_of_the_week, months_of_the_year, day, time, year, month, day]
+    '%s, %s %i %02i:00' % [day_of_the_week, months_of_the_year, day, hour, year, month, day]
   end
 
   def brief_date
-    '%02i:00 ~ %i/%02i/%02i' % [time, year, month, day]
+    '%02i:00 ~ %i/%02i/%02i' % [hour, year, month, day]
   end
 
   def day_of_the_week(day_of_the_month = self.day)
@@ -87,6 +87,6 @@ class Calendar
   end
 
   def time_has_passed?(check_time)
-    check_time < time
+    check_time < hour
   end
 end

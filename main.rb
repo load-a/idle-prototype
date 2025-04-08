@@ -2,4 +2,8 @@
 
 require_relative 'setup'
 
-Game.new
+game = Game.new
+
+game.play
+
+puts game.log
