@@ -69,7 +69,8 @@ module Combat
       log: master_log,
       winner: (winners == players_team ? :player : :cpu),
       player: players_team,
-      cpu: cpu_team
+      cpu: cpu_team,
+      rounds: round
     }
   end
 
@@ -92,7 +93,7 @@ module Combat
     
     if context.special_moves[:attack].include? :attack
       battle_log << "CRIT! #{attacker.name} used #{attacker.traits[:attack].name}!"
-      resolve_crit_attack(context)
+      # resolve_crit_attack(context)
     end
 
     # Defender gets some hits in
@@ -107,7 +108,7 @@ module Combat
 
     # Defender raises their guard
     if context.encounter.defense.crit && defender.traits[:defense].name != 'none'
-      resolve_crit_defense(context)
+      # resolve_crit_defense(context)
       battle_log << "CRIT! #{defender.name} used #{defender.traits[:defense].name}!"
     else
       battle_log << "#{defender.name} put up #{context.encounter.defense.result} defense."
@@ -124,7 +125,8 @@ module Combat
     # Attacker uses breaker
     if context.special_moves[:attack].include? :breaker
       battle_log << "BREAKER: #{attacker.name} comes back with #{attacker.traits[:breaker].name}!" 
-      breaker_damage = resolve_breaker(context)
+      # breaker_damage = resolve_breaker(context)
+      breaker_damage = 0
       attacker.deplete_meter
     end
 
@@ -135,7 +137,7 @@ module Combat
     if context.special_moves[:defense].include? :clutch 
       if Dice.roll(defender.power).crit
         battle_log << "CLUTCH: #{defender.name} saved with #{defender.traits[:clutch].name}!" 
-        resolve_clutch(context)
+        # resolve_clutch(context)
       else
         battle_log << "#{defender.name} tried to clutch this but choked!" 
       end

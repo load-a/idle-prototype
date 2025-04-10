@@ -1,42 +1,20 @@
 # frozen_string_literal: true
 
 class Trait
-  attr_accessor :name, :description, :type
-  def initialize(name, description, type)
+  attr_accessor :name, :id, :description, :use_text, :components
+  def initialize(name, id, description, use_text, components)
+    self.id = id
     self.name = name
-    self.type = type
     self.description = description
+    self.use_text = use_text
+    self.components = components
   end
 
-  def attack?
-    type & 0b0001 == 1
-  end
-
-  def breaker?
-    type & 0b0010 == 2
-  end
-
-  def clutch?
-    type & 0b0100 == 4
-  end
-
-  def defense?
-    type & 0b1000 == 8
+  def use
+    Specials.send(id, *components)
   end
 
   def to_s
-    return 'None' if name == 'none'
-    format('%s: %s [%s]', name, description, type_string)
-  end
-
-  def type_string
-    types = []
-
-    types << "Attack" if attack?
-    types << "Breaker" if breaker?
-    types << "Clutch" if clutch?
-    types << "Defense" if defense?
-
-    types.join(', ')
+    '%-16s -- %s' % [name, description]
   end
 end

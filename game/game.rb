@@ -55,11 +55,37 @@ class Game
       say "-- #{calendar.hour} o' Clock --"
 
       team.each do |teammate|
-       OffTime.spend_hour(teammate)
-       say "- #{teammate.name} spent the hour on #{teammate.schedule[calendar.hour]}"
+       teammate.pass_time(calendar.hour)
+
+       task = teammate.schedule[calendar.hour]
+
+       text = case task
+              when :sleep
+                ['slept.', "copped some Z's.", 'had a nice dream.', 'had a weird dream'].sample
+              when :out
+                ['was busy elsewhere.', 'ran some errands.'].sample
+              when :train
+                ['focused on training.', 'prayed at the iron church.', 'got swole.', 'practiced a bit.'].sample
+              when :rest
+                ['got some R&R.', 'took a nap', 'hydrated.', 'had a snack', 'hung out with some friends.'].sample
+              when :job
+                ['was at work.', 'made some money.'].sample
+              end
+
+       say "- #{teammate.name} #{text}"
      end
 
-      say Combat.play_match(team, next_opponent)[:log] if player.schedule[calendar.hour] == :match
+      if player.schedule[calendar.hour] == :match
+        encounter = Combat.play_match(team, next_opponent)
+        say encounter[:log]
+
+        if encounter[:winner] == :player
+          reward = encounter[:rounds] * encounter[:cpu].map(&:power).sum
+          self.money += reward
+          say "Team earned $#{reward} for winning."
+        end
+      end
+
       calendar.advance_hour
 
       if calendar.hour.zero?
@@ -219,14 +245,14 @@ class Game
 
       if calendar.time_has_passed? time
         puts 'That time has already passed'
-      elsif team.none? {|teammate| teammate.schedule[time] == :out || teammate.schedule[time] == :sleep} 
+      elsif team.none? {|teammate| %i[out sleep job].include? teammate.schedule[time]} 
         say "Match scheduled for #{time} o' clock against #{next_opponent.first.name}'s team."
         team.each {|teammate| teammate.schedule[time] = :match}
         break
       else
         puts "Cannot schedule at #{time} because:"
         team.each do |teammate|
-          next unless %i[sleep out].include? teammate.schedule[time]
+          next unless %i[sleep out job].include? teammate.schedule[time]
 
           puts "- #{teammate.name} is #{teammate.schedule[time]} at that time."
         end

@@ -1,4 +1,1399 @@
 Opened Challenge menu.
-Challenge cancelled.
-Opened Expense Report.
+Challenging Winston, Sara, Quill, Petra to a match
+Match scheduled for 21 o' clock against Winston's team.
+Passing 14 hours.
+-- 10 o' Clock --
+- Alyssa 
+- Yumi practiced a bit.
+- Tomoe was busy elsewhere.
+- Ming Xia got swole.
+-- 11 o' Clock --
+- Alyssa was busy elsewhere.
+- Yumi was busy elsewhere.
+- Tomoe made some money.
+- Ming Xia was busy elsewhere.
+-- 12 o' Clock --
+- Alyssa practiced a bit.
+- Yumi prayed at the iron church.
+- Tomoe was at work.
+- Ming Xia ran some errands.
+-- 13 o' Clock --
+- Alyssa 
+- Yumi had a snack
+- Tomoe was at work.
+- Ming Xia 
+-- 14 o' Clock --
+- Alyssa 
+- Yumi practiced a bit.
+- Tomoe made some money.
+- Ming Xia got swole.
+-- 15 o' Clock --
+- Alyssa hydrated.
+- Yumi was busy elsewhere.
+- Tomoe prayed at the iron church.
+- Ming Xia ran some errands.
+-- 16 o' Clock --
+- Alyssa 
+- Yumi had a snack
+- Tomoe focused on training.
+- Ming Xia got some R&R.
+-- 17 o' Clock --
+- Alyssa had a snack
+- Yumi 
+- Tomoe 
+- Ming Xia was busy elsewhere.
+-- 18 o' Clock --
+- Alyssa 
+- Yumi prayed at the iron church.
+- Tomoe ran some errands.
+- Ming Xia hydrated.
+-- 19 o' Clock --
+- Alyssa got swole.
+- Yumi 
+- Tomoe was busy elsewhere.
+- Ming Xia prayed at the iron church.
+-- 20 o' Clock --
+- Alyssa 
+- Yumi 
+- Tomoe got swole.
+- Ming Xia ran some errands.
+-- 21 o' Clock --
+- Alyssa 
+- Yumi 
+- Tomoe 
+- Ming Xia 
+                                                      ~~Round 1~~                                                       
+                    Winston: HP(25/25) MP(0/8) P(10) S(8)  vs Tomoe: HP(60/60) MP(3/10) P(12) S(12)                     
+Winston prepares to attack.
+  Tomoe put up 4 defense.
+  Winston attacked for 9 damage.
+  * Tomoe took 5 damage! *
+                                                      ~~Round 1~~                                                       
+                        Sara: HP(50/50) MP(0/8) P(6) S(6)  vs Ming Xia: HP(57/55) MP(3/20) P(20) S(20)                  
+Sara prepares to attack.
+  Ming Xia put up 2 defense.
+  Sara attacked for 1 damage.
+  Ming Xia blocked it!
+                                                      ~~Round 1~~                                                       
+                      Quill: HP(50/50) MP(0/10) P(8) S(6)  vs Yumi: HP(47/45) MP(4/10) P(10) S(6)                       
+Quill prepares to attack.
+  Yumi put up 6 defense.
+  Quill attacked for 1 damage.
+  Yumi blocked it!
+                                                      ~~Round 1~~                                                       
+                      Petra: HP(50/50) MP(0/10) P(4) S(6)  vs Alyssa: HP(22/20) MP(2/12) P(4) S(4)                      
+Petra prepares to attack.
+  CRIT! Petra used None!
+  Alyssa got 1 hits in before the attack landed.
+  * Petra took 3 counter damage! *
+  CRIT! Alyssa used None!
+  Petra attacked for 4 damage.
+  Alyssa dodged it!
+                                                      ~~Round 2~~                                                       
+                     Alyssa: HP(22/20) MP(6/12) P(4) S(4)  vs Winston: HP(25/25) MP(0/8) P(10) S(8)                     
+Alyssa prepares to attack.
+  CRIT! Alyssa used None!
+  Winston put up 4 defense.
+  Alyssa attacked for 4 damage.
+  Winston dodged it!
+                                                      ~~Round 2~~                                                       
+                      Yumi: HP(47/45) MP(4/10) P(10) S(6)  vs Petra: HP(47/50) MP(4/10) P(4) S(6)                       
+Yumi prepares to attack.
+  CRIT! Petra used None!
+  Yumi attacked for 4 damage.
+  Petra dodged it!
+                                                      ~~Round 2~~                                                       
+                    Tomoe: HP(55/60) MP(3/10) P(12) S(12)  vs Winston: HP(25/25) MP(0/8) P(10) S(8)                     
+Tomoe prepares to attack.
+  Winston put up 2 defense.
+  Tomoe attacked for 6 damage.
+  * Winston took 4 damage! *
+                                                      ~~Round 2~~                                                       
+                 Ming Xia: HP(57/55) MP(3/20) P(20) S(20)  vs Sara: HP(50/50) MP(0/8) P(6) S(6)                         
+Ming Xia prepares to attack.
+  Sara put up 3 defense.
+  Ming Xia attacked for 5 damage.
+  * Sara took 2 damage! *
+                                                      ~~Round 3~~                                                       
+                    Winston: HP(21/25) MP(0/8) P(10) S(8)  vs Yumi: HP(47/45) MP(4/10) P(10) S(6)                       
+Winston prepares to attack.
+  Yumi got 1 hits in before the attack landed.
+  * Winston took 10 counter damage! *
+  Yumi put up 9 defense.
+  Winston attacked for 9 damage.
+  Yumi dodged it!
+                                                      ~~Round 3~~                                                       
+                        Sara: HP(48/50) MP(0/8) P(6) S(6)  vs Tomoe: HP(55/60) MP(3/10) P(12) S(12)                     
+Sara prepares to attack.
+  Tomoe put up 1 defense.
+  Sara attacked for 3 damage.
+  * Tomoe took 2 damage! *
+                                                      ~~Round 3~~                                                       
+                      Quill: HP(50/50) MP(0/10) P(8) S(6)  vs Ming Xia: HP(57/55) MP(3/20) P(20) S(20)                  
+Quill prepares to attack.
+  Ming Xia put up 6 defense.
+  Quill attacked for 3 damage.
+  Ming Xia blocked it!
+                                                      ~~Round 3~~                                                       
+                      Petra: HP(47/50) MP(8/10) P(4) S(6)  vs Ming Xia: HP(57/55) MP(3/20) P(20) S(20)                  
+Petra prepares to attack.
+  Ming Xia put up 11 defense.
+  Petra attacked for 3 damage.
+  Ming Xia blocked it!
+                                                      ~~Round 4~~                                                       
+                    Alyssa: HP(22/20) MP(10/12) P(4) S(4)  vs Winston: HP(11/25) MP(0/8) P(10) S(8)                     
+Alyssa prepares to attack.
+  CRIT! Alyssa used None!
+  Winston put up 3 defense.
+  Alyssa attacked for 4 damage.
+  * Winston took 1 damage! *
+                                                      ~~Round 4~~                                                       
+                      Yumi: HP(47/45) MP(4/10) P(10) S(6)  vs Sara: HP(48/50) MP(0/8) P(6) S(6)                         
+Yumi prepares to attack.
+  Sara put up 3 defense.
+  Yumi attacked for 2 damage.
+  Sara blocked it!
+                                                      ~~Round 4~~                                                       
+                    Tomoe: HP(53/60) MP(3/10) P(12) S(12)  vs Winston: HP(10/25) MP(0/8) P(10) S(8)                     
+Tomoe prepares to attack.
+  CRIT! Tomoe used None!
+  Winston got 1 hits in before the attack landed.
+  * Tomoe took 9 counter damage! *
+  Winston put up 3 defense.
+  Tomoe attacked for 12 damage.
+  * Winston took 9 damage! *
+                                                      ~~Round 4~~                                                       
+                 Ming Xia: HP(57/55) MP(3/20) P(20) S(20)  vs Quill: HP(50/50) MP(0/10) P(8) S(6)                       
+Ming Xia prepares to attack.
+  Quill got 2 hits in before the attack landed.
+  * Ming Xia took 7 counter damage! *
+  Quill put up 2 defense.
+  Ming Xia attacked for 13 damage.
+  * Quill took 11 damage! *
+                                                      ~~Round 5~~                                                       
+        Winston: HP(1/25) MP(0/8) P(10) S(8)  CLUTCH(None) vs Yumi: HP(47/45) MP(4/10) P(10) S(6)                       
+Winston prepares to attack.
+  Yumi put up 2 defense.
+  Winston attacked for 3 damage.
+  * Yumi took 1 damage! *
+                                                      ~~Round 5~~                                                       
+                        Sara: HP(48/50) MP(0/8) P(6) S(6)  vs Yumi: HP(46/45) MP(4/10) P(10) S(6)                       
+Sara prepares to attack.
+  Yumi put up 4 defense.
+  Sara attacked for 2 damage.
+  Yumi blocked it!
+                                                      ~~Round 5~~                                                       
+                      Quill: HP(39/50) MP(0/10) P(8) S(6)  vs Ming Xia: HP(50/55) MP(3/20) P(20) S(20)                  
+Quill prepares to attack.
+  Ming Xia put up 19 defense.
+  Quill attacked for 3 damage.
+  Ming Xia blocked it!
+                                                      ~~Round 5~~                                                       
+                      Petra: HP(47/50) MP(8/10) P(4) S(6)  vs Yumi: HP(46/45) MP(4/10) P(10) S(6)                       
+Petra prepares to attack.
+  CRIT! Petra used None!
+  CRIT! Yumi used None!
+  Petra attacked for 4 damage.
+  Yumi blocked it!
+                                                      ~~Round 6~~                                                       
+      Alyssa: HP(22/20) MP(12/12) P(4) S(4)  BREAKER(None) vs Quill: HP(39/50) MP(0/10) P(8) S(6)                       
+Alyssa prepares to attack.
+  Quill put up 2 defense.
+  Alyssa attacked for 2 damage.
+  Quill dodged it!
+  BREAKER: Alyssa comes back with None!
+                                                      ~~Round 6~~                                                       
+       Yumi: HP(46/45) MP(10/10) P(10) S(6)  BREAKER(None) vs Petra: HP(47/50) MP(10/10) P(4) S(6)  BREAKER(None)       
+Yumi prepares to attack.
+  Petra got 1 hits in before the attack landed.
+  * Yumi took 4 counter damage! *
+  CRIT! Petra used None!
+  Yumi attacked for 9 damage.
+  * Petra took 5 damage! *
+  BREAKER: Yumi comes back with None!
+                                                      ~~Round 6~~                                                       
+     Tomoe: HP(44/60) MP(10/10) P(12) S(12)  BREAKER(None) vs Quill: HP(39/50) MP(0/10) P(8) S(6)                       
+Tomoe prepares to attack.
+  Quill put up 4 defense.
+  Tomoe attacked for 5 damage.
+  * Quill took 1 damage! *
+  BREAKER: Tomoe comes back with None!
+                                                      ~~Round 6~~                                                       
+                 Ming Xia: HP(50/55) MP(3/20) P(20) S(20)  vs Petra: HP(42/50) MP(10/10) P(4) S(6)  BREAKER(None)       
+Ming Xia prepares to attack.
+  Petra put up 3 defense.
+  Ming Xia attacked for 5 damage.
+  * Petra took 2 damage! *
+                                                      ~~Round 7~~                                                       
+        Winston: HP(1/25) MP(0/8) P(10) S(8)  CLUTCH(None) vs Alyssa: HP(22/20) MP(0/12) P(4) S(4)                      
+Winston prepares to attack.
+  Alyssa got 2 hits in before the attack landed.
+  * Winston took 4 counter damage! *
+  Alyssa put up 1 defense.
+  Winston attacked for 8 damage.
+  * Alyssa took 7 damage! *
+Winston was defeated!
+                                                      ~~Round 8~~                                                       
+                     Alyssa: HP(15/20) MP(0/12) P(4) S(4)  vs Petra: HP(40/50) MP(10/10) P(4) S(6)  BREAKER(None)       
+Alyssa prepares to attack.
+  Petra put up 3 defense.
+  Alyssa attacked for 2 damage.
+  Petra blocked it!
+                                                      ~~Round 8~~                                                       
+                      Yumi: HP(42/45) MP(0/10) P(10) S(6)  vs Quill: HP(38/50) MP(0/10) P(8) S(6)                       
+Yumi prepares to attack.
+  Quill got 1 hits in before the attack landed.
+  * Yumi took 1 counter damage! *
+  Quill put up 6 defense.
+  Yumi attacked for 9 damage.
+  * Quill took 3 damage! *
+                                                      ~~Round 8~~                                                       
+                    Tomoe: HP(44/60) MP(0/10) P(12) S(12)  vs Sara: HP(48/50) MP(0/8) P(6) S(6)                         
+Tomoe prepares to attack.
+  Sara got 1 hits in before the attack landed.
+  * Tomoe took 2 counter damage! *
+  Sara put up 5 defense.
+  Tomoe attacked for 10 damage.
+  * Sara took 5 damage! *
+                                                      ~~Round 8~~                                                       
+                 Ming Xia: HP(50/55) MP(3/20) P(20) S(20)  vs Petra: HP(40/50) MP(10/10) P(4) S(6)  BREAKER(None)       
+Ming Xia prepares to attack.
+  Petra got 1 hits in before the attack landed.
+  * Ming Xia took 1 counter damage! *
+  Petra put up 1 defense.
+  Ming Xia attacked for 11 damage.
+  * Petra took 10 damage! *
+                                                      ~~Round 9~~                                                       
+                        Sara: HP(43/50) MP(0/8) P(6) S(6)  vs Tomoe: HP(42/60) MP(0/10) P(12) S(12)                     
+Sara prepares to attack.
+  Tomoe put up 2 defense.
+  Sara attacked for 5 damage.
+  * Tomoe took 3 damage! *
+                                                      ~~Round 9~~                                                       
+                      Quill: HP(35/50) MP(0/10) P(8) S(6)  vs Alyssa: HP(15/20) MP(0/12) P(4) S(4)                      
+Quill prepares to attack.
+  Alyssa got 1 hits in before the attack landed.
+  * Quill took 4 counter damage! *
+  CRIT! Alyssa used None!
+  Quill attacked for 5 damage.
+  * Alyssa took 1 damage! *
+                                                      ~~Round 9~~                                                       
+       Petra: HP(30/50) MP(10/10) P(4) S(6)  BREAKER(None) vs Alyssa: HP(14/20) MP(4/12) P(4) S(4)                      
+Petra prepares to attack.
+  CRIT! Petra used None!
+  Alyssa got 1 hits in before the attack landed.
+  * Petra took 1 counter damage! *
+  CRIT! Alyssa used None!
+  Petra attacked for 4 damage.
+  Alyssa dodged it!
+  BREAKER: Petra comes back with None!
+                                                      ~~Round 10~~                                                      
+                     Alyssa: HP(14/20) MP(8/12) P(4) S(4)  vs Sara: HP(43/50) MP(0/8) P(6) S(6)                         
+Alyssa prepares to attack.
+  Sara put up 3 defense.
+  Alyssa attacked for 3 damage.
+  Sara dodged it!
+                                                      ~~Round 10~~                                                      
+                      Yumi: HP(41/45) MP(0/10) P(10) S(6)  vs Sara: HP(43/50) MP(0/8) P(6) S(6)                         
+Yumi prepares to attack.
+  Sara got 1 hits in before the attack landed.
+  * Yumi took 6 counter damage! *
+  Sara put up 1 defense.
+  Yumi attacked for 7 damage.
+  * Sara took 6 damage! *
+                                                      ~~Round 10~~                                                      
+                    Tomoe: HP(39/60) MP(0/10) P(12) S(12)  vs Petra: HP(29/50) MP(0/10) P(4) S(6)                       
+Tomoe prepares to attack.
+  Petra got 1 hits in before the attack landed.
+  * Tomoe took 4 counter damage! *
+  Petra put up 1 defense.
+  Tomoe attacked for 6 damage.
+  * Petra took 5 damage! *
+                                                      ~~Round 10~~                                                      
+                 Ming Xia: HP(49/55) MP(3/20) P(20) S(20)  vs Quill: HP(31/50) MP(0/10) P(8) S(6)                       
+Ming Xia prepares to attack.
+  Quill put up 7 defense.
+  Ming Xia attacked for 1 damage.
+  Quill blocked it!
+                                                      ~~Round 11~~                                                      
+                        Sara: HP(37/50) MP(0/8) P(6) S(6)  vs Ming Xia: HP(49/55) MP(3/20) P(20) S(20)                  
+Sara prepares to attack.
+  Ming Xia put up 19 defense.
+  Sara attacked for 1 damage.
+  Ming Xia blocked it!
+                                                      ~~Round 11~~                                                      
+                      Quill: HP(31/50) MP(0/10) P(8) S(6)  vs Alyssa: HP(14/20) MP(8/12) P(4) S(4)                      
+Quill prepares to attack.
+  CRIT! Quill used None!
+  Alyssa got 2 hits in before the attack landed.
+  * Quill took 5 counter damage! *
+  CRIT! Alyssa used None!
+  Quill attacked for 8 damage.
+  * Alyssa took 4 damage! *
+                                                      ~~Round 11~~                                                      
+                      Petra: HP(24/50) MP(0/10) P(4) S(6)  vs Tomoe: HP(35/60) MP(0/10) P(12) S(12)                     
+Petra prepares to attack.
+  Tomoe put up 1 defense.
+  Petra attacked for 3 damage.
+  * Tomoe took 2 damage! *
+                                                      ~~Round 12~~                                                      
+      Alyssa: HP(10/20) MP(12/12) P(4) S(4)  BREAKER(None) vs Petra: HP(24/50) MP(0/10) P(4) S(6)                       
+Alyssa prepares to attack.
+  Petra put up 1 defense.
+  Alyssa attacked for 1 damage.
+  Petra dodged it!
+  BREAKER: Alyssa comes back with None!
+                                                      ~~Round 12~~                                                      
+                      Yumi: HP(35/45) MP(0/10) P(10) S(6)  vs Sara: HP(37/50) MP(0/8) P(6) S(6)                         
+Yumi prepares to attack.
+  Sara got 1 hits in before the attack landed.
+  * Yumi took 6 counter damage! *
+  Sara put up 5 defense.
+  Yumi attacked for 6 damage.
+  * Sara took 1 damage! *
+                                                      ~~Round 12~~                                                      
+                    Tomoe: HP(33/60) MP(0/10) P(12) S(12)  vs Sara: HP(36/50) MP(0/8) P(6) S(6)                         
+Tomoe prepares to attack.
+  Sara got 1 hits in before the attack landed.
+  * Tomoe took 5 counter damage! *
+  CRIT! Sara used None!
+  Tomoe attacked for 6 damage.
+  Sara dodged it!
+                                                      ~~Round 12~~                                                      
+                 Ming Xia: HP(49/55) MP(3/20) P(20) S(20)  vs Sara: HP(36/50) MP(6/8) P(6) S(6)                         
+Ming Xia prepares to attack.
+  Sara got 1 hits in before the attack landed.
+  * Ming Xia took 1 counter damage! *
+  Sara put up 4 defense.
+  Ming Xia attacked for 9 damage.
+  * Sara took 5 damage! *
+                                                      ~~Round 13~~                                                      
+                        Sara: HP(31/50) MP(6/8) P(6) S(6)  vs Ming Xia: HP(48/55) MP(3/20) P(20) S(20)                  
+Sara prepares to attack.
+  Ming Xia put up 6 defense.
+  Sara attacked for 1 damage.
+  Ming Xia blocked it!
+                                                      ~~Round 13~~                                                      
+                      Quill: HP(26/50) MP(8/10) P(8) S(6)  vs Yumi: HP(29/45) MP(0/10) P(10) S(6)                       
+Quill prepares to attack.
+  Yumi put up 3 defense.
+  Quill attacked for 1 damage.
+  Yumi blocked it!
+                                                      ~~Round 13~~                                                      
+                      Petra: HP(24/50) MP(0/10) P(4) S(6)  vs Tomoe: HP(28/60) MP(0/10) P(12) S(12)                     
+Petra prepares to attack.
+  CRIT! Petra used None!
+  Tomoe put up 8 defense.
+  Petra attacked for 4 damage.
+  Tomoe blocked it!
+                                                      ~~Round 14~~                                                      
+                     Alyssa: HP(10/20) MP(0/12) P(4) S(4)  vs Quill: HP(26/50) MP(8/10) P(8) S(6)                       
+Alyssa prepares to attack.
+  Quill put up 7 defense.
+  Alyssa attacked for 1 damage.
+  Quill blocked it!
+                                                      ~~Round 14~~                                                      
+                      Yumi: HP(29/45) MP(0/10) P(10) S(6)  vs Petra: HP(24/50) MP(4/10) P(4) S(6)                       
+Yumi prepares to attack.
+  CRIT! Petra used None!
+  Yumi attacked for 2 damage.
+  Petra blocked it!
+                                                      ~~Round 14~~                                                      
+                    Tomoe: HP(28/60) MP(0/10) P(12) S(12)  vs Quill: HP(26/50) MP(8/10) P(8) S(6)                       
+Tomoe prepares to attack.
+  Quill put up 3 defense.
+  Tomoe attacked for 4 damage.
+  * Quill took 1 damage! *
+                                                      ~~Round 14~~                                                      
+                 Ming Xia: HP(48/55) MP(3/20) P(20) S(20)  vs Petra: HP(24/50) MP(8/10) P(4) S(6)                       
+Ming Xia prepares to attack.
+  Petra put up 2 defense.
+  Ming Xia attacked for 1 damage.
+  Petra blocked it!
+                                                      ~~Round 15~~                                                      
+                        Sara: HP(31/50) MP(6/8) P(6) S(6)  vs Alyssa: HP(10/20) MP(0/12) P(4) S(4)                      
+Sara prepares to attack.
+  CRIT! Alyssa used None!
+  Sara attacked for 1 damage.
+  Alyssa blocked it!
+                                                      ~~Round 15~~                                                      
+                      Quill: HP(25/50) MP(8/10) P(8) S(6)  vs Alyssa: HP(10/20) MP(4/12) P(4) S(4)                      
+Quill prepares to attack.
+  Alyssa got 1 hits in before the attack landed.
+  * Quill took 2 counter damage! *
+  CRIT! Alyssa used None!
+  Quill attacked for 7 damage.
+  * Alyssa took 3 damage! *
+                                                      ~~Round 15~~                                                      
+                      Petra: HP(24/50) MP(8/10) P(4) S(6)  vs Alyssa: HP(7/20) MP(8/12) P(4) S(4)                       
+Petra prepares to attack.
+  Alyssa put up 1 defense.
+  Petra attacked for 1 damage.
+  Alyssa dodged it!
+                                                      ~~Round 16~~                                                      
+                      Alyssa: HP(7/20) MP(8/12) P(4) S(4)  vs Petra: HP(24/50) MP(8/10) P(4) S(6)                       
+Alyssa prepares to attack.
+  Petra put up 2 defense.
+  Alyssa attacked for 2 damage.
+  Petra dodged it!
+                                                      ~~Round 16~~                                                      
+                      Yumi: HP(29/45) MP(0/10) P(10) S(6)  vs Petra: HP(24/50) MP(8/10) P(4) S(6)                       
+Yumi prepares to attack.
+  Petra got 1 hits in before the attack landed.
+  * Yumi took 2 counter damage! *
+  Petra put up 2 defense.
+  Yumi attacked for 8 damage.
+  * Petra took 6 damage! *
+                                                      ~~Round 16~~                                                      
+                    Tomoe: HP(28/60) MP(0/10) P(12) S(12)  vs Petra: HP(18/50) MP(8/10) P(4) S(6)                       
+Tomoe prepares to attack.
+  CRIT! Tomoe used None!
+  Petra got 2 hits in before the attack landed.
+  * Tomoe took 5 counter damage! *
+  Petra put up 1 defense.
+  Tomoe attacked for 12 damage.
+  * Petra took 11 damage! *
+                                                      ~~Round 16~~                                                      
+                 Ming Xia: HP(48/55) MP(3/20) P(20) S(20)  vs Quill: HP(23/50) MP(8/10) P(8) S(6)                       
+Ming Xia prepares to attack.
+  Quill got 2 hits in before the attack landed.
+  * Ming Xia took 9 counter damage! *
+  Quill put up 5 defense.
+  Ming Xia attacked for 14 damage.
+  * Quill took 9 damage! *
+                                                      ~~Round 17~~                                                      
+                        Sara: HP(31/50) MP(6/8) P(6) S(6)  vs Ming Xia: HP(39/55) MP(3/20) P(20) S(20)                  
+Sara prepares to attack.
+  Ming Xia put up 4 defense.
+  Sara attacked for 5 damage.
+  * Ming Xia took 1 damage! *
+                                                      ~~Round 17~~                                                      
+                      Quill: HP(14/50) MP(8/10) P(8) S(6)  vs Tomoe: HP(23/60) MP(10/10) P(12) S(12)  BREAKER(None)     
+Quill prepares to attack.
+  Tomoe put up 6 defense.
+  Quill attacked for 1 damage.
+  Tomoe blocked it!
+                                                      ~~Round 17~~                                                      
+          Petra: HP(7/50) MP(8/10) P(4) S(6)  CLUTCH(None) vs Tomoe: HP(23/60) MP(10/10) P(12) S(12)  BREAKER(None)     
+Petra prepares to attack.
+  Tomoe put up 8 defense.
+  Petra attacked for 3 damage.
+  Tomoe blocked it!
+                                                      ~~Round 18~~                                                      
+                      Alyssa: HP(7/20) MP(8/12) P(4) S(4)  vs Petra: HP(7/50) MP(8/10) P(4) S(6)  CLUTCH(None)          
+Alyssa prepares to attack.
+  Petra put up 1 defense.
+  Alyssa attacked for 1 damage.
+  Petra dodged it!
+  Petra tried to clutch this but choked!
+                                                      ~~Round 18~~                                                      
+                      Yumi: HP(27/45) MP(0/10) P(10) S(6)  vs Quill: HP(14/50) MP(8/10) P(8) S(6)                       
+Yumi prepares to attack.
+  Quill put up 6 defense.
+  Yumi attacked for 3 damage.
+  Quill blocked it!
+                                                      ~~Round 18~~                                                      
+     Tomoe: HP(23/60) MP(10/10) P(12) S(12)  BREAKER(None) vs Petra: HP(7/50) MP(8/10) P(4) S(6)  CLUTCH(None)          
+Tomoe prepares to attack.
+  CRIT! Petra used None!
+  Tomoe attacked for 4 damage.
+  Petra dodged it!
+  BREAKER: Tomoe comes back with None!
+  Petra tried to clutch this but choked!
+                                                      ~~Round 18~~                                                      
+                 Ming Xia: HP(38/55) MP(3/20) P(20) S(20)  vs Quill: HP(14/50) MP(8/10) P(8) S(6)                       
+Ming Xia prepares to attack.
+  Quill put up 5 defense.
+  Ming Xia attacked for 5 damage.
+  Quill dodged it!
+                                                      ~~Round 19~~                                                      
+                        Sara: HP(31/50) MP(6/8) P(6) S(6)  vs Ming Xia: HP(38/55) MP(3/20) P(20) S(20)                  
+Sara prepares to attack.
+  Ming Xia put up 6 defense.
+  Sara attacked for 1 damage.
+  Ming Xia blocked it!
+                                                      ~~Round 19~~                                                      
+                      Quill: HP(14/50) MP(8/10) P(8) S(6)  vs Yumi: HP(27/45) MP(0/10) P(10) S(6)                       
+Quill prepares to attack.
+  Yumi put up 6 defense.
+  Quill attacked for 3 damage.
+  Yumi blocked it!
+                                                      ~~Round 19~~                                                      
+Petra: HP(7/50) MP(10/10) P(4) S(6)  BREAKER(None) CLUTCH(None) vs Tomoe: HP(23/60) MP(0/10) P(12) S(12)                     
+Petra prepares to attack.
+  CRIT! Petra used None!
+  Tomoe put up 1 defense.
+  Petra attacked for 4 damage.
+  * Tomoe took 3 damage! *
+  BREAKER: Petra comes back with None!
+                                                      ~~Round 20~~                                                      
+                      Alyssa: HP(7/20) MP(8/12) P(4) S(4)  vs Sara: HP(31/50) MP(6/8) P(6) S(6)                         
+Alyssa prepares to attack.
+  Sara put up 3 defense.
+  Alyssa attacked for 1 damage.
+  Sara blocked it!
+                                                      ~~Round 20~~                                                      
+                      Yumi: HP(27/45) MP(0/10) P(10) S(6)  vs Quill: HP(14/50) MP(8/10) P(8) S(6)                       
+Yumi prepares to attack.
+  Quill put up 4 defense.
+  Yumi attacked for 1 damage.
+  Quill blocked it!
+                                                      ~~Round 20~~                                                      
+                    Tomoe: HP(20/60) MP(0/10) P(12) S(12)  vs Sara: HP(31/50) MP(6/8) P(6) S(6)                         
+Tomoe prepares to attack.
+  Sara put up 5 defense.
+  Tomoe attacked for 2 damage.
+  Sara blocked it!
+                                                      ~~Round 20~~                                                      
+                 Ming Xia: HP(38/55) MP(3/20) P(20) S(20)  vs Quill: HP(14/50) MP(8/10) P(8) S(6)                       
+Ming Xia prepares to attack.
+  Quill got 1 hits in before the attack landed.
+  * Ming Xia took 8 counter damage! *
+  Quill put up 2 defense.
+  Ming Xia attacked for 7 damage.
+  * Quill took 5 damage! *
+                                                      ~~Round 21~~                                                      
+                        Sara: HP(31/50) MP(6/8) P(6) S(6)  vs Alyssa: HP(7/20) MP(8/12) P(4) S(4)                       
+Sara prepares to attack.
+  Alyssa put up 2 defense.
+  Sara attacked for 1 damage.
+  Alyssa blocked it!
+                                                      ~~Round 21~~                                                      
+          Quill: HP(9/50) MP(8/10) P(8) S(6)  CLUTCH(None) vs Alyssa: HP(7/20) MP(8/12) P(4) S(4)                       
+Quill prepares to attack.
+  Alyssa got 1 hits in before the attack landed.
+  * Quill took 3 counter damage! *
+  Alyssa put up 3 defense.
+  Quill attacked for 7 damage.
+  * Alyssa took 4 damage! *
+                                                      ~~Round 21~~                                                      
+          Petra: HP(7/50) MP(0/10) P(4) S(6)  CLUTCH(None) vs Yumi: HP(27/45) MP(0/10) P(10) S(6)                       
+Petra prepares to attack.
+  CRIT! Petra used None!
+  Yumi put up 8 defense.
+  Petra attacked for 4 damage.
+  Yumi blocked it!
+                                                      ~~Round 22~~                                                      
+         Alyssa: HP(3/20) MP(8/12) P(4) S(4)  CLUTCH(None) vs Sara: HP(31/50) MP(6/8) P(6) S(6)                         
+Alyssa prepares to attack.
+  Sara put up 3 defense.
+  Alyssa attacked for 1 damage.
+  Sara blocked it!
+                                                      ~~Round 22~~                                                      
+                      Yumi: HP(27/45) MP(0/10) P(10) S(6)  vs Quill: HP(6/50) MP(8/10) P(8) S(6)  CLUTCH(None)          
+Yumi prepares to attack.
+  Quill put up 4 defense.
+  Yumi attacked for 2 damage.
+  Quill blocked it!
+  Quill tried to clutch this but choked!
+                                                      ~~Round 22~~                                                      
+                    Tomoe: HP(20/60) MP(0/10) P(12) S(12)  vs Petra: HP(7/50) MP(4/10) P(4) S(6)  CLUTCH(None)          
+Tomoe prepares to attack.
+  Petra got 1 hits in before the attack landed.
+  * Tomoe took 1 counter damage! *
+  Petra put up 3 defense.
+  Tomoe attacked for 11 damage.
+  * Petra took 8 damage! *
+  Petra tried to clutch this but choked!
+Petra was defeated!
+                                                      ~~Round 23~~                                                      
+                        Sara: HP(31/50) MP(6/8) P(6) S(6)  vs Tomoe: HP(19/60) MP(0/10) P(12) S(12)                     
+Sara prepares to attack.
+  CRIT! Sara used None!
+  Tomoe put up 8 defense.
+  Sara attacked for 6 damage.
+  Tomoe blocked it!
+                                                      ~~Round 23~~                                                      
+          Quill: HP(6/50) MP(8/10) P(8) S(6)  CLUTCH(None) vs Ming Xia: HP(30/55) MP(3/20) P(20) S(20)                  
+Quill prepares to attack.
+  Ming Xia put up 19 defense.
+  Quill attacked for 7 damage.
+  Ming Xia blocked it!
+                                                      ~~Round 24~~                                                      
+         Alyssa: HP(3/20) MP(8/12) P(4) S(4)  CLUTCH(None) vs Quill: HP(6/50) MP(8/10) P(8) S(6)  CLUTCH(None)          
+Alyssa prepares to attack.
+  Quill put up 5 defense.
+  Alyssa attacked for 2 damage.
+  Quill blocked it!
+  Quill tried to clutch this but choked!
+                                                      ~~Round 24~~                                                      
+                      Yumi: HP(27/45) MP(0/10) P(10) S(6)  vs Sara: HP(31/50) MP(8/8) P(6) S(6)  BREAKER(None)          
+Yumi prepares to attack.
+  Sara got 1 hits in before the attack landed.
+  * Yumi took 2 counter damage! *
+  Sara put up 5 defense.
+  Yumi attacked for 6 damage.
+  * Sara took 1 damage! *
+                                                      ~~Round 24~~                                                      
+                    Tomoe: HP(19/60) MP(0/10) P(12) S(12)  vs Sara: HP(30/50) MP(8/8) P(6) S(6)  BREAKER(None)          
+Tomoe prepares to attack.
+  Sara got 1 hits in before the attack landed.
+  * Tomoe took 1 counter damage! *
+  Sara put up 5 defense.
+  Tomoe attacked for 10 damage.
+  * Sara took 5 damage! *
+                                                      ~~Round 24~~                                                      
+                 Ming Xia: HP(30/55) MP(3/20) P(20) S(20)  vs Sara: HP(25/50) MP(8/8) P(6) S(6)  BREAKER(None)          
+Ming Xia prepares to attack.
+  Sara got 2 hits in before the attack landed.
+  * Ming Xia took 7 counter damage! *
+  Sara put up 4 defense.
+  Ming Xia attacked for 13 damage.
+  * Sara took 9 damage! *
+                                                      ~~Round 25~~                                                      
+          Sara: HP(16/50) MP(8/8) P(6) S(6)  BREAKER(None) vs Yumi: HP(25/45) MP(0/10) P(10) S(6)                       
+Sara prepares to attack.
+  Yumi put up 7 defense.
+  Sara attacked for 4 damage.
+  Yumi blocked it!
+  BREAKER: Sara comes back with None!
+                                                      ~~Round 25~~                                                      
+          Quill: HP(6/50) MP(8/10) P(8) S(6)  CLUTCH(None) vs Yumi: HP(25/45) MP(0/10) P(10) S(6)                       
+Quill prepares to attack.
+  Yumi put up 2 defense.
+  Quill attacked for 5 damage.
+  * Yumi took 3 damage! *
+                                                      ~~Round 26~~                                                      
+         Alyssa: HP(3/20) MP(8/12) P(4) S(4)  CLUTCH(None) vs Sara: HP(16/50) MP(0/8) P(6) S(6)                         
+Alyssa prepares to attack.
+  Sara put up 3 defense.
+  Alyssa attacked for 1 damage.
+  Sara blocked it!
+                                                      ~~Round 26~~                                                      
+                      Yumi: HP(22/45) MP(0/10) P(10) S(6)  vs Sara: HP(16/50) MP(0/8) P(6) S(6)                         
+Yumi prepares to attack.
+  Sara put up 4 defense.
+  Yumi attacked for 2 damage.
+  Sara blocked it!
+                                                      ~~Round 26~~                                                      
+                    Tomoe: HP(18/60) MP(0/10) P(12) S(12)  vs Sara: HP(16/50) MP(0/8) P(6) S(6)                         
+Tomoe prepares to attack.
+  Sara got 1 hits in before the attack landed.
+  * Tomoe took 2 counter damage! *
+  CRIT! Sara used None!
+  Tomoe attacked for 6 damage.
+  Sara dodged it!
+                                                      ~~Round 26~~                                                      
+                 Ming Xia: HP(23/55) MP(3/20) P(20) S(20)  vs Quill: HP(6/50) MP(8/10) P(8) S(6)  CLUTCH(None)          
+Ming Xia prepares to attack.
+  Quill put up 7 defense.
+  Ming Xia attacked for 5 damage.
+  Quill blocked it!
+  Quill tried to clutch this but choked!
+                                                      ~~Round 27~~                                                      
+                        Sara: HP(16/50) MP(6/8) P(6) S(6)  vs Ming Xia: HP(23/55) MP(3/20) P(20) S(20)                  
+Sara prepares to attack.
+  Ming Xia put up 15 defense.
+  Sara attacked for 2 damage.
+  Ming Xia blocked it!
+                                                      ~~Round 27~~                                                      
+          Quill: HP(6/50) MP(8/10) P(8) S(6)  CLUTCH(None) vs Yumi: HP(22/45) MP(0/10) P(10) S(6)                       
+Quill prepares to attack.
+  Yumi put up 8 defense.
+  Quill attacked for 1 damage.
+  Yumi blocked it!
+                                                      ~~Round 28~~                                                      
+         Alyssa: HP(3/20) MP(8/12) P(4) S(4)  CLUTCH(None) vs Quill: HP(6/50) MP(8/10) P(8) S(6)  CLUTCH(None)          
+Alyssa prepares to attack.
+  CRIT! Alyssa used None!
+  CRIT! Quill used None!
+  Alyssa attacked for 4 damage.
+  Quill blocked it!
+  Quill tried to clutch this but choked!
+                                                      ~~Round 28~~                                                      
+                      Yumi: HP(22/45) MP(0/10) P(10) S(6)  vs Quill: HP(6/50) MP(10/10) P(8) S(6)  BREAKER(None) CLUTCH(None)
+Yumi prepares to attack.
+  CRIT! Yumi used None!
+  Quill got 1 hits in before the attack landed.
+  * Yumi took 5 counter damage! *
+  CRIT! Quill used None!
+  Yumi attacked for 10 damage.
+  * Quill took 2 damage! *
+  Quill tried to clutch this but choked!
+                                                      ~~Round 28~~                                                      
+                    Tomoe: HP(16/60) MP(0/10) P(12) S(12)  vs Sara: HP(16/50) MP(6/8) P(6) S(6)                         
+Tomoe prepares to attack.
+  CRIT! Sara used None!
+  Tomoe attacked for 5 damage.
+  Sara blocked it!
+                                                      ~~Round 28~~                                                      
+                 Ming Xia: HP(23/55) MP(3/20) P(20) S(20)  vs Quill: HP(4/50) MP(10/10) P(8) S(6)  BREAKER(None) CLUTCH(None)
+Ming Xia prepares to attack.
+  Quill got 2 hits in before the attack landed.
+  * Ming Xia took 13 counter damage! *
+  Quill put up 6 defense.
+  Ming Xia attacked for 12 damage.
+  * Quill took 6 damage! *
+  Quill tried to clutch this but choked!
+Quill was defeated!
+                                                      ~~Round 29~~                                                      
+          Sara: HP(16/50) MP(8/8) P(6) S(6)  BREAKER(None) vs Yumi: HP(17/45) MP(10/10) P(10) S(6)  BREAKER(None)       
+Sara prepares to attack.
+  Yumi put up 9 defense.
+  Sara attacked for 3 damage.
+  Yumi blocked it!
+  BREAKER: Sara comes back with None!
+                                                      ~~Round 30~~                                                      
+Alyssa: HP(3/20) MP(12/12) P(4) S(4)  BREAKER(None) CLUTCH(None) vs Sara: HP(16/50) MP(0/8) P(6) S(6)                         
+Alyssa prepares to attack.
+  CRIT! Sara used None!
+  Alyssa attacked for 3 damage.
+  Sara blocked it!
+  BREAKER: Alyssa comes back with None!
+                                                      ~~Round 30~~                                                      
+       Yumi: HP(17/45) MP(10/10) P(10) S(6)  BREAKER(None) vs Sara: HP(16/50) MP(6/8) P(6) S(6)                         
+Yumi prepares to attack.
+  Sara put up 5 defense.
+  Yumi attacked for 5 damage.
+  Sara dodged it!
+  BREAKER: Yumi comes back with None!
+                                                      ~~Round 30~~                                                      
+                    Tomoe: HP(16/60) MP(0/10) P(12) S(12)  vs Sara: HP(16/50) MP(6/8) P(6) S(6)                         
+Tomoe prepares to attack.
+  CRIT! Sara used None!
+  Tomoe attacked for 4 damage.
+  Sara blocked it!
+                                                      ~~Round 30~~                                                      
+    Ming Xia: HP(10/55) MP(3/20) P(20) S(20)  CLUTCH(None) vs Sara: HP(16/50) MP(8/8) P(6) S(6)  BREAKER(None)          
+Ming Xia prepares to attack.
+  Sara got 2 hits in before the attack landed.
+  * Ming Xia took 7 counter damage! *
+  Sara put up 3 defense.
+  Ming Xia attacked for 12 damage.
+  * Sara took 9 damage! *
+                                                      ~~Round 31~~                                                      
+Sara: HP(7/50) MP(8/8) P(6) S(6)  BREAKER(None) CLUTCH(None) vs Yumi: HP(17/45) MP(0/10) P(10) S(6)                       
+Sara prepares to attack.
+  Yumi put up 8 defense.
+  Sara attacked for 5 damage.
+  Yumi blocked it!
+  BREAKER: Sara comes back with None!
+                                                      ~~Round 32~~                                                      
+         Alyssa: HP(3/20) MP(0/12) P(4) S(4)  CLUTCH(None) vs Sara: HP(7/50) MP(0/8) P(6) S(6)  CLUTCH(None)            
+Alyssa prepares to attack.
+  Sara put up 2 defense.
+  Alyssa attacked for 3 damage.
+  * Sara took 1 damage! *
+  Sara tried to clutch this but choked!
+                                                      ~~Round 32~~                                                      
+                      Yumi: HP(17/45) MP(0/10) P(10) S(6)  vs Sara: HP(6/50) MP(0/8) P(6) S(6)  CLUTCH(None)            
+Yumi prepares to attack.
+  Sara put up 5 defense.
+  Yumi attacked for 5 damage.
+  Sara dodged it!
+  Sara tried to clutch this but choked!
+                                                      ~~Round 32~~                                                      
+                    Tomoe: HP(16/60) MP(0/10) P(12) S(12)  vs Sara: HP(6/50) MP(0/8) P(6) S(6)  CLUTCH(None)            
+Tomoe prepares to attack.
+  Sara put up 1 defense.
+  Tomoe attacked for 1 damage.
+  Sara dodged it!
+  Sara tried to clutch this but choked!
+                                                      ~~Round 32~~                                                      
+     Ming Xia: HP(3/55) MP(3/20) P(20) S(20)  CLUTCH(None) vs Sara: HP(6/50) MP(0/8) P(6) S(6)  CLUTCH(None)            
+Ming Xia prepares to attack.
+  CRIT! Sara used None!
+  Ming Xia attacked for 5 damage.
+  Sara blocked it!
+  Sara tried to clutch this but choked!
+                                                      ~~Round 33~~                                                      
+            Sara: HP(6/50) MP(6/8) P(6) S(6)  CLUTCH(None) vs Yumi: HP(17/45) MP(0/10) P(10) S(6)                       
+Sara prepares to attack.
+  CRIT! Sara used None!
+  Yumi got 1 hits in before the attack landed.
+  * Sara took 4 counter damage! *
+  Yumi put up 6 defense.
+  Sara attacked for 6 damage.
+  Yumi dodged it!
+                                                      ~~Round 34~~                                                      
+         Alyssa: HP(3/20) MP(0/12) P(4) S(4)  CLUTCH(None) vs Sara: HP(2/50) MP(8/8) P(6) S(6)  BREAKER(None) CLUTCH(None)
+Alyssa prepares to attack.
+  Sara put up 2 defense.
+  Alyssa attacked for 3 damage.
+  * Sara took 1 damage! *
+  Sara tried to clutch this but choked!
+                                                      ~~Round 34~~                                                      
+                      Yumi: HP(17/45) MP(0/10) P(10) S(6)  vs Sara: HP(1/50) MP(8/8) P(6) S(6)  BREAKER(None) CLUTCH(None)
+Yumi prepares to attack.
+  Sara put up 4 defense.
+  Yumi attacked for 5 damage.
+  * Sara took 1 damage! *
+  Sara tried to clutch this but choked!
+Sara was defeated!
+You win!
+Winning team:
+          Alyssa: HEALTH(3/20) FOCUS(0/12) POWER(4) SPEED(4) TRAITS(None, None, None, None)
+            Yumi: HEALTH(17/45) FOCUS(0/10) POWER(10) SPEED(6) TRAITS(None, None, None, None)
+           Tomoe: HEALTH(16/60) FOCUS(0/10) POWER(12) SPEED(12) TRAITS(None, None, None, None)
+        Ming Xia: HEALTH(3/55) FOCUS(3/20) POWER(20) SPEED(20) TRAITS(None, None, None, None)
+Team earned $952 for winning.
+-- 22 o' Clock --
+- Alyssa had a nice dream.
+- Yumi prayed at the iron church.
+- Tomoe 
+- Ming Xia ran some errands.
+-- 23 o' Clock --
+- Alyssa had a weird dream
+- Yumi 
+- Tomoe practiced a bit.
+- Ming Xia had a nice dream.
+
+--- Emberday, Monoa 2 00:00 ---
+
+$91 spent on daily expenses.
+Opened Challenge menu.
+Challenging Petra, Vera, Winston, Emanon to a match
+Match scheduled for 15 o' clock against Petra's team.
+Passing 16 hours.
+-- 0 o' Clock --
+- Alyssa slept.
+- Yumi copped some Z's.
+- Tomoe slept.
+- Ming Xia had a nice dream.
+-- 1 o' Clock --
+- Alyssa slept.
+- Yumi copped some Z's.
+- Tomoe copped some Z's.
+- Ming Xia slept.
+-- 2 o' Clock --
+- Alyssa slept.
+- Yumi copped some Z's.
+- Tomoe had a weird dream
+- Ming Xia slept.
+-- 3 o' Clock --
+- Alyssa had a nice dream.
+- Yumi had a nice dream.
+- Tomoe had a nice dream.
+- Ming Xia had a nice dream.
+-- 4 o' Clock --
+- Alyssa had a weird dream
+- Yumi had a nice dream.
+- Tomoe copped some Z's.
+- Ming Xia copped some Z's.
+-- 5 o' Clock --
+- Alyssa copped some Z's.
+- Yumi copped some Z's.
+- Tomoe 
+- Ming Xia had a weird dream
+-- 6 o' Clock --
+- Alyssa had a weird dream
+- Yumi made some money.
+- Tomoe was busy elsewhere.
+- Ming Xia was busy elsewhere.
+-- 7 o' Clock --
+- Alyssa 
+- Yumi prayed at the iron church.
+- Tomoe was at work.
+- Ming Xia 
+-- 8 o' Clock --
+- Alyssa 
+- Yumi 
+- Tomoe was at work.
+- Ming Xia got swole.
+-- 9 o' Clock --
+- Alyssa 
+- Yumi got swole.
+- Tomoe made some money.
+- Ming Xia was busy elsewhere.
+-- 10 o' Clock --
+- Alyssa 
+- Yumi got swole.
+- Tomoe was at work.
+- Ming Xia ran some errands.
+-- 11 o' Clock --
+- Alyssa had a snack
+- Yumi prayed at the iron church.
+- Tomoe made some money.
+- Ming Xia practiced a bit.
+-- 12 o' Clock --
+- Alyssa got swole.
+- Yumi had a snack
+- Tomoe was at work.
+- Ming Xia hydrated.
+-- 13 o' Clock --
+- Alyssa was busy elsewhere.
+- Yumi was busy elsewhere.
+- Tomoe practiced a bit.
+- Ming Xia ran some errands.
+-- 14 o' Clock --
+- Alyssa 
+- Yumi 
+- Tomoe was busy elsewhere.
+- Ming Xia hydrated.
+-- 15 o' Clock --
+- Alyssa 
+- Yumi 
+- Tomoe 
+- Ming Xia 
+                                                      ~~Round 1~~                                                       
+          Petra: HP(0/50) MP(4/10) P(4) S(6)  CLUTCH(None) vs Tomoe: HP(20/60) MP(2/10) P(12) S(12)                     
+Petra prepares to attack.
+  Tomoe put up 5 defense.
+  Petra attacked for 3 damage.
+  Tomoe blocked it!
+Petra was defeated!
+                                                      ~~Round 2~~                                                       
+                     Alyssa: HP(21/20) MP(1/12) P(4) S(4)  vs Winston: HP(0/25) MP(0/8) P(10) S(8)  CLUTCH(None)        
+Alyssa prepares to attack.
+  Winston put up 7 defense.
+  Alyssa attacked for 2 damage.
+  Winston blocked it!
+  Winston tried to clutch this but choked!
+Winston was defeated!
+                                                      ~~Round 3~~                                                       
+                       Vera: HP(50/50) MP(0/10) P(4) S(6)  vs Tomoe: HP(20/60) MP(2/10) P(12) S(12)                     
+Vera prepares to attack.
+  Tomoe put up 7 defense.
+  Vera attacked for 2 damage.
+  Tomoe blocked it!
+                                                      ~~Round 3~~                                                       
+                      Emanon: HP(50/50) MP(0/8) P(8) S(6)  vs Yumi: HP(21/45) MP(5/10) P(10) S(6)                       
+Emanon prepares to attack.
+  Yumi put up 5 defense.
+  Emanon attacked for 3 damage.
+  Yumi blocked it!
+                                                      ~~Round 4~~                                                       
+                     Alyssa: HP(21/20) MP(1/12) P(4) S(4)  vs Emanon: HP(50/50) MP(0/8) P(8) S(6)                       
+Alyssa prepares to attack.
+  CRIT! Alyssa used None!
+  Emanon put up 6 defense.
+  Alyssa attacked for 4 damage.
+  Emanon blocked it!
+                                                      ~~Round 4~~                                                       
+                      Yumi: HP(21/45) MP(5/10) P(10) S(6)  vs Emanon: HP(50/50) MP(0/8) P(8) S(6)                       
+Yumi prepares to attack.
+  Emanon got 1 hits in before the attack landed.
+  * Yumi took 1 counter damage! *
+  Emanon put up 7 defense.
+  Yumi attacked for 9 damage.
+  * Emanon took 2 damage! *
+                                                      ~~Round 4~~                                                       
+                    Tomoe: HP(20/60) MP(2/10) P(12) S(12)  vs Vera: HP(50/50) MP(0/10) P(4) S(6)                        
+Tomoe prepares to attack.
+  Vera put up 3 defense.
+  Tomoe attacked for 3 damage.
+  Vera dodged it!
+                                                      ~~Round 4~~                                                       
+                 Ming Xia: HP(22/55) MP(5/20) P(20) S(20)  vs Vera: HP(50/50) MP(0/10) P(4) S(6)                        
+Ming Xia prepares to attack.
+  Vera got 2 hits in before the attack landed.
+  * Ming Xia took 8 counter damage! *
+  CRIT! Vera used None!
+  Ming Xia attacked for 13 damage.
+  * Vera took 9 damage! *
+                                                      ~~Round 5~~                                                       
+                       Vera: HP(41/50) MP(4/10) P(4) S(6)  vs Yumi: HP(20/45) MP(5/10) P(10) S(6)                       
+Vera prepares to attack.
+  Yumi put up 5 defense.
+  Vera attacked for 1 damage.
+  Yumi blocked it!
+                                                      ~~Round 5~~                                                       
+                      Emanon: HP(48/50) MP(0/8) P(8) S(6)  vs Tomoe: HP(20/60) MP(2/10) P(12) S(12)                     
+Emanon prepares to attack.
+  Tomoe put up 4 defense.
+  Emanon attacked for 5 damage.
+  * Tomoe took 1 damage! *
+                                                      ~~Round 6~~                                                       
+                     Alyssa: HP(21/20) MP(5/12) P(4) S(4)  vs Vera: HP(41/50) MP(4/10) P(4) S(6)                        
+Alyssa prepares to attack.
+  CRIT! Alyssa used None!
+  Vera put up 3 defense.
+  Alyssa attacked for 4 damage.
+  * Vera took 1 damage! *
+                                                      ~~Round 6~~                                                       
+                      Yumi: HP(20/45) MP(5/10) P(10) S(6)  vs Emanon: HP(48/50) MP(0/8) P(8) S(6)                       
+Yumi prepares to attack.
+  Emanon put up 2 defense.
+  Yumi attacked for 2 damage.
+  Emanon dodged it!
+                                                      ~~Round 6~~                                                       
+                    Tomoe: HP(19/60) MP(2/10) P(12) S(12)  vs Emanon: HP(48/50) MP(0/8) P(8) S(6)                       
+Tomoe prepares to attack.
+  Emanon put up 5 defense.
+  Tomoe attacked for 3 damage.
+  Emanon blocked it!
+                                                      ~~Round 6~~                                                       
+                 Ming Xia: HP(14/55) MP(5/20) P(20) S(20)  vs Emanon: HP(48/50) MP(0/8) P(8) S(6)                       
+Ming Xia prepares to attack.
+  Emanon got 2 hits in before the attack landed.
+  * Ming Xia took 11 counter damage! *
+  Emanon put up 1 defense.
+  Ming Xia attacked for 17 damage.
+  * Emanon took 16 damage! *
+                                                      ~~Round 7~~                                                       
+                       Vera: HP(40/50) MP(4/10) P(4) S(6)  vs Yumi: HP(20/45) MP(5/10) P(10) S(6)                       
+Vera prepares to attack.
+  Yumi put up 9 defense.
+  Vera attacked for 2 damage.
+  Yumi blocked it!
+                                                      ~~Round 7~~                                                       
+                      Emanon: HP(32/50) MP(0/8) P(8) S(6)  vs Ming Xia: HP(3/55) MP(5/20) P(20) S(20)  CLUTCH(None)     
+Emanon prepares to attack.
+  Ming Xia put up 13 defense.
+  Emanon attacked for 7 damage.
+  Ming Xia blocked it!
+  Ming Xia tried to clutch this but choked!
+                                                      ~~Round 8~~                                                       
+                     Alyssa: HP(21/20) MP(9/12) P(4) S(4)  vs Vera: HP(40/50) MP(4/10) P(4) S(6)                        
+Alyssa prepares to attack.
+  Vera put up 2 defense.
+  Alyssa attacked for 2 damage.
+  Vera dodged it!
+                                                      ~~Round 8~~                                                       
+                      Yumi: HP(20/45) MP(5/10) P(10) S(6)  vs Emanon: HP(32/50) MP(0/8) P(8) S(6)                       
+Yumi prepares to attack.
+  Emanon put up 7 defense.
+  Yumi attacked for 5 damage.
+  Emanon blocked it!
+                                                      ~~Round 8~~                                                       
+                    Tomoe: HP(19/60) MP(2/10) P(12) S(12)  vs Emanon: HP(32/50) MP(0/8) P(8) S(6)                       
+Tomoe prepares to attack.
+  Emanon got 1 hits in before the attack landed.
+  * Tomoe took 5 counter damage! *
+  Emanon put up 5 defense.
+  Tomoe attacked for 9 damage.
+  * Emanon took 4 damage! *
+                                                      ~~Round 8~~                                                       
+     Ming Xia: HP(3/55) MP(5/20) P(20) S(20)  CLUTCH(None) vs Vera: HP(40/50) MP(4/10) P(4) S(6)                        
+Ming Xia prepares to attack.
+  Vera got 1 hits in before the attack landed.
+  * Ming Xia took 1 counter damage! *
+  Vera put up 3 defense.
+  Ming Xia attacked for 8 damage.
+  * Vera took 5 damage! *
+                                                      ~~Round 9~~                                                       
+                       Vera: HP(35/50) MP(4/10) P(4) S(6)  vs Tomoe: HP(14/60) MP(2/10) P(12) S(12)  CLUTCH(None)       
+Vera prepares to attack.
+  CRIT! Vera used None!
+  Tomoe put up 5 defense.
+  Vera attacked for 4 damage.
+  Tomoe blocked it!
+  CLUTCH: Tomoe saved with None!
+                                                      ~~Round 9~~                                                       
+                      Emanon: HP(28/50) MP(0/8) P(8) S(6)  vs Alyssa: HP(21/20) MP(9/12) P(4) S(4)                      
+Emanon prepares to attack.
+  Alyssa got 1 hits in before the attack landed.
+  * Emanon took 3 counter damage! *
+  CRIT! Alyssa used None!
+  Emanon attacked for 7 damage.
+  * Alyssa took 3 damage! *
+                                                      ~~Round 10~~                                                      
+      Alyssa: HP(18/20) MP(12/12) P(4) S(4)  BREAKER(None) vs Vera: HP(35/50) MP(8/10) P(4) S(6)                        
+Alyssa prepares to attack.
+  Vera put up 1 defense.
+  Alyssa attacked for 2 damage.
+  * Vera took 1 damage! *
+  BREAKER: Alyssa comes back with None!
+                                                      ~~Round 10~~                                                      
+                      Yumi: HP(20/45) MP(5/10) P(10) S(6)  vs Vera: HP(34/50) MP(8/10) P(4) S(6)                        
+Yumi prepares to attack.
+  Vera put up 2 defense.
+  Yumi attacked for 1 damage.
+  Vera blocked it!
+                                                      ~~Round 10~~                                                      
+       Tomoe: HP(14/60) MP(2/10) P(12) S(12)  CLUTCH(None) vs Emanon: HP(25/50) MP(0/8) P(8) S(6)                       
+Tomoe prepares to attack.
+  Emanon got 1 hits in before the attack landed.
+  * Tomoe took 3 counter damage! *
+  Emanon put up 4 defense.
+  Tomoe attacked for 6 damage.
+  * Emanon took 2 damage! *
+                                                      ~~Round 10~~                                                      
+     Ming Xia: HP(2/55) MP(5/20) P(20) S(20)  CLUTCH(None) vs Vera: HP(34/50) MP(8/10) P(4) S(6)                        
+Ming Xia prepares to attack.
+  Vera got 2 hits in before the attack landed.
+  * Ming Xia took 4 counter damage! *
+  Vera put up 3 defense.
+  Ming Xia attacked for 17 damage.
+  * Vera took 14 damage! *
+Ming Xia was defeated!
+                                                      ~~Round 11~~                                                      
+                       Vera: HP(20/50) MP(8/10) P(4) S(6)  vs Alyssa: HP(18/20) MP(0/12) P(4) S(4)                      
+Vera prepares to attack.
+  Alyssa put up 2 defense.
+  Vera attacked for 2 damage.
+  Alyssa dodged it!
+                                                      ~~Round 11~~                                                      
+                      Emanon: HP(23/50) MP(0/8) P(8) S(6)  vs Alyssa: HP(18/20) MP(0/12) P(4) S(4)                      
+Emanon prepares to attack.
+  Alyssa got 1 hits in before the attack landed.
+  * Emanon took 1 counter damage! *
+  CRIT! Alyssa used None!
+  Emanon attacked for 7 damage.
+  * Alyssa took 3 damage! *
+                                                      ~~Round 12~~                                                      
+                     Alyssa: HP(15/20) MP(4/12) P(4) S(4)  vs Vera: HP(20/50) MP(8/10) P(4) S(6)                        
+Alyssa prepares to attack.
+  Vera put up 3 defense.
+  Alyssa attacked for 1 damage.
+  Vera blocked it!
+                                                      ~~Round 12~~                                                      
+                      Yumi: HP(20/45) MP(5/10) P(10) S(6)  vs Emanon: HP(22/50) MP(0/8) P(8) S(6)                       
+Yumi prepares to attack.
+  Emanon got 1 hits in before the attack landed.
+  * Yumi took 5 counter damage! *
+  Emanon put up 4 defense.
+  Yumi attacked for 8 damage.
+  * Emanon took 4 damage! *
+                                                      ~~Round 12~~                                                      
+       Tomoe: HP(11/60) MP(2/10) P(12) S(12)  CLUTCH(None) vs Vera: HP(20/50) MP(8/10) P(4) S(6)                        
+Tomoe prepares to attack.
+  CRIT! Vera used None!
+  Tomoe attacked for 5 damage.
+  * Vera took 1 damage! *
+                                                      ~~Round 13~~                                                      
+        Vera: HP(19/50) MP(10/10) P(4) S(6)  BREAKER(None) vs Tomoe: HP(11/60) MP(2/10) P(12) S(12)  CLUTCH(None)       
+Vera prepares to attack.
+  Tomoe put up 5 defense.
+  Vera attacked for 1 damage.
+  Tomoe blocked it!
+  BREAKER: Vera comes back with None!
+  Tomoe tried to clutch this but choked!
+                                                      ~~Round 13~~                                                      
+                      Emanon: HP(18/50) MP(0/8) P(8) S(6)  vs Yumi: HP(15/45) MP(5/10) P(10) S(6)                       
+Emanon prepares to attack.
+  Yumi put up 4 defense.
+  Emanon attacked for 2 damage.
+  Yumi blocked it!
+                                                      ~~Round 14~~                                                      
+                     Alyssa: HP(15/20) MP(4/12) P(4) S(4)  vs Vera: HP(19/50) MP(0/10) P(4) S(6)                        
+Alyssa prepares to attack.
+  Vera put up 1 defense.
+  Alyssa attacked for 1 damage.
+  Vera dodged it!
+                                                      ~~Round 14~~                                                      
+                      Yumi: HP(15/45) MP(5/10) P(10) S(6)  vs Emanon: HP(18/50) MP(0/8) P(8) S(6)                       
+Yumi prepares to attack.
+  CRIT! Yumi used None!
+  Emanon got 1 hits in before the attack landed.
+  * Yumi took 3 counter damage! *
+  Emanon put up 6 defense.
+  Yumi attacked for 10 damage.
+  * Emanon took 4 damage! *
+                                                      ~~Round 14~~                                                      
+       Tomoe: HP(11/60) MP(2/10) P(12) S(12)  CLUTCH(None) vs Vera: HP(19/50) MP(0/10) P(4) S(6)                        
+Tomoe prepares to attack.
+  Vera got 1 hits in before the attack landed.
+  * Tomoe took 3 counter damage! *
+  Vera put up 1 defense.
+  Tomoe attacked for 11 damage.
+  * Vera took 10 damage! *
+                                                      ~~Round 15~~                                                      
+           Vera: HP(9/50) MP(0/10) P(4) S(6)  CLUTCH(None) vs Tomoe: HP(8/60) MP(2/10) P(12) S(12)  CLUTCH(None)        
+Vera prepares to attack.
+  Tomoe put up 1 defense.
+  Vera attacked for 1 damage.
+  Tomoe dodged it!
+  CLUTCH: Tomoe saved with None!
+                                                      ~~Round 15~~                                                      
+                      Emanon: HP(14/50) MP(0/8) P(8) S(6)  vs Yumi: HP(12/45) MP(10/10) P(10) S(6)  BREAKER(None)       
+Emanon prepares to attack.
+  Yumi put up 4 defense.
+  Emanon attacked for 2 damage.
+  Yumi blocked it!
+                                                      ~~Round 16~~                                                      
+                     Alyssa: HP(15/20) MP(4/12) P(4) S(4)  vs Emanon: HP(14/50) MP(0/8) P(8) S(6)                       
+Alyssa prepares to attack.
+  Emanon put up 5 defense.
+  Alyssa attacked for 2 damage.
+  Emanon blocked it!
+                                                      ~~Round 16~~                                                      
+       Yumi: HP(12/45) MP(10/10) P(10) S(6)  BREAKER(None) vs Emanon: HP(14/50) MP(0/8) P(8) S(6)                       
+Yumi prepares to attack.
+  Emanon put up 5 defense.
+  Yumi attacked for 1 damage.
+  Emanon blocked it!
+  BREAKER: Yumi comes back with None!
+                                                      ~~Round 16~~                                                      
+        Tomoe: HP(8/60) MP(2/10) P(12) S(12)  CLUTCH(None) vs Emanon: HP(14/50) MP(0/8) P(8) S(6)                       
+Tomoe prepares to attack.
+  CRIT! Tomoe used None!
+  Emanon got 2 hits in before the attack landed.
+  * Tomoe took 13 counter damage! *
+  Emanon put up 7 defense.
+  Tomoe attacked for 12 damage.
+  * Emanon took 5 damage! *
+Tomoe was defeated!
+                                                      ~~Round 17~~                                                      
+           Vera: HP(9/50) MP(0/10) P(4) S(6)  CLUTCH(None) vs Alyssa: HP(15/20) MP(4/12) P(4) S(4)                      
+Vera prepares to attack.
+  Alyssa put up 3 defense.
+  Vera attacked for 3 damage.
+  Alyssa dodged it!
+                                                      ~~Round 17~~                                                      
+          Emanon: HP(9/50) MP(0/8) P(8) S(6)  CLUTCH(None) vs Alyssa: HP(15/20) MP(4/12) P(4) S(4)                      
+Emanon prepares to attack.
+  Alyssa got 1 hits in before the attack landed.
+  * Emanon took 1 counter damage! *
+  Alyssa put up 1 defense.
+  Emanon attacked for 7 damage.
+  * Alyssa took 6 damage! *
+                                                      ~~Round 18~~                                                      
+                      Alyssa: HP(9/20) MP(4/12) P(4) S(4)  vs Vera: HP(9/50) MP(0/10) P(4) S(6)  CLUTCH(None)           
+Alyssa prepares to attack.
+  CRIT! Vera used None!
+  Alyssa attacked for 3 damage.
+  Vera blocked it!
+  CLUTCH: Vera saved with None!
+                                                      ~~Round 18~~                                                      
+                      Yumi: HP(12/45) MP(0/10) P(10) S(6)  vs Emanon: HP(8/50) MP(0/8) P(8) S(6)  CLUTCH(None)          
+Yumi prepares to attack.
+  Emanon put up 6 defense.
+  Yumi attacked for 5 damage.
+  Emanon blocked it!
+  Emanon tried to clutch this but choked!
+                                                      ~~Round 19~~                                                      
+           Vera: HP(9/50) MP(4/10) P(4) S(6)  CLUTCH(None) vs Alyssa: HP(9/20) MP(4/12) P(4) S(4)                       
+Vera prepares to attack.
+  Alyssa put up 1 defense.
+  Vera attacked for 2 damage.
+  * Alyssa took 1 damage! *
+                                                      ~~Round 19~~                                                      
+          Emanon: HP(8/50) MP(0/8) P(8) S(6)  CLUTCH(None) vs Yumi: HP(12/45) MP(0/10) P(10) S(6)                       
+Emanon prepares to attack.
+  Yumi put up 6 defense.
+  Emanon attacked for 4 damage.
+  Yumi blocked it!
+                                                      ~~Round 20~~                                                      
+                      Alyssa: HP(8/20) MP(4/12) P(4) S(4)  vs Vera: HP(9/50) MP(4/10) P(4) S(6)  CLUTCH(None)           
+Alyssa prepares to attack.
+  CRIT! Alyssa used None!
+  Vera put up 2 defense.
+  Alyssa attacked for 4 damage.
+  * Vera took 2 damage! *
+  Vera tried to clutch this but choked!
+                                                      ~~Round 20~~                                                      
+                      Yumi: HP(12/45) MP(0/10) P(10) S(6)  vs Vera: HP(7/50) MP(4/10) P(4) S(6)  CLUTCH(None)           
+Yumi prepares to attack.
+  Vera put up 2 defense.
+  Yumi attacked for 1 damage.
+  Vera blocked it!
+  CLUTCH: Vera saved with None!
+                                                      ~~Round 21~~                                                      
+           Vera: HP(7/50) MP(4/10) P(4) S(6)  CLUTCH(None) vs Alyssa: HP(8/20) MP(8/12) P(4) S(4)                       
+Vera prepares to attack.
+  Alyssa put up 1 defense.
+  Vera attacked for 2 damage.
+  * Alyssa took 1 damage! *
+                                                      ~~Round 21~~                                                      
+          Emanon: HP(8/50) MP(0/8) P(8) S(6)  CLUTCH(None) vs Alyssa: HP(7/20) MP(8/12) P(4) S(4)                       
+Emanon prepares to attack.
+  Alyssa got 1 hits in before the attack landed.
+  * Emanon took 2 counter damage! *
+  Alyssa put up 3 defense.
+  Emanon attacked for 5 damage.
+  * Alyssa took 2 damage! *
+                                                      ~~Round 22~~                                                      
+         Alyssa: HP(5/20) MP(8/12) P(4) S(4)  CLUTCH(None) vs Vera: HP(7/50) MP(4/10) P(4) S(6)  CLUTCH(None)           
+Alyssa prepares to attack.
+  CRIT! Vera used None!
+  Alyssa attacked for 3 damage.
+  Vera blocked it!
+  Vera tried to clutch this but choked!
+                                                      ~~Round 22~~                                                      
+                      Yumi: HP(12/45) MP(0/10) P(10) S(6)  vs Emanon: HP(6/50) MP(0/8) P(8) S(6)  CLUTCH(None)          
+Yumi prepares to attack.
+  Emanon put up 4 defense.
+  Yumi attacked for 3 damage.
+  Emanon blocked it!
+  Emanon tried to clutch this but choked!
+                                                      ~~Round 23~~                                                      
+           Vera: HP(7/50) MP(8/10) P(4) S(6)  CLUTCH(None) vs Alyssa: HP(5/20) MP(8/12) P(4) S(4)  CLUTCH(None)         
+Vera prepares to attack.
+  Alyssa put up 3 defense.
+  Vera attacked for 1 damage.
+  Alyssa blocked it!
+  Alyssa tried to clutch this but choked!
+                                                      ~~Round 23~~                                                      
+          Emanon: HP(6/50) MP(0/8) P(8) S(6)  CLUTCH(None) vs Alyssa: HP(5/20) MP(8/12) P(4) S(4)  CLUTCH(None)         
+Emanon prepares to attack.
+  Alyssa got 1 hits in before the attack landed.
+  * Emanon took 1 counter damage! *
+  Alyssa put up 3 defense.
+  Emanon attacked for 6 damage.
+  * Alyssa took 3 damage! *
+  CLUTCH: Alyssa saved with None!
+                                                      ~~Round 24~~                                                      
+         Alyssa: HP(2/20) MP(8/12) P(4) S(4)  CLUTCH(None) vs Emanon: HP(5/50) MP(0/8) P(8) S(6)  CLUTCH(None)          
+Alyssa prepares to attack.
+  Emanon put up 4 defense.
+  Alyssa attacked for 1 damage.
+  Emanon blocked it!
+  Emanon tried to clutch this but choked!
+                                                      ~~Round 24~~                                                      
+                      Yumi: HP(12/45) MP(0/10) P(10) S(6)  vs Vera: HP(7/50) MP(8/10) P(4) S(6)  CLUTCH(None)           
+Yumi prepares to attack.
+  Vera put up 3 defense.
+  Yumi attacked for 5 damage.
+  * Vera took 2 damage! *
+  CLUTCH: Vera saved with None!
+                                                      ~~Round 25~~                                                      
+           Vera: HP(5/50) MP(8/10) P(4) S(6)  CLUTCH(None) vs Yumi: HP(12/45) MP(0/10) P(10) S(6)                       
+Vera prepares to attack.
+  Yumi put up 9 defense.
+  Vera attacked for 2 damage.
+  Yumi blocked it!
+                                                      ~~Round 25~~                                                      
+          Emanon: HP(5/50) MP(0/8) P(8) S(6)  CLUTCH(None) vs Alyssa: HP(2/20) MP(8/12) P(4) S(4)  CLUTCH(None)         
+Emanon prepares to attack.
+  Alyssa put up 2 defense.
+  Emanon attacked for 3 damage.
+  * Alyssa took 1 damage! *
+  Alyssa tried to clutch this but choked!
+                                                      ~~Round 26~~                                                      
+         Alyssa: HP(1/20) MP(8/12) P(4) S(4)  CLUTCH(None) vs Emanon: HP(5/50) MP(0/8) P(8) S(6)  CLUTCH(None)          
+Alyssa prepares to attack.
+  CRIT! Alyssa used None!
+  Emanon put up 4 defense.
+  Alyssa attacked for 4 damage.
+  Emanon dodged it!
+  Emanon tried to clutch this but choked!
+                                                      ~~Round 26~~                                                      
+                      Yumi: HP(12/45) MP(0/10) P(10) S(6)  vs Vera: HP(5/50) MP(8/10) P(4) S(6)  CLUTCH(None)           
+Yumi prepares to attack.
+  CRIT! Yumi used None!
+  Vera got 1 hits in before the attack landed.
+  * Yumi took 4 counter damage! *
+  Vera put up 1 defense.
+  Yumi attacked for 10 damage.
+  * Vera took 9 damage! *
+  Vera tried to clutch this but choked!
+Vera was defeated!
+                                                      ~~Round 27~~                                                      
+          Emanon: HP(5/50) MP(0/8) P(8) S(6)  CLUTCH(None) vs Alyssa: HP(1/20) MP(12/12) P(4) S(4)  BREAKER(None) CLUTCH(None)
+Emanon prepares to attack.
+  CRIT! Emanon used None!
+  Alyssa got 2 hits in before the attack landed.
+  * Emanon took 4 counter damage! *
+  CRIT! Alyssa used None!
+  Emanon attacked for 8 damage.
+  * Alyssa took 4 damage! *
+  Alyssa tried to clutch this but choked!
+Alyssa was defeated!
+                                                      ~~Round 28~~                                                      
+Yumi: HP(8/45) MP(10/10) P(10) S(6)  BREAKER(None) CLUTCH(None) vs Emanon: HP(1/50) MP(8/8) P(8) S(6)  BREAKER(None) CLUTCH(None)
+Yumi prepares to attack.
+  Emanon put up 5 defense.
+  Yumi attacked for 4 damage.
+  Emanon blocked it!
+  BREAKER: Yumi comes back with None!
+  Emanon tried to clutch this but choked!
+                                                      ~~Round 29~~                                                      
+Emanon: HP(1/50) MP(8/8) P(8) S(6)  BREAKER(None) CLUTCH(None) vs Yumi: HP(8/45) MP(0/10) P(10) S(6)  CLUTCH(None)          
+Emanon prepares to attack.
+  Yumi got 1 hits in before the attack landed.
+  * Emanon took 5 counter damage! *
+  Yumi put up 8 defense.
+  Emanon attacked for 7 damage.
+  Yumi blocked it!
+  BREAKER: Emanon comes back with None!
+  Yumi tried to clutch this but choked!
+Emanon was defeated!
+You win!
+Winning team:
+          Alyssa: HEALTH(0/20) FOCUS(12/12) POWER(4) SPEED(4) TRAITS(None, None, None, None)
+            Yumi: HEALTH(8/45) FOCUS(0/10) POWER(10) SPEED(6) TRAITS(None, None, None, None)
+           Tomoe: HEALTH(0/60) FOCUS(10/10) POWER(12) SPEED(12) TRAITS(None, None, None, None)
+        Ming Xia: HEALTH(0/55) FOCUS(5/20) POWER(20) SPEED(20) TRAITS(None, None, None, None)
+Team earned $754 for winning.
 Quit the game.

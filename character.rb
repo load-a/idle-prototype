@@ -9,7 +9,7 @@ module Information
   end
 
   def to_s
-    format('%s: HEALTH(%i/%i) FOCUS(%i/%i) POWER(%i) SPEED(%i) TRAITS(%s, %s, %s, %s)', 
+    format('%16s: HEALTH(%i/%i) FOCUS(%i/%i) POWER(%i) SPEED(%i) TRAITS(%s, %s, %s, %s)', 
       name, health, max_health, focus, max_focus, power, speed,
       traits[:attack].name.capitalize, traits[:breaker].name.capitalize, 
       traits[:clutch].name.capitalize, traits[:defense].name.capitalize)
@@ -34,21 +34,20 @@ class Character
   include Information
 
   attr_accessor :name, :health, :max_health, :power, :max_focus, :speed, 
-  :traits, :focus, :behavior, :assignment, :schedule, :tasks, :cost
+  :traits, :focus, :behavior, :assignment, :schedule, :tasks, :cost, :max_cost
 
-  def initialize(name, health, power, max_focus, speed, traits, behavior)
+  def initialize(name, health, power, max_focus, speed)
     self.name = name
     self.max_health = health
-    self.health = max_health
     self.power = power
-    self.focus = 0
     self.max_focus = max_focus
     self.speed = speed
-    self.traits = traits
-    self.behavior = behavior
-    self.assignment = "rest"
+    self.traits = {}
+    self.behavior = {}
     self.schedule = []
-    self.tasks = schedule.dup
+    self.assignment = "rest"
+
+    full_reset
   end
 
   def charge_meter
@@ -79,5 +78,30 @@ class Character
   def full_reset
     full_heal
     deplete_meter
+  end
+
+  def reset_cost
+    self.cost = max_cost
+  end
+
+  def pass_time(hour)
+    do_task(hour)
+  end
+
+  def do_task(hour)
+    case schedule[hour]
+    when :sleep
+      self.health = 20 if health < 20
+    when :rest
+      self.health += 1 unless health > max_health + 10
+    when :train
+      self.focus += 1 unless focus >= max_focus
+    when :job
+      self.cost -= 1
+    end
+  end
+
+  def do_assignment
+    case_assignment
   end
 end

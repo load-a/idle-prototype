@@ -3,41 +3,10 @@
 module OffTime
   module_function
 
-  def schedule_match(character, time)
-    if %i[sleep out].include? character.schedule[time]
-      return "Cannot schedule match for this time. #{character.name} will be #{character.schedule[time]}." 
-    end
-
-    character.schedule[time] = :match
-
-    'Match scheduled for %02i:00' % time
-  end
-
-  def spend_hour(character)
-    activity = character.tasks.shift.to_sym
-
-    case activity
-    when :sleep
-      character.health = 20 unless character.health >= 20
-    when :rest
-      character.health += 1
-    when :train
-      character.focus += 1
-    when :free
-      if character.assignment.to_sym == :rest
-        character.health += 1
-      elsif character.assignment.to_sym == :train
-        character.focus += 1
-      else
-        rand(0..1).zero? ? (character.health += 1) : (character.focus += 1)
-      end
-    else
-      rand(0..1).zero? ? (character.health += 1) : (character.focus += 1)
-    end
-  end
-
   def check_times(character)
-    hours = character.behavior.values.sum
+    hours = character.behavior.dup
+    hours.reject! {|task, hours| task == :job}
+    hours = hours.values.sum
 
     raise "#{character.name}'s hours do not sum to 24 #{character.behavior}" if hours != 24
   end
@@ -50,15 +19,31 @@ module OffTime
 
     character.behavior.each do |type, length|
       length.times do
-        if type == :sleep
+        case type
+        when :sleep
           sleep_time << type
+        when :free
+          schedule << character.assignment
+        when :job
+          next
         else
           schedule << type
         end
       end
     end
 
-    character.schedule = (sleep_time + schedule.shuffle).rotate(rand(0..6))
-    character.tasks = character.schedule.dup
+    character.schedule = schedule.shuffle
+
+    if !character.behavior[:job].zero? && rand(7) < 5
+      shift = rand(0..character.behavior[:job])
+      latest_start = schedule.length - shift - 1
+      start_time = rand(0...latest_start)
+      end_time = start_time + (shift - 1)
+
+      character.schedule.fill(:job, (start_time..end_time))
+    end
+
+    character.schedule += sleep_time
+    character.schedule.rotate!(rand(-8..-4))
   end
 end

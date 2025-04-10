@@ -18,7 +18,7 @@ TRAIT_DATA = game_data["traits"].freeze
 
 TRAITS = {}
 TRAIT_DATA.each do |trait|
-  TRAITS[trait["name"].to_sym] = Trait.new(trait["name"], trait['description'], trait["type"].to_i)
+  TRAITS[trait["name"].downcase.to_sym] = Trait.new(trait["name"], trait["id"], trait['description'], trait["use_text"], trait["components"])
 end
 TRAITS.freeze
 
@@ -29,8 +29,7 @@ CHARACTER_DATA.each do |character|
 
   CHARACTERS[id] = Character.new(name,
                                      character["health"].to_i, character["power"].to_i, 
-                                     character["focus"].to_i, character["speed"].to_i, 
-                                     {}, {})
+                                     character["focus"].to_i, character["speed"].to_i)
 
   character["traits"].each do |type, trait|
     CHARACTERS[id].traits[type.to_sym] = TRAITS[trait.to_sym]
@@ -40,7 +39,8 @@ CHARACTER_DATA.each do |character|
     CHARACTERS[id].behavior[type.to_sym] = length.to_i 
   end
 
-  CHARACTERS[id].cost = character["cost"].to_i
+  CHARACTERS[id].max_cost = character["cost"].to_i
+  CHARACTERS[id].cost = CHARACTERS[id].max_cost
 end
 CHARACTERS.freeze
 
