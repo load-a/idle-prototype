@@ -3,76 +3,25 @@
 require_relative 'calendar'
 require_relative 'combat'
 require_relative 'off_time'
-
-module Input
-  DEFAULT_STRING = '<?>'.freeze
-
-  def get_input(character_limit = 1)
-    gets.chomp[0..character_limit - 1]&.downcase || DEFAULT_STRING
-  end
-
-  def ask(prompt, character_limit = 1)
-    puts prompt
-    get_input(character_limit)
-  end
-
-  def get_number(digits = 1)
-    pick = gets.chomp[0..digits - 1]&.downcase || '0'
-    pick.to_i
-  end
-end
-
-module Output
-  SCHEDULE_TEMPLATE = '%s%02i:00 - %s'
-
-  def show_schedule
-    times = [
-      "#{player.name}'s Schedule for #{calendar.day_of_the_week}, #{calendar.months_of_the_year} #{calendar.day}", 
-      "Current Action: #{player.schedule[calendar.hour]}"
-    ]
-
-    player.schedule.each_with_index do |activity, hour|
-      times << SCHEDULE_TEMPLATE % [(calendar.hour == hour ? '-> ' : '   '), hour, activity]
-    end
-
-    times
-  end
-
-  def numbered_list(array)
-    list = []
-
-    array.each_with_index do |element, index|
-      list << '%i. %s' % [index + 1, element]
-    end
-
-    list
-  end
-
-  # Used for texts shared between the game log and the interface
-  def say(text)
-    puts text
-    log << text
-  end
-
-  # Used for the interface only
-  def show(screen); end
-end
+require_relative 'input'
+require_relative 'output'
 
 class Game
   include Input
   include Output
 
-  attr_accessor :calendar, :player, :team, :next_opponent, :shop, :log
+  attr_accessor :calendar, :player, :team, :next_opponent, :shop, :log, :money
 
   def initialize
     self.calendar = Calendar.new
-    self.player = nil
-    self.team = []
+    self.player = CHARACTERS[:alyssa]
+    self.team = [player, CHARACTERS[:yumi], CHARACTERS[:tomoe], CHARACTERS[:xia]]
     self.next_opponent = nil
     self.shop = []
     self.log = []
+    self.money = 100
 
-    initialize_player
+    team.each { |character| OffTime.set_schedule(character) }
   end
 
   def initialize_player
@@ -93,43 +42,38 @@ class Game
     OffTime.set_schedule(player)
   end
 
-  def play
-    loop do 
-      get_action
-    end
-  end
-
-  def get_action
-    puts "#{calendar.formal_date}"
-    action = ask 'What would you like to do? (set a [M]atch, [P]ass time, [S]ee schedule [Q]uit)'
-
-    case action
-    when 'm'
-      schedule_match
-    when 'p'
-      pass_time
-    when 'q'
-      exit
-    when 's'
-      puts show_schedule
-    else
-      puts 'not implemented'
-    end
-  end
-
   def pass_time
-    hours = ask('How many hours?', 2).to_i
+    hours = ask_number('How many hours?', 2).clamp(0, 24)
+
+    return if hours.zero?
+
+    say "Passing #{hours} hours." if hours > 1
+
     day = calendar.day
 
     hours.times do
-      OffTime.spend_hour(player)
-      puts Combat.play_match([player], [next_opponent])[:log] if player.schedule[calendar.hour] == :match
+      say "-- #{calendar.hour} o' Clock --"
+
+      team.each do |teammate|
+       OffTime.spend_hour(teammate)
+       say "- #{teammate.name} spent the hour on #{teammate.schedule[calendar.hour]}"
+     end
+
+      say Combat.play_match(team, next_opponent)[:log] if player.schedule[calendar.hour] == :match
       calendar.advance_hour
+
+      if calendar.hour.zero?
+        say "\n--- #{calendar.full_date} ---\n" 
+        say "$#{team.map(&:cost).sum} spent on daily expenses."
+
+        team.each { |character| OffTime.set_schedule(character) }
+        self.next_opponent = nil
+        self.money -= team.map(&:cost).sum
+      end
     end
 
     if day != calendar.day
-      OffTime.set_schedule(player)
-      self.next_opponent = nil
+      
     end
   end
 
@@ -159,5 +103,150 @@ class Game
     return puts "That time has already passed" if calendar.time_has_passed?(slot)
 
     puts OffTime.schedule_match(player, slot)
+  end
+
+  def test_play
+    system 'clear'
+
+    main_menu
+  end
+
+  def main_menu
+    loop do 
+      Screen.new.show("#{'_' * (calendar.hour + 1)}", [calendar.date, "$#{money}", 'Enter an action:'])
+      action = get_string
+
+      case action
+      when 'c'
+        # Challenge
+        record 'Opened Challenge menu.'
+        next say "Challenge already scheduled for today." unless next_opponent.nil?
+
+        opponents = generate_opponents
+
+        puts "Choose an opponent:"
+        choice = get_number(1).clamp(0, opponents.length)
+
+        next say "Challenge cancelled." if choice.zero?
+
+        self.next_opponent = opponents[choice - 1]
+        say "Challenging #{next_opponent.map(&:name).join(', ')} to a match"
+
+        team_schedules
+
+        schedule_the_match
+      when 'e'
+        # expenses
+        record 'Opened Expense Report.'
+        team_expenses = team.map{ |character| [character.name, character.cost] }
+        daily_expenses = team.map(&:cost).sum
+        team_expenses << ['Total', daily_expenses]
+
+        Screen.new('EXPENSE REPORT', '%20s: $%i').show('', team_expenses)
+      when 'h'
+        record('Opened Help Menu.')
+        help_menu = [
+          'C: Challenge another team to a match',
+          'E: Team expense chart',
+          'H: Help (This menu)', 
+          'M: Manage team and view stats',
+          'P: Pass time by the hour',
+          'Q: Quit game',
+          'S: Team schedule viewer'
+        ]
+        Screen.new.show('Main Actions', help_menu)
+      when 'm'
+        record 'Opened Management menu.'
+        multi_stat_screen("TEAM STATS", team)
+        management_menu
+      when 'p'
+        pass_time
+      when 'q'
+        record('Quit the game.')
+        break
+      when 's'
+        team_schedules
+      else
+        say("Action not supported: [#{action.upcase}]")
+      end
+    end
+  end
+
+  def team_schedules
+    puts "TEAM SCHEDULES".center(74)
+    list =  team.map do |teammate|
+              [teammate.name] + teammate.schedule
+            end
+
+    columns(16, list).each_with_index do |row, hour|
+      pointer = (hour - 1 == calendar.hour ? ' -> ' : '    ')
+
+      next puts "     TIME " + row if hour == 0
+
+      puts '%s%02i:00 %s' % [pointer, hour - 1, row]
+    end
+  end
+
+  def generate_opponents
+    challengers = CHARACTERS.values.dup
+    challengers.reject! { |character| team.include? character }.sample(team.length)
+    number = rand(2..4)
+
+    opponents = []
+
+    number.times do
+      opponents << challengers.sample(team.length)
+    end
+
+    opponents.each_with_index do |opposing_team, index|
+      multi_stat_screen("#{index + 1}. #{opposing_team[0].name}'s Team", opposing_team)
+    end
+
+    opponents
+  end
+
+  def schedule_the_match
+    loop do
+      puts "Pick a time: (enter '24' to cancel)"
+
+      time = get_number(2).clamp(0, 24)
+
+      if time == 24
+        say "Challenge cancelled." 
+        self.next_opponent = nil
+        break 
+      end
+
+      if calendar.time_has_passed? time
+        puts 'That time has already passed'
+      elsif team.none? {|teammate| teammate.schedule[time] == :out || teammate.schedule[time] == :sleep} 
+        say "Match scheduled for #{time} o' clock against #{next_opponent.first.name}'s team."
+        team.each {|teammate| teammate.schedule[time] = :match}
+        break
+      else
+        puts "Cannot schedule at #{time} because:"
+        team.each do |teammate|
+          next unless %i[sleep out].include? teammate.schedule[time]
+
+          puts "- #{teammate.name} is #{teammate.schedule[time]} at that time."
+        end
+      end
+    end
+  end
+
+  def management_menu
+    action = ask('Team Menu')
+
+    case action
+    when 'a'
+      # Assign 
+    when 'b'
+      # back
+      return
+    when 'd'
+      # drop teammate
+    when 'i'
+      # use item
+    end
   end
 end

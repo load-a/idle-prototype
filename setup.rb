@@ -25,20 +25,22 @@ TRAITS.freeze
 CHARACTERS = {}
 CHARACTER_DATA.each do |character|
   name = character["name"]
-  symbol = name.downcase.to_sym
+  id = character["id"].to_sym
 
-  CHARACTERS[symbol] = Character.new(name, 
+  CHARACTERS[id] = Character.new(name,
                                      character["health"].to_i, character["power"].to_i, 
                                      character["focus"].to_i, character["speed"].to_i, 
                                      {}, {})
 
   character["traits"].each do |type, trait|
-    CHARACTERS[symbol].traits[type.to_sym] = TRAITS[trait.to_sym]
+    CHARACTERS[id].traits[type.to_sym] = TRAITS[trait.to_sym]
   end
 
   character["behavior"].each do |type, length|
-    CHARACTERS[symbol].behavior[type.to_sym] = length.to_i 
+    CHARACTERS[id].behavior[type.to_sym] = length.to_i 
   end
+
+  CHARACTERS[id].cost = character["cost"].to_i
 end
 CHARACTERS.freeze
 

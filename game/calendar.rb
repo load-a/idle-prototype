@@ -55,7 +55,7 @@ class Calendar
     '%s, %s %i %02i:00 ~ %i/%02i/%02i' % [day_of_the_week, months_of_the_year, day, hour, year, month, day]
   end
 
-  def formal_date
+  def full_date
     '%s, %s %i %02i:00' % [day_of_the_week, months_of_the_year, day, hour, year, month, day]
   end
 

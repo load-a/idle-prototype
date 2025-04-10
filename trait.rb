@@ -25,6 +25,7 @@ class Trait
   end
 
   def to_s
+    return 'None' if name == 'none'
     format('%s: %s [%s]', name, description, type_string)
   end
 

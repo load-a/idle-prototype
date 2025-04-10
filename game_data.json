@@ -1,7 +1,10 @@
 {
 	"characters": [
 		{
+			"id": "alyssa",
 			"name": "Alyssa",
+			"description": "This is a character",
+			"cost": 40,
 			"health": 20,
 			"power": 4,
 			"focus": 12,
@@ -13,16 +16,19 @@
 				"defense": "none"
 			},
 			"behavior": {
-				"sleep": 8,				// Daily sleep. Restores Health by 20
+				"sleep": 10,			// Daily sleep. Restores Health by 20
 				"rest": 2,				// Restores Health (napping, playing, relaxing, eating, etc.)
-				"train": 4,				// Builds Focus Meter (practicing, researching, etc.)
-				"out": 6,				// Their own time (working, errands, not at base, doesn't feel like it, etc.)
-				"free": 4				// When they work on their assignment (rest, train, none[random])
+				"train": 2,				// Builds Focus Meter (practicing, researching, etc.)
+				"out": 2,				// Their own time (working, errands, not at base, doesn't feel like it, etc.)
+				"free": 8				// When they work on their assignment (rest, train, none[random])
 			}
 			
 		},
 		{
+			"id": "barney",
 			"name": "Barney",
+			"description": "This is a character",
+			"cost": 50,
 			"health": 20,
 			"power": 6,
 			"focus": 4,
@@ -43,7 +49,10 @@
 			
 		},
 		{
+			"id": "charles",
 			"name": "Charles",
+			"description": "This is a character",
+			"cost": 50,
 			"health": 50,
 			"power": 4,
 			"focus": 10,
@@ -64,7 +73,10 @@
 			
 		},
 		{
-			"name": "Doug",
+			"id": "doug",
+			"name": "Doug the Dog",
+			"description": "This is a character",
+			"cost": 50,
 			"health": 50,
 			"power": 4,
 			"focus": 10,
@@ -85,7 +97,10 @@
 			
 		},
 		{
-			"name": "E",
+			"id": "emanon",
+			"name": "Emanon",
+			"description": "This is a character",
+			"cost": 50,
 			"health": 50,
 			"power": 4,
 			"focus": 10,
@@ -106,7 +121,10 @@
 			
 		},
 		{
-			"name": "F",
+			"id": "f",
+			"name": "F Character",
+			"description": "This is a character",
+			"cost": 50,
 			"health": 50,
 			"power": 4,
 			"focus": 10,
@@ -127,7 +145,10 @@
 			
 		},
 		{
-			"name": "G",
+			"id": "g",
+			"name": "G Character",
+			"description": "This is a character",
+			"cost": 50,
 			"health": 50,
 			"power": 4,
 			"focus": 10,
@@ -148,7 +169,10 @@
 			
 		},
 		{
+			"id": "haramatsu",
 			"name": "Haramatsu",
+			"description": "This is a character",
+			"cost": 50,
 			"health": 50,
 			"power": 4,
 			"focus": 10,
@@ -169,7 +193,10 @@
 			
 		},
 		{
+			"id": "isolde",
 			"name": "Isolde",
+			"description": "This is a character",
+			"cost": 50,
 			"health": 50,
 			"power": 8,
 			"focus": 12,
@@ -190,7 +217,10 @@
 			
 		},
 		{
+			"id": "jamal",
 			"name": "Jamal",
+			"description": "This is a character",
+			"cost": 50,
 			"health": 35,
 			"power": 10,
 			"focus": 20,
@@ -211,7 +241,10 @@
 			
 		},
 		{
+			"id": "kori",
 			"name": "Kori",
+			"description": "This is a character",
+			"cost": 50,
 			"health": 50,
 			"power": 4,
 			"focus": 10,
@@ -232,7 +265,10 @@
 			
 		},
 		{
+			"id": "leif",
 			"name": "Leif",
+			"description": "This is a character",
+			"cost": 50,
 			"health": 50,
 			"power": 6,
 			"focus": 10,
@@ -253,7 +289,10 @@
 			
 		},
 		{
+			"id": "melvin",
 			"name": "Melvin",
+			"description": "This is a character",
+			"cost": 50,
 			"health": 50,
 			"power": 8,
 			"focus": 12,
@@ -274,7 +313,10 @@
 			
 		},
 		{
+			"id": "niamh",
 			"name": "Niamh",
+			"description": "This is a character",
+			"cost": 50,
 			"health": 50,
 			"power": 4,
 			"focus": 10,
@@ -295,7 +337,10 @@
 			
 		},
 		{
+			"id": "orick",
 			"name": "Orick",
+			"description": "This is a character",
+			"cost": 50,
 			"health": 50,
 			"power": 4,
 			"focus": 10,
@@ -316,7 +361,10 @@
 			
 		},
 		{
-			"name": "P",
+			"id": "p",
+			"name": "P Character",
+			"description": "This is a character",
+			"cost": 50,
 			"health": 50,
 			"power": 4,
 			"focus": 10,
@@ -337,7 +385,10 @@
 			
 		},
 		{
-			"name": "Q",
+			"id": "q",
+			"name": "Q Character",
+			"description": "This is a character",
+			"cost": 50,
 			"health": 50,
 			"power": 4,
 			"focus": 10,
@@ -358,7 +409,10 @@
 			
 		},
 		{
-			"name": "Ray",
+			"id": "ray",
+			"name": "Ray Louis",
+			"description": "This is a character",
+			"cost": 50,
 			"health": 50,
 			"power": 12,
 			"focus": 6,
@@ -379,7 +433,10 @@
 			
 		},
 		{
+			"id": "sara",
 			"name": "Sara",
+			"description": "This is a character",
+			"cost": 50,
 			"health": 50,
 			"power": 4,
 			"focus": 10,
@@ -400,7 +457,10 @@
 			
 		},
 		{
+			"id": "tomoe",
 			"name": "Tomoe",
+			"description": "This is a character",
+			"cost": 20,
 			"health": 60,
 			"power": 12,
 			"focus": 10,
@@ -412,16 +472,19 @@
 				"defense": "none"
 			},
 			"behavior": {
-				"sleep": 8,
+				"sleep": 6,
 				"rest": 2,
-				"train": 4,
-				"out": 6,
-				"free": 4
+				"train": 6,
+				"out": 8,
+				"free": 2
 			}
 			
 		},
 		{
-			"name": "U",
+			"id": "u",
+			"name": "U Character",
+			"description": "This is a character",
+			"cost": 50,
 			"health": 50,
 			"power": 4,
 			"focus": 10,
@@ -442,7 +505,10 @@
 			
 		},
 		{
-			"name": "V",
+			"id": "v",
+			"name": "V Character",
+			"description": "This is a character",
+			"cost": 50,
 			"health": 50,
 			"power": 4,
 			"focus": 10,
@@ -463,7 +529,10 @@
 			
 		},
 		{
+			"id": "winston",
 			"name": "Winston",
+			"description": "This is a character",
+			"cost": 50,
 			"health": 50,
 			"power": 4,
 			"focus": 10,
@@ -484,7 +553,10 @@
 			
 		},
 		{
-			"name": "Xia",
+			"id": "xia",
+			"name": "Ming Xia",
+			"description": "This is a character",
+			"cost": 0,
 			"health": 55,
 			"power": 20,
 			"focus": 20,
@@ -496,16 +568,19 @@
 				"defense": "none"
 			},
 			"behavior": {
-				"sleep": 8,
+				"sleep": 9,
 				"rest": 2,
-				"train": 6,
-				"out": 4,
-				"free": 4
+				"train": 4,
+				"out": 6,
+				"free": 3
 			}
 			
 		},
 		{
+			"id": "yumi",
 			"name": "Yumi",
+			"description": "This is a character",
+			"cost": 35,
 			"health": 45,
 			"power": 10,
 			"focus": 10,
@@ -517,16 +592,19 @@
 				"defense": "none"
 			},
 			"behavior": {
-				"sleep": 8,
-				"rest": 2,
-				"train": 4,
-				"out": 6,
+				"sleep": 7,
+				"rest": 3,
+				"train": 8,
+				"out": 2,
 				"free": 4
 			}
 			
 		},
 		{
+			"id": "zylo",
 			"name": "Zylo",
+			"description": "This is a character",
+			"cost": 50,
 			"health": 50,
 			"power": 4,
 			"focus": 10,

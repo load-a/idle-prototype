@@ -4,6 +4,6 @@ require_relative 'setup'
 
 game = Game.new
 
-game.play
+game.test_play
 
-puts game.log
+IO.write('game_log.txt', game.log.join("\n"))

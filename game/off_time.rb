@@ -22,17 +22,17 @@ module OffTime
     when :rest
       character.health += 1
     when :train
-      character.meter += 1
+      character.focus += 1
     when :free
       if character.assignment.to_sym == :rest
         character.health += 1
       elsif character.assignment.to_sym == :train
-        character.meter += 1
+        character.focus += 1
       else
-        rand(0..1).zero? ? (character.health += 1) : (character.meter += 1)
+        rand(0..1).zero? ? (character.health += 1) : (character.focus += 1)
       end
     else
-      rand(0..1).zero? ? (character.health += 1) : (character.meter += 1)
+      rand(0..1).zero? ? (character.health += 1) : (character.focus += 1)
     end
   end
 

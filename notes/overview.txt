@@ -42,3 +42,9 @@
 - You have to make rent every month, plus cover your own daily expenses [The amount you spend changes activity efficacy?]
 - Run out of money and you lose. Make it a whole year and you win
 - Become the most dominant team in the league
+
+## Logs
+{
+	type: what kind of log is it (combat, prompt, input, event, etc.),
+	text: What it says
+}

@@ -1,0 +1,4 @@
+Opened Challenge menu.
+Challenge cancelled.
+Opened Expense Report.
+Quit the game.
