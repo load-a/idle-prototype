@@ -183,7 +183,6 @@ class Game
         Screen.new.show('Main Actions', help_menu)
       when 'm'
         record 'Opened Management menu.'
-        multi_stat_screen("TEAM STATS", team)
         management_menu
       when 'p'
         pass_time
@@ -261,16 +260,57 @@ class Game
   end
 
   def management_menu
-    action = ask('Team Menu')
+    multi_stat_screen("TEAM STATS", team)
+
+    action = ask('Enter an action: ')
 
     case action
     when 'a'
-      # Assign 
+      pick = ask_number('Pick a teammate', 1).clamp(0, 4)
+
+      return say "Team assignment cancelled." if pick.zero?
+      teammate = team[pick - 1]
+
+      loop do
+        task = ask "Assign which activity to #{teammate.name}?", 5
+
+        if %w[rest job train free].include? task
+          teammate.assignment = task.to_sym
+          break
+        elsif task == 'b'
+          say "Team assignment cancelled." 
+          return 
+        else
+          puts "Enter [rest], [job], [train] or [free] to assign task, or [B] to go back."
+        end
+      end
     when 'b'
-      # back
       return
     when 'd'
-      # drop teammate
+      pick = ask_number('Pick a teammate to drop.', 1).clamp(0, 4)
+
+      return say "Team deletion cancelled." if pick.zero?
+      teammate = team[pick - 1]
+
+      puts "Are you sure you want to drop #{teammate.name}?"
+      answer = ask "You will have to earn their respect again to get them back. (y/n)"
+
+      if answer == 'y'
+        say "#{teammate.name} was dropped from the team."
+        team.delete(teammate)
+      else
+        puts "delete cancelled"
+      end
+    when 'h'
+      record('Opened Help Menu.')
+      help_menu = [
+        "A: Set a team member's assignment.",
+        'B: Go back to main menu.',
+        'D: Drop a member from the team',
+        'H: Help (This menu)', 
+        'I: Use an item on a teammate',
+      ]
+      Screen.new.show('Management Actions', help_menu)
     when 'i'
       # use item
     end

@@ -2,7 +2,7 @@
 
 module Information
   def status
-    format('%s: HP(%i/%i) MP(%i/%i) P(%i) S(%i) %s%s', 
+    format('%s: HP(%2i/%2i) MP(%2i/%i2) P(%2i) S(%2i) %s%s', 
     name, health, max_health, focus, max_focus, power, speed,
     (" BREAKER(#{traits[:breaker].name.capitalize})" if charged? && traits[:breaker].name != 'none'),
     (" CLUTCH(#{traits[:clutch].name.capitalize})" if low_health? && traits[:clutch].name != 'none'))
@@ -45,7 +45,7 @@ class Character
     self.traits = {}
     self.behavior = {}
     self.schedule = []
-    self.assignment = "rest"
+    self.assignment = "free"
 
     full_reset
   end

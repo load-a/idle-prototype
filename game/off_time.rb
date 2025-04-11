@@ -23,7 +23,13 @@ module OffTime
         when :sleep
           sleep_time << type
         when :free
-          schedule << character.assignment
+          if character.assignment == :job && schedule.count(:job) < character.behavior[:job]
+            schedule << :job 
+          elsif %i[job free].include? character.assignment
+            schedule << %i[train rest out].sample
+          else
+            schedule << character.assignment
+          end
         when :job
           next
         else
