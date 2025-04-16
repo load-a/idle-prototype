@@ -1,8 +1,23 @@
 # frozen_string_literal: true
 
 module Information
+  def status_bar(stat, max, length = 10)
+    bars = ((stat.to_f / max) * length).ceil
+    lines = length - bars
+
+    "#{'█' * bars}#{'-' * lines}"
+  end
+
+  def brief(reverse = false)
+    if reverse
+      '(%s)MP (%s)HP :%16s' % [status_bar(focus, max_focus).reverse, status_bar(health, max_health).reverse, name]
+    else
+      '%-16s: HP(%s) MP(%s)' % [name, status_bar(health, max_health), status_bar(focus, max_focus)]
+    end
+  end
+
   def status
-    format('%s: HP(%2i/%2i) MP(%2i/%i2) P(%2i) S(%2i) %s%s', 
+    format('%s: HP(%2i/%2i) MP(%2i/%2i) P(%2i) S(%2i) %s%s', 
     name, health, max_health, focus, max_focus, power, speed,
     (" BREAKER(#{traits[:breaker].name.capitalize})" if charged? && traits[:breaker].name != 'none'),
     (" CLUTCH(#{traits[:clutch].name.capitalize})" if low_health? && traits[:clutch].name != 'none'))
@@ -50,8 +65,8 @@ class Character
     full_reset
   end
 
-  def charge_meter
-    self.focus += power
+  def charge_focus(ammount = 1)
+    self.focus += ammount
     self.focus = max_focus if focus > max_focus
   end
 
@@ -59,7 +74,7 @@ class Character
     focus >= max_focus
   end
 
-  def deplete_meter
+  def reset_focus
     self.focus = 0
   end
 
@@ -77,7 +92,7 @@ class Character
 
   def full_reset
     full_heal
-    deplete_meter
+    reset_focus
   end
 
   def reset_cost

@@ -15,6 +15,7 @@ game_data = JSON.parse(data_file).freeze
 
 CHARACTER_DATA = game_data["characters"].freeze
 TRAIT_DATA = game_data["traits"].freeze
+TEAM_DATA = game_data["teams"].freeze
 
 TRAITS = {}
 TRAIT_DATA.each do |trait|
@@ -44,4 +45,15 @@ CHARACTER_DATA.each do |character|
 end
 CHARACTERS.freeze
 
+Team = Struct.new(:name, :members, :description)
 
+TEAMS = []
+TEAM_DATA.each do |team|
+  group = Team.new(team["name"], [], team["description"])
+
+  team["members"].each do |member_id|
+    group.members << CHARACTERS[member_id.to_sym]
+  end
+
+  TEAMS << group
+end

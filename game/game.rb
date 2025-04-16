@@ -315,4 +315,8 @@ class Game
       # use item
     end
   end
+
+  def test_combat
+    puts Combat.start(team, TEAMS[2].members)
+  end
 end

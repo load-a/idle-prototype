@@ -126,8 +126,8 @@
 			
 		},
 		{
-			"id": "f",
-			"name": "F Character",
+			"id": "faze",
+			"name": "Faze",
 			"description": "This is a character",
 			"cost": 50,
 			"health": 50,
@@ -501,8 +501,8 @@
 			
 		},
 		{
-			"id": "u",
-			"name": "U Character",
+			"id": "umber",
+			"name": "Umber",
 			"description": "This is a character",
 			"cost": 50,
 			"health": 50,
@@ -606,8 +606,8 @@
 			"description": "This is a character",
 			"cost": 35,
 			"health": 45,
-			"power": 10,
-			"focus": 10,
+			"power": 8,
+			"focus": 8,
 			"speed": 6,
 			"traits": {
 				"attack": "none",
@@ -719,6 +719,11 @@
 		{
 			"name": "The Adventurers",
 			"members": ["alyssa", "tomoe", "xia", "yumi"],
+			"description": "Description."
+		},
+		{
+			"name": "Group",
+			"members": ["emanon", "faze", "umber", "zylo"],
 			"description": "Description."
 		},
 		{

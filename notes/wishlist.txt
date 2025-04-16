@@ -1,13 +1,17 @@
 # Features Wishlist
 ## Must Have
 - Player controlled character's start with minimum stats (does not effect NPCs)
-/ Money system (earning and spending)
+- Figure out a better system for Traits
+- Figure out a better combat flow
++ Earn money from matches
+/ Regular expenses (daily, monthly)
+- Buy items (traits, consumables, upgrades) and use them on team 
 + Team management (make `player` part of team, add team management screen)
 + View Stats from menu
 - Time auto advance (next task, wake up, next match, etc.)
 - Stores for acquiring traits, teammates, dice upgrades
 - Add teams to context to allow for healing or area of effect attacks
-- FIx the battle logic to accommodate Character class changes
+- Fix the battle logic to accommodate Character class changes
 
 ## Should Have
 - Auto generated game log files for each day

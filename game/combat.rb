@@ -1,225 +1,198 @@
 # frozen_string_literal: true
 
+class Round
+  attr_accessor :attacker, :defender, :results, :round, :turn
+
+  def initialize(attacker, defender)
+    self.attacker = attacker
+    self.defender = defender
+    self.results = {
+      attack: 0, 
+      defense: 0,
+      counter: 0,
+      crit_attack: false,
+      crit_defense: false,
+      breaker: false,
+      clutch: false
+    }
+
+    roll_encounter
+  end
+
+  def [](key)
+    self.results[key]
+  end
+
+  def roll_encounter
+    roll_attack
+    roll_counter
+    roll_defense
+    set_low_health_traits
+  end
+
+  def roll_attack
+    attack = Dice.roll(attacker.power)
+    results[:attack] = attack.result
+    results[:crit_attack] = attack.crit
+  end
+
+  def roll_defense
+    defense = Dice.roll(defender.power)
+    results[:defense] = defense.result
+    results[:crit_defense] = defense.crit
+  end
+
+  def roll_counter
+    opportunities = results[:attack] / defender.speed
+    opportunities.times do
+      results[:counter] += Dice.roll(defender.power).result
+    end
+  end
+
+  def set_low_health_traits
+    results[:breaker] = attacker.low_health?
+    results[:clutch] = defender.low_health?
+  end
+
+  def to_s
+    log = []
+
+    log << '%-16s: %s' % ['attacker', attacker.name]
+    log << '%-16s: %s' % ['defender', defender.name]
+    results.each { |label, value| log << '%-15s: %s' % [label, value] }
+    log << "\n"
+
+    log.join("\n")
+  end
+end
+
+class Match
+
+  attr_accessor :player, :cpu, :round, :encounter, :log
+
+  def initialize(player, cpu)
+    self.player = player
+    self.cpu = cpu
+    self.round = 0
+    self.encounter = nil
+    self.log = []
+  end
+
+  def play
+    teams = [player, cpu].shuffle
+
+    loop do
+      self.round += 1
+
+      teams.reverse!
+
+      direction = teams.first == player ? '>>>' : '<<<'
+
+      log << "Round #{round}".center(101)
+      log << bracket(direction)
+      log << "\n"
+
+      # Run all combat
+      teams[0].each do |member|
+        play_round(member, teams[1].sample)
+        member.charge_focus
+      end
+
+      teams.each do |team|
+        team.reject! {|teammate| teammate.down? }
+      end
+
+      if teams.any?(&:empty?)
+
+        if (teams[0] & cpu).none?
+          log << "you win"
+        else
+          log << "you lose"
+        end
+
+        break
+      end
+    end
+  end
+
+  def bracket(direction = '...')
+    right = cpu.map(&:brief)
+    left = player.map {|opponent| opponent.brief(true)}
+    sign = []
+
+    [right, left].map(&:length).max.times do |number|
+      sign << '%48s %s %-48s' % [left[number], direction, right[number]]
+    end
+
+    sign
+  end
+
+  def alert(message, front_symbol = '!! ', back_symbol = nil)
+    back_symbol = front_symbol.reverse if back_symbol.nil?
+
+    '%s%s%s' % [front_symbol, message, back_symbol]
+  end
+
+  # @todo extract these into their own methods
+  def play_round(attacker, defender)
+    round = Round.new(attacker, defender)
+
+    bullet = ->(amount) { if amount.positive? then '-- ' elsif amount.zero? then '~~ ' else '++ ' end }
+
+    # Attack Roll
+    if round[:crit_attack]
+      log << "Critical attack!"
+    end
+    log << "#{attacker.name} attacked #{defender.name} for #{round[:attack]} damage"
+
+    # Counter Damage Taken
+    if round[:counter] > 0
+      attacker.health -= round[:counter]
+      log << "#{defender.name} got some hits in"
+      log << alert("#{attacker.name} took #{round[:counter]} counter damage", bullet.call(round[:counter]))
+    end
+
+    # Defense Roll
+    if round[:crit_defense]
+      log << "Critical defense!"
+    end
+    log << "#{defender.name} blocked for #{round[:defense]} defense"
+
+    # Damage Taken
+    damage = [round[:attack] - round[:defense], 0].max
+    defender.health -= damage
+    log << alert("#{defender.name} took #{damage} damage", bullet.call(damage))
+
+    # Breaker
+    if attacker.charged?
+      log << "#{attacker.name} uses BREAKER" 
+      attacker.reset_focus
+    end
+
+    # Clutch
+    log << "#{defender.name} uses CLUTCH" if defender.low_health?
+
+    # Defeats
+    if attacker.down?
+      log << alert("#{attacker.name} is down")
+    end
+
+    if defender.down?
+      log << alert("#{defender.name} is down")
+    end
+
+    log << "\n"
+  end
+end
+
 module Combat
   module_function
 
-  Context = Struct.new(:attacker, :defender, :encounter, :special_moves)
-  Encounter = Struct.new(:attack, :defense, :counters)
+  def start(home_team, away_team)
+    game = Match.new(home_team, away_team)
 
-  def play_match(players_team, cpu_team)
-    master_log = []
-    winners = ''
-    standings = [players_team.dup, cpu_team.dup]
-    round = 0
+    game.play
 
-    match_header = -> (teams, width) do
-      side_length = (width - 4) / 2
-      right = players[0].status.rjust(side_length)
-      left = players[1].status.ljust(side_length)
-      '%s vs %s' % [right, left]
-    end
-
-    round_header = -> (players, width) do
-      side_length = (width - 4) / 2
-      right = players[0].status.rjust(side_length)
-      left = players[1].status.ljust(side_length)
-      '%s vs %s' % [right, left]
-    end
-
-    loop do
-      round += 1
-      standings.reverse!
-
-      standings[0].each do |player|
-        target = standings[1].sample
-
-        master_log << "~~Round #{round}~~".center(120)
-        master_log << round_header.call([player, target], 120)
-
-        master_log << round_of_combat(player, target).join("\n  ")
-
-        if player.down?
-          master_log << "#{player.name} was defeated!" 
-          standings[0].delete(player)
-          break 
-        elsif target.down?
-          master_log << "#{target.name} was defeated!" 
-          standings[1].delete(target)
-          break 
-        end
-      end
-
-      if standings.all?(&:empty?)
-        master_log << "It's a draw!"
-        puts master_log.join("\n")
-        raise "Tied game not accounted for."
-      elsif standings.any?(&:empty?)
-        last_standing = standings.select { |team| !team.empty? }[0]
-
-        winners = ((players_team & last_standing).any? ? players_team : cpu_team)
-        text = (winners == players_team ? "You win!" : "You lose.") + "\nWinning team:"
-
-        master_log << text
-        master_log << winners.map(&:to_s).join("\n")
-        break 
-      end
-    end
-
-    {
-      log: master_log,
-      winner: (winners == players_team ? :player : :cpu),
-      player: players_team,
-      cpu: cpu_team,
-      rounds: round
-    }
-  end
-
-  # TODO: Method is too big; trim it down somehow
-  def round_of_combat(attacker, defender)
-    # Base attack, defense and counters calculated
-    # Round Context created
-    battle_log = []
-    context = Context.new(attacker, defender, roll_encounter(attacker, defender), {attack: [], defense: []})
-    attack_damage = 0
-    counter_damage = 0
-    breaker_damage = 0
-
-    # Both character's traits are added to context
-    add_traits(context, :attack)
-    add_traits(context, :defense)
-
-    # Attacker winds up
-    battle_log << "#{attacker.name} prepares to attack."
-    
-    if context.special_moves[:attack].include? :attack
-      battle_log << "CRIT! #{attacker.name} used #{attacker.traits[:attack].name}!"
-      # resolve_crit_attack(context)
-    end
-
-    # Defender gets some hits in
-    counter_damage = counter_attack(defender, context.encounter.counters)
-    # battle_log << "#{context.encounter.attack.result} / #{defender.speed} = #{context.encounter.counters}"
-    if counter_damage > 0
-      battle_log << "#{defender.name} got #{context.encounter.counters} hits in before the attack landed."
-
-      take_damage(attacker, counter_damage) 
-      battle_log << damage_text(attacker, counter_damage, 'counter ')
-    end
-
-    # Defender raises their guard
-    if context.encounter.defense.crit && defender.traits[:defense].name != 'none'
-      # resolve_crit_defense(context)
-      battle_log << "CRIT! #{defender.name} used #{defender.traits[:defense].name}!"
-    else
-      battle_log << "#{defender.name} put up #{context.encounter.defense.result} defense."
-    end
-
-    # Attack damage calculated
-    attack_damage = context.encounter.attack.result - context.encounter.defense.result
-
-    # Attack follows through
-    battle_log << "#{attacker.name} attacked for #{context.encounter.attack.result} damage."
-    take_damage(defender, attack_damage)
-    battle_log << damage_text(defender, attack_damage)
-
-    # Attacker uses breaker
-    if context.special_moves[:attack].include? :breaker
-      battle_log << "BREAKER: #{attacker.name} comes back with #{attacker.traits[:breaker].name}!" 
-      # breaker_damage = resolve_breaker(context)
-      breaker_damage = 0
-      attacker.deplete_meter
-    end
-
-    take_damage(defender, breaker_damage)
-    battle_log << damage_text(defender, breaker_damage, 'extra ') if breaker_damage > 0
-
-    # Defender uses clutch
-    if context.special_moves[:defense].include? :clutch 
-      if Dice.roll(defender.power).crit
-        battle_log << "CLUTCH: #{defender.name} saved with #{defender.traits[:clutch].name}!" 
-        # resolve_clutch(context)
-      else
-        battle_log << "#{defender.name} tried to clutch this but choked!" 
-      end
-    end
-
-    battle_log
-  end
-
-  def roll_encounter(attacker, defender)
-    attack = Dice.roll(attacker.power)
-    defense = Dice.roll(defender.power)
-    counters = attack.result / defender.speed
-
-    Encounter.new(attack, defense, counters)
-  end
-
-  def add_traits(context, type)
-    character = context.send(type_to_character(type))
-
-    # Add breaker before critical charge
-    context.special_moves[type] << :breaker if character.charged? && character.traits[:breaker].name != 'none'
-
-    if context.encounter.send(type).crit
-      context.special_moves[type] << type unless character.traits[type].name == 'none'
-      character.charge_meter
-    end
-
-    context.special_moves[type] << :clutch if character.low_health? && character.traits[:clutch].name != 'none'
-  end
-
-  def type_to_character(type)
-    type == :attack ? :attacker : :defender
-  end
-
-  def resolve_crit_attack(context)
-    return unless context.special_moves[:attack].include? :attack
-
-    CriticalAttacks.send(context.attacker.traits[:attack].name, context)
-  end
-
-  def resolve_crit_defense(context)
-    return unless context.special_moves[:defense].include? :defense
-
-    CriticalDefenses.send(context.defender.traits[:defense].name, context)
-  end
-
-  def resolve_breaker(context)
-    return unless context.special_moves[:attack].include? :breaker
-
-    Breakers.send(context.attacker.traits[:breaker].name, context)
-  end
-
-  def resolve_clutch(context)
-    return unless context.special_moves[:defense].include? :clutch
-
-    ClutchPlays.send(context.defender.traits[:clutch].name, context)
-  end
-
-  def counter_attack(character, hits)
-    return 0 if hits.zero?
-
-    total = 0
-
-    hits.times do 
-      total += Dice.roll(character.power).result
-    end
-
-    total
-  end
-
-  def take_damage(character, damage)
-    character.health -= [damage, 0].max
-    character.health = 0 if character.health < 0
-  end
-
-  def damage_text(character, damage, modifier = '')
-    if damage.zero?
-      "#{character.name} dodged it!"
-    elsif damage < 0
-      "#{character.name} blocked it!"
-    else
-      "* #{character.name} took #{damage} #{modifier}damage! *"
-    end
+    game.log
   end
 end

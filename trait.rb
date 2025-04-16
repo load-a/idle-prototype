@@ -10,8 +10,8 @@ class Trait
     self.components = components
   end
 
-  def use
-    Specials.send(id, *components)
+  def use(source, destination, context)
+    Specials.send(id, source, destination, context)
   end
 
   def to_s

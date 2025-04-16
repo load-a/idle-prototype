@@ -1,4 +1,0 @@
-Opened Management menu.
-Opened Help Menu.
-Action not supported: [X]
-Quit the game.
