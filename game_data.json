@@ -10,10 +10,10 @@
 			"focus": 12,
 			"speed": 4,
 			"traits": {
-				"attack": "none",
-				"breaker": "none",
-				"clutch": "none",
-				"defense": "none"
+				"attack": "powerup",
+				"breaker": "add_focus",
+				"clutch": "heal_self",
+				"defense": "quick_step"
 			},
 			"behavior": {
 				"sleep": 10,
@@ -55,13 +55,13 @@
 			"name": "Charles",
 			"description": "This is a character",
 			"cost": 50,
-			"health": 50,
+			"health": 40,
 			"power": 10,
-			"focus": 12,
+			"focus": 8,
 			"speed": 8,
 			"traits": {
 				"attack": "none",
-				"breaker": "none",
+				"breaker": "berserk",
 				"clutch": "none",
 				"defense": "none"
 			},
@@ -332,7 +332,7 @@
 			"cost": 50,
 			"health": 50,
 			"power": 4,
-			"focus": 10,
+			"focus": 8,
 			"speed": 6,
 			"traits": {
 				"attack": "none",
@@ -380,15 +380,15 @@
 			"name": "Petra",
 			"description": "This is a character",
 			"cost": 50,
-			"health": 50,
-			"power": 4,
-			"focus": 10,
-			"speed": 6,
+			"health": 35,
+			"power": 12,
+			"focus": 6,
+			"speed": 8,
 			"traits": {
-				"attack": "none",
-				"breaker": "none",
-				"clutch": "none",
-				"defense": "none"
+				"attack": "snipe",
+				"breaker": "snipe",
+				"clutch": "snipe",
+				"defense": "snipe"
 			},
 			"behavior": {
 				"sleep": 8,
@@ -457,12 +457,12 @@
 			"cost": 50,
 			"health": 50,
 			"power": 6,
-			"focus": 8,
+			"focus": 10,
 			"speed": 6,
 			"traits": {
 				"attack": "none",
-				"breaker": "none",
-				"clutch": "none",
+				"breaker": "heal_ally",
+				"clutch": "heal_self",
 				"defense": "none"
 			},
 			"behavior": {
@@ -586,7 +586,7 @@
 			"speed": 20,
 			"traits": {
 				"attack": "none",
-				"breaker": "none",
+				"breaker": "mastery",
 				"clutch": "none",
 				"defense": "none"
 			},
@@ -610,10 +610,10 @@
 			"focus": 8,
 			"speed": 6,
 			"traits": {
-				"attack": "none",
+				"attack": "mastery",
 				"breaker": "none",
-				"clutch": "none",
-				"defense": "none"
+				"clutch": "heal_ally",
+				"defense": "side_step"
 			},
 			"behavior": {
 				"sleep": 7,
@@ -652,67 +652,53 @@
 		}
 	],
 	"traits": [
-			// Trait Key:
-			// 1 - attack: Normal Crit offensive move
-			// 2 - breaker: Special offensive save
-			// 4 - clutch: Special defensive save
-			// 8 - defense: Normal Crit defensive move
-			//
-			// NEW TRAIT STRUCTURE
-			// {
-			// 	"id": "base_method_name",
-			// 	"names": "flavor names",
-			// 	"use_text": "[Character did something] in-what-way [trait] ",
-			// 	"description": "Flavor description"
-			// }
 			{
-				"id": "add_roll",
-				"name": "Beast Mode",
-				"description": "Unleash the beast and gain an extra attack.",
-				"use_text": "went BEAST MODE.",
-				"components": []
+				"id": "none",
+				"description": "This trait has not been developed."
 			},
 			{
-				"id": "add_stat",
-				"name": "Technomancy",
-				"description": "Invoke a magical function to damage opponent's.",
-				"use_text": "cast focus_damage().",
-				"components": ["focus"]
+				"id": "roll_power",
+				"description": "Adds a POWER roll to outcome."
 			},
 			{
-				"id": "match_opponent",
-				"name": "Dodge",
-				"description": "Avoid damage from a main attack.",
-				"use_text": "went BEAST MODE.",
-				"components": []
-			},
-			{
-				"id": "heal_teammate",
-				"name": "Heal",
-				"description": "Unleash the beast and gain an extra attack!",
-				"use_text": "healed a teammate.",
-				"components": []
-			},
-			{
-				"id": "heal_team",
-				"name": "Squad Heal",
-				"description": "Unleash the beast and gain an extra attack!",
-				"use_text": "healed everyone.",
-				"components": []
+				"id": "powerup",
+				"description": "Adds POWER to the roll."
 			},
 			{
 				"id": "heal_self",
-				"name": "Recover",
-				"description": "Unleash the beast and gain an extra attack!",
-				"use_text": "recovered some health.",
-				"components": []
+				"description": "Heals self for 10 HEALTH."
 			},
 			{
-				"id": "none",
-				"name": "None",
-				"description": "blank trait",
-				"use_text": "did nothing!",
-				"components": []
+				"id": "heal_ally",
+				"description": "A random ally (or yourself) recovers HEALTH."
+			},
+			{
+				"id": "add_focus",
+				"description": "none"
+			},
+			{
+				"id": "roll_focus",
+				"description": "Adds POWER to the outcome."
+			},
+			{
+				"id": "side_step",
+				"description": "Adds SPEED to the roll."
+			},
+			{
+				"id": "quick_step",
+				"description": "Adds a SPEED roll to current result."
+			},
+			{
+				"id": "berserk",
+				"description": "Sacrifice half of your HP to lash out at the other team."
+			},
+			{
+				"id": "snipe",
+				"description": "Deal POWER damage to a random opponent."
+			},
+			{
+				"id": "mastery",
+				"description": "A completely BUSTED move that adds the sum of all your stats to the roll."
 			}
 		],
 	"teams": [

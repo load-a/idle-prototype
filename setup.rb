@@ -1,13 +1,12 @@
 # frozen_string_literal: true
 
 require 'json'
+require 'rainbow'
 
-require_relative 'character'
-
-require_relative 'trait'
+require_relative 'characters/character'
 require_relative 'dice'
 require_relative 'game/game'
-require_relative 'special'
+require_relative 'combat/combat'
 
 data_file = File.read('game_data.json').freeze
 
@@ -17,9 +16,14 @@ CHARACTER_DATA = game_data["characters"].freeze
 TRAIT_DATA = game_data["traits"].freeze
 TEAM_DATA = game_data["teams"].freeze
 
+Trait = Struct.new(:id)
+
 TRAITS = {}
+TRAIT_ALIASES = {}
 TRAIT_DATA.each do |trait|
-  TRAITS[trait["name"].downcase.to_sym] = Trait.new(trait["name"], trait["id"], trait['description'], trait["use_text"], trait["components"])
+  id = trait["id"].to_sym
+
+  TRAITS[id] = Trait.new(id) 
 end
 TRAITS.freeze
 
@@ -32,8 +36,8 @@ CHARACTER_DATA.each do |character|
                                      character["health"].to_i, character["power"].to_i, 
                                      character["focus"].to_i, character["speed"].to_i)
 
-  character["traits"].each do |type, trait|
-    CHARACTERS[id].traits[type.to_sym] = TRAITS[trait.to_sym]
+  character["traits"].each do |type, trait_name|
+    CHARACTERS[id].traits[type.to_sym] = TRAITS[trait_name.to_sym]
   end
 
   character["behavior"].each do |type, length|
@@ -45,11 +49,9 @@ CHARACTER_DATA.each do |character|
 end
 CHARACTERS.freeze
 
-Team = Struct.new(:name, :members, :description)
-
 TEAMS = []
 TEAM_DATA.each do |team|
-  group = Team.new(team["name"], [], team["description"])
+  group = Team.new([], team["name"], team["description"])
 
   team["members"].each do |member_id|
     group.members << CHARACTERS[member_id.to_sym]

@@ -2,7 +2,7 @@
 
 class Trait
   attr_accessor :name, :id, :description, :use_text, :components
-  def initialize(name, id, description, use_text, components)
+  def initialize(name, id, description)
     self.id = id
     self.name = name
     self.description = description
@@ -10,8 +10,8 @@ class Trait
     self.components = components
   end
 
-  def use(source, destination, context)
-    Specials.send(id, source, destination, context)
+  def use(source, type, encounter)
+    Specials.send(id, source, type, encounter)
   end
 
   def to_s

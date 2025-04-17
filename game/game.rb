@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 require_relative 'calendar'
-require_relative 'combat'
 require_relative 'off_time'
 require_relative 'input'
 require_relative 'output'
@@ -15,13 +14,13 @@ class Game
   def initialize
     self.calendar = Calendar.new
     self.player = CHARACTERS[:alyssa]
-    self.team = [player, CHARACTERS[:yumi], CHARACTERS[:tomoe], CHARACTERS[:xia]]
+    self.team = Team.new([player, CHARACTERS[:yumi], CHARACTERS[:tomoe], CHARACTERS[:xia]], "Player's Team",  'Your team.')
     self.next_opponent = nil
     self.shop = []
     self.log = []
     self.money = 100
 
-    team.each { |character| OffTime.set_schedule(character) }
+    team.members.each { |character| OffTime.set_schedule(character) }
   end
 
   def initialize_player
@@ -317,6 +316,16 @@ class Game
   end
 
   def test_combat
-    puts Combat.start(team, TEAMS[2].members)
+    playing_team = team
+    opposing_team = TEAMS[2]
+
+    puts "#{playing_team.name} vs. #{opposing_team.name}".center(120)
+    multi_stat_screen(playing_team.name, playing_team)
+    puts "~~ #{playing_team.description} ~~".center(120), ''
+
+    multi_stat_screen(opposing_team.name, opposing_team)
+    puts "~~ #{opposing_team.description} ~~".center(120), ''
+
+    puts Combat.start(playing_team, opposing_team)
   end
 end

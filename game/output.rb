@@ -62,7 +62,7 @@ module Output
   def multi_stat_screen(title, group)
     puts title.center(120)
 
-    list = group.map(&:attribute_chart).map(&:values)
+    list = group.members.map(&:attribute_chart).map(&:values)
 
     columns(30, list).each do |row|
       puts row

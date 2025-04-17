@@ -1,5 +1,8 @@
 # frozen_string_literal: true
 
+require_relative 'specials'
+require_relative 'team'
+
 module Information
   def status_bar(stat, max, length = 10)
     bars = ((stat.to_f / max) * length).ceil
@@ -19,15 +22,15 @@ module Information
   def status
     format('%s: HP(%2i/%2i) MP(%2i/%2i) P(%2i) S(%2i) %s%s', 
     name, health, max_health, focus, max_focus, power, speed,
-    (" BREAKER(#{traits[:breaker].name.capitalize})" if charged? && traits[:breaker].name != 'none'),
-    (" CLUTCH(#{traits[:clutch].name.capitalize})" if low_health? && traits[:clutch].name != 'none'))
+    (" BREAKER(#{traits[:breaker].id.capitalize})" if charged? && traits[:breaker].id != 'none'),
+    (" CLUTCH(#{traits[:clutch].id.capitalize})" if low_health? && traits[:clutch].id != 'none'))
   end
 
   def to_s
     format('%16s: HEALTH(%i/%i) FOCUS(%i/%i) POWER(%i) SPEED(%i) TRAITS(%s, %s, %s, %s)', 
       name, health, max_health, focus, max_focus, power, speed,
-      traits[:attack].name.capitalize, traits[:breaker].name.capitalize, 
-      traits[:clutch].name.capitalize, traits[:defense].name.capitalize)
+      traits[:attack].id.capitalize, traits[:breaker].id.capitalize, 
+      traits[:clutch].id.capitalize, traits[:defense].id.capitalize)
   end
 
   def attribute_chart
@@ -37,10 +40,10 @@ module Information
       focus: format("%-6s: %2i/%2i", 'Focus', focus, max_focus),
       power: format("%-6s: %2i", 'Power', power),
       speed: format("%-6s: %2i", 'Speed', speed),
-      attack: format("%-16s: %s", 'Critical Attack', traits[:attack].name),
-      defense: format("%-16s: %s", 'Critical Defense', traits[:defense].name),
-      breaker: format("%-16s: %s", 'Focus Breaker', traits[:breaker].name),
-      clutch: format("%-16s: %s", 'Clutch Play', traits[:clutch].name),
+      attack: format("%-16s: %s", 'Critical Attack', traits[:attack].id),
+      defense: format("%-16s: %s", 'Critical Defense', traits[:defense].id),
+      breaker: format("%-16s: %s", 'Focus Breaker', traits[:breaker].id),
+      clutch: format("%-16s: %s", 'Clutch Play', traits[:clutch].id),
     }
   end
 end
@@ -65,6 +68,11 @@ class Character
     full_reset
   end
 
+  def take_damage(damage)
+    self.health -= damage
+    self.health = 0 if health < 0
+  end
+
   def charge_focus(ammount = 1)
     self.focus += ammount
     self.focus = max_focus if focus > max_focus
@@ -82,6 +90,10 @@ class Character
     health <= 0
   end
 
+  def up?
+    health.positive?
+  end
+
   def low_health?
     health <= max_health / 4
   end
@@ -93,6 +105,11 @@ class Character
   def full_reset
     full_heal
     reset_focus
+  end
+
+  def recover(amount)
+    self.health += amount
+    self.health = max_health if self.health > max_health
   end
 
   def reset_cost
@@ -118,5 +135,16 @@ class Character
 
   def do_assignment
     case_assignment
+  end
+
+  def use_trait(type, encounter)
+    case type
+    when :breaker
+      Specials.send(traits[type].id, self, :attack, encounter)
+    when :clutch
+      Specials.send(traits[type].id, self, :defense, encounter)
+    else
+      Specials.send(traits[type].id, self, type, encounter)
+    end
   end
 end
