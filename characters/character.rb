@@ -13,9 +13,9 @@ module Information
 
   def brief(reverse = false)
     if reverse
-      '(%s)MP (%s)HP :%16s' % [status_bar(focus, max_focus).reverse, status_bar(health, max_health).reverse, name]
+      '(%s)MP (%s %02i/%02i)HP :%16s' % [status_bar(focus, max_focus).reverse, status_bar(health, max_health).reverse, health, max_health, name]
     else
-      '%-16s: HP(%s) MP(%s)' % [name, status_bar(health, max_health), status_bar(focus, max_focus)]
+      '%-16s: HP(%02i/%02i %s) MP(%s)' % [name, health, max_health, status_bar(health, max_health), status_bar(focus, max_focus)]
     end
   end
 
@@ -40,10 +40,10 @@ module Information
       focus: format("%-6s: %2i/%2i", 'Focus', focus, max_focus),
       power: format("%-6s: %2i", 'Power', power),
       speed: format("%-6s: %2i", 'Speed', speed),
-      attack: format("%-16s: %s", 'Critical Attack', traits[:attack].id),
-      defense: format("%-16s: %s", 'Critical Defense', traits[:defense].id),
-      breaker: format("%-16s: %s", 'Focus Breaker', traits[:breaker].id),
-      clutch: format("%-16s: %s", 'Clutch Play', traits[:clutch].id),
+      attack: format("%-16s: %s", 'Critical Attack', traits[:attack].name),
+      defense: format("%-16s: %s", 'Critical Defense', traits[:defense].name),
+      breaker: format("%-16s: %s", 'Focus Breaker', traits[:breaker].name),
+      clutch: format("%-16s: %s", 'Clutch Play', traits[:clutch].name),
     }
   end
 end

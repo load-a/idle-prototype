@@ -11,7 +11,7 @@
 			"speed": 4,
 			"traits": {
 				"attack": "powerup",
-				"breaker": "add_focus",
+				"breaker": "punishment",
 				"clutch": "heal_self",
 				"defense": "quick_step"
 			},
@@ -23,7 +23,6 @@
 				"free": 8,
 				"job": 0
 			}
-			
 		},
 		{
 			"id": "barney",
@@ -48,7 +47,6 @@
 				"free": 4,
 				"job": 0
 			}
-			
 		},
 		{
 			"id": "charles",
@@ -60,10 +58,10 @@
 			"focus": 8,
 			"speed": 8,
 			"traits": {
-				"attack": "none",
-				"breaker": "berserk",
-				"clutch": "none",
-				"defense": "none"
+				"attack": "berserk",
+				"breaker": "gang_up",
+				"clutch": "powerup",
+				"defense": "backup"
 			},
 			"behavior": {
 				"sleep": 8,
@@ -73,7 +71,6 @@
 				"free": 4,
 				"job": 7
 			}
-			
 		},
 		{
 			"id": "doug",
@@ -98,7 +95,6 @@
 				"free": 8,
 				"job": 0
 			}
-			
 		},
 		{
 			"id": "emanon",
@@ -123,7 +119,6 @@
 				"free": 4,
 				"job": 2
 			}
-			
 		},
 		{
 			"id": "faze",
@@ -148,7 +143,6 @@
 				"free": 4,
 				"job": 0
 			}
-			
 		},
 		{
 			"id": "gemma",
@@ -173,7 +167,6 @@
 				"free": 4,
 				"job": 0
 			}
-			
 		},
 		{
 			"id": "haramatsu",
@@ -198,7 +191,6 @@
 				"free": 4,
 				"job": 0
 			}
-			
 		},
 		{
 			"id": "isolde",
@@ -223,7 +215,6 @@
 				"free": 4,
 				"job": 0
 			}
-			
 		},
 		{
 			"id": "jarome",
@@ -248,7 +239,6 @@
 				"free": 4,
 				"job": 0
 			}
-			
 		},
 		{
 			"id": "kori",
@@ -273,7 +263,6 @@
 				"free": 4,
 				"job": 0
 			}
-			
 		},
 		{
 			"id": "leif",
@@ -298,7 +287,6 @@
 				"free": 4,
 				"job": 8
 			}
-			
 		},
 		{
 			"id": "melvin",
@@ -323,7 +311,6 @@
 				"free": 4,
 				"job": 0
 			}
-			
 		},
 		{
 			"id": "niamh",
@@ -335,10 +322,10 @@
 			"focus": 8,
 			"speed": 6,
 			"traits": {
-				"attack": "none",
-				"breaker": "none",
-				"clutch": "none",
-				"defense": "none"
+				"attack": "focus_self",
+				"breaker": "powerup",
+				"clutch": "quick_step",
+				"defense": "focus_team"
 			},
 			"behavior": {
 				"sleep": 8,
@@ -348,7 +335,6 @@
 				"free": 4,
 				"job": 6
 			}
-			
 		},
 		{
 			"id": "orick",
@@ -373,7 +359,6 @@
 				"free": 4,
 				"job": 0
 			}
-			
 		},
 		{
 			"id": "petra",
@@ -388,7 +373,7 @@
 				"attack": "snipe",
 				"breaker": "snipe",
 				"clutch": "snipe",
-				"defense": "snipe"
+				"defense": "crossfire"
 			},
 			"behavior": {
 				"sleep": 8,
@@ -398,7 +383,6 @@
 				"free": 4,
 				"job": 0
 			}
-			
 		},
 		{
 			"id": "quill",
@@ -423,7 +407,6 @@
 				"free": 4,
 				"job": 0
 			}
-			
 		},
 		{
 			"id": "ray",
@@ -448,7 +431,6 @@
 				"free": 4,
 				"job": 0
 			}
-			
 		},
 		{
 			"id": "sara",
@@ -460,10 +442,10 @@
 			"focus": 10,
 			"speed": 6,
 			"traits": {
-				"attack": "none",
+				"attack": "followup",
 				"breaker": "heal_ally",
 				"clutch": "heal_self",
-				"defense": "none"
+				"defense": "heal_team"
 			},
 			"behavior": {
 				"sleep": 8,
@@ -473,7 +455,6 @@
 				"free": 4,
 				"job": 0
 			}
-			
 		},
 		{
 			"id": "tomoe",
@@ -485,9 +466,9 @@
 			"focus": 10,
 			"speed": 12,
 			"traits": {
-				"attack": "none",
-				"breaker": "none",
-				"clutch": "none",
+				"attack": "punishment",
+				"breaker": "powerup",
+				"clutch": "side_step",
 				"defense": "none"
 			},
 			"behavior": {
@@ -498,7 +479,6 @@
 				"free": 2,
 				"job": 8
 			}
-			
 		},
 		{
 			"id": "umber",
@@ -523,7 +503,6 @@
 				"free": 4,
 				"job": 0
 			}
-			
 		},
 		{
 			"id": "vera",
@@ -548,7 +527,6 @@
 				"free": 4,
 				"job": 0
 			}
-			
 		},
 		{
 			"id": "winston",
@@ -573,7 +551,6 @@
 				"free": 4,
 				"job": 0
 			}
-			
 		},
 		{
 			"id": "xia",
@@ -585,10 +562,10 @@
 			"focus": 20,
 			"speed": 20,
 			"traits": {
-				"attack": "none",
+				"attack": "focus_team",
 				"breaker": "mastery",
-				"clutch": "none",
-				"defense": "none"
+				"clutch": "powerup",
+				"defense": "heal_team"
 			},
 			"behavior": {
 				"sleep": 9,
@@ -598,7 +575,6 @@
 				"free": 3,
 				"job": 0
 			}
-			
 		},
 		{
 			"id": "yumi",
@@ -623,7 +599,6 @@
 				"free": 4,
 				"job": 3
 			}
-			
 		},
 		{
 			"id": "zylo",
@@ -648,7 +623,6 @@
 				"free": 4,
 				"job": 0
 			}
-			
 		}
 	],
 	"traits": [
@@ -657,12 +631,28 @@
 				"description": "This trait has not been developed."
 			},
 			{
-				"id": "roll_power",
+				"id": "followup",
 				"description": "Adds a POWER roll to outcome."
 			},
 			{
 				"id": "powerup",
 				"description": "Adds POWER to the roll."
+			},
+			{
+				"id": "opportunity",
+				"description": "Adds FOCUS roll to the outcome."
+			},
+			{
+				"id": "punishment",
+				"description": "Adds full FOCUS to the roll"
+			},
+			{
+				"id": "side_step",
+				"description": "Rolls a multiplier based on SPEED; multiplies it by POWER and adds product to roll."
+			},
+			{
+				"id": "quick_step",
+				"description": "Applies a multiplier based on SPEED to the roll."
 			},
 			{
 				"id": "heal_self",
@@ -673,20 +663,20 @@
 				"description": "A random ally (or yourself) recovers HEALTH."
 			},
 			{
-				"id": "add_focus",
-				"description": "none"
+				"id": "heal_team",
+				"description": "Your entire team recovers HEALTH."
 			},
 			{
-				"id": "roll_focus",
-				"description": "Adds POWER to the outcome."
+				"id": "focus_self",
+				"description": "Heals self for 10 FOCUS."
 			},
 			{
-				"id": "side_step",
-				"description": "Adds SPEED to the roll."
+				"id": "focus_ally",
+				"description": "A random ally (or yourself) recovers FOCUS."
 			},
 			{
-				"id": "quick_step",
-				"description": "Adds a SPEED roll to current result."
+				"id": "focus_team",
+				"description": "Your entire team recovers FOCUS."
 			},
 			{
 				"id": "berserk",
@@ -694,7 +684,19 @@
 			},
 			{
 				"id": "snipe",
-				"description": "Deal POWER damage to a random opponent."
+				"description": "Deal full POWER damage to a random opponent."
+			},
+			{
+				"id": "crossfire",
+				"description": "A random enemy takes some POWER damage."
+			},
+			{
+				"id": "backup",
+				"description": "A random ally lends you their POWER."
+			},
+			{
+				"id": "gang_up",
+				"description": "The whole team comes out to help."
 			},
 			{
 				"id": "mastery",

@@ -2,13 +2,13 @@
 
 module CombatMethods
   def process_critical_attack(attacker, round)
-    log << "Critical attack!" 
+    log << alert("Nice offense", '// ')
       
     return if attacker.traits[:attack].id == :none
 
-    log << "#{attacker.name} used #{attacker.traits[:attack].id}"
-    critical = attacker.use_trait(:attack, round)
-    log << alert(critical, '^^ ')
+    critical_message = "#{attacker.name} attacked with #{attacker.traits[:attack].name}"
+    # log << alert(critical_message, '^^ ')
+    log << alert(attacker.use_trait(:attack, round), '   ')
   end
 
   def apply_counter_damage(attacker, defender, round)
@@ -16,18 +16,18 @@ module CombatMethods
 
     attacker.take_damage(counter_damage)
 
-    log << "#{defender.name} got some hits in"
+    log << "#{defender.name} got some hits in during the windup"
     log << alert("#{attacker.name} took #{counter_damage} counter damage", bullet(counter_damage))
   end
 
   def process_critical_defense(defender, round)
-    log << "Critical defense!"
+    log << alert("Solid defense", '// ')
 
     return if defender.traits[:defense].id == :none
 
-    log << "#{defender.name} used #{defender.traits[:defense].id}"
-    critical = defender.use_trait(:defense, round)
-    log << alert(critical, '^^ ')
+    critical_message = "#{defender.name} defended using #{defender.traits[:defense].name}"
+    # log << alert(critical_message, '^^ ')
+    log << alert(defender.use_trait(:defense, round), '   ')
   end
 
   def process_breaker(attacker, round)
@@ -35,8 +35,8 @@ module CombatMethods
 
     attacker.reset_focus
 
-    log << "#{attacker.name} uses BREAKER" 
-    log << attacker.use_trait(:breaker, round)
+    log << alert("#{attacker.name} unleashed their Breaker", '// ')
+    log << alert(attacker.use_trait(:breaker, round), '   ')
   end
 
   def process_clutch(defender, round)
@@ -44,10 +44,10 @@ module CombatMethods
 
     saving_throw = Dice.roll(20).result
 
-    return log << alert("#{defender.name} couldn't hang...", 'vv ') if saving_throw < defender.power
+    return log << alert("#{defender.name} tried to clutch up but choked", '.. ') if saving_throw < defender.power
 
-    log << "Clutch!"
-    log << alert(defender.use_trait(:clutch, round), '^^ ')
+    log << alert("#{defender.name} clutched it!", '// ')
+    log << alert(defender.use_trait(:clutch, round), '   ')
   end
 
   def apply_encounter_damage(defender, round)
@@ -56,12 +56,13 @@ module CombatMethods
     log << alert("#{defender.name} took #{damage} damage", bullet(damage))
   end
 
-  def check_defeats(teams)
-    # Alert defeats
-    teams.map(&:members).flatten.each do |character|
-      if character.down?
-        log << alert("#{character.name} is defeated")
-      end
+  def alert_downs(attacking_team, defending_team)
+    attacking_team.members.each do |character|
+      log << alert("#{character.name} is down") if character.down?
+    end
+
+    defending_team.members.each do |character|
+      log << alert("#{character.name} is down") if character.down?
     end
   end
 end

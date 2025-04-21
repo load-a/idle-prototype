@@ -7,7 +7,7 @@ module CombatOutput
     sign = []
 
     [right, left].map(&:length).max.times do |number|
-      sign << '%48s %s %-48s' % [left[number], splitter, right[number]]
+      sign << '%55s %s %-55s' % [left[number], splitter, right[number]]
     end
 
     sign
@@ -23,7 +23,7 @@ module CombatOutput
     if amount.positive? 
       '-- ' 
     elsif amount.zero? 
-      '~~ ' 
+      '' 
     else 
       '++ ' 
     end 

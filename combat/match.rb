@@ -29,16 +29,22 @@ class Match
 
       # Run all combat
       teams[0].members.each do |member|
+
+        break if teams[1].members.empty?
+        next if member.down?
+
         play_round(member, teams[1].sample, teams[0], teams[1])
-        member.charge_focus if member.up?
-        log << "#{member.name} is ready to BREAK" if member.charged? 
+        teams[1].members.delete_if { |opponent| opponent.down? }
+
+        if member.up?
+          member.charge_focus 
+          log << "#{member.name} is ready to BREAK" if member.charged? 
+        end
+
         log << "\n"
       end
 
-      # Remove defeated characters
-      teams.each do |team|
-        team.members.reject! {|teammate| teammate.down? }
-      end
+      teams[0].members.delete_if {|teammate| teammate.down? }
 
       if teams.any?(&:empty?)
 
@@ -76,10 +82,10 @@ class Match
 
     # Damage Taken
     apply_encounter_damage(defender, round)
-    log << "#{defender.name} is gonna try to clutch this" if defender.low_health? && defender.up?
+    log << "#{defender.name} is gonna try to clutch this next one" if defender.low_health? && defender.up?
 
     # Alert defeated characters
-    check_defeats([player_team, cpu_team])
+    alert_downs(attacker_team, defender_team)
   end
 end
 

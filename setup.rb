@@ -16,7 +16,18 @@ CHARACTER_DATA = game_data["characters"].freeze
 TRAIT_DATA = game_data["traits"].freeze
 TEAM_DATA = game_data["teams"].freeze
 
-Trait = Struct.new(:id)
+class Trait
+  attr_accessor :id
+
+  def initialize(id)
+    self.id = id
+    raise "Trait ID is too long for Four-column view: #{id}" if id.to_s.length > 11
+  end
+
+  def name
+    self.id.to_s.split('_').map(&:capitalize).join(' ')
+  end
+end
 
 TRAITS = {}
 TRAIT_ALIASES = {}
