@@ -3,12 +3,15 @@
 class Calendar
   attr_accessor :year, :month, :day, :hour
 
-  def initialize()
-    self.year, self.month, self.day, self.hour = [3019, 1, 1, 10]
+  def initialize
+    self.year = 3019
+    self.month = 1
+    self.day = 1
+    self.hour = 10
   end
 
   def advance_hour(amount = 1)
-    amount.times do 
+    amount.times do
       self.hour += 1
 
       if hour >= 24
@@ -19,7 +22,7 @@ class Calendar
   end
 
   def advance_day(amount = 1)
-    amount.times do 
+    amount.times do
       self.day += 1
 
       if day >= 29
@@ -27,10 +30,10 @@ class Calendar
         advance_month
       end
     end
-  end 
+  end
 
   def advance_month(amount = 1)
-    amount.times do 
+    amount.times do
       self.month += 1
 
       if month >= 14
@@ -38,10 +41,10 @@ class Calendar
         advance_year
       end
     end
-  end 
+  end
 
   def advance_year(amount = 1)
-    amount.times do 
+    amount.times do
       self.year += 1
 
       if year >= 3020
@@ -52,15 +55,15 @@ class Calendar
   end
 
   def date
-    '%s, %s %i %02i:00 ~ %i/%02i/%02i' % [day_of_the_week, months_of_the_year, day, hour, year, month, day]
+    format('%s, %s %i %02i:00 ~ %i/%02i/%02i', day_of_the_week, months_of_the_year, day, hour, year, month, day)
   end
 
   def full_date
-    '%s, %s %i %02i:00' % [day_of_the_week, months_of_the_year, day, hour, year, month, day]
+    format('%s, %s %i %02i:00', day_of_the_week, months_of_the_year, day, hour, year, month, day)
   end
 
   def brief_date
-    '%02i:00 ~ %i/%02i/%02i' % [hour, year, month, day]
+    format('%02i:00 ~ %i/%02i/%02i', hour, year, month, day)
   end
 
   def day_of_the_week(day_of_the_month = self.day)

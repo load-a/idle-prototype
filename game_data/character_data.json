@@ -1,0 +1,600 @@
+{
+  "alyssa": {
+    "name": "Alyssa",
+    "description": "This is a character",
+    "cost": 40,
+    "health": 25,
+    "power": 4,
+    "focus": 12,
+    "speed": 4,
+    "traits": {
+      "attack": "powerup",
+      "breaker": "punishment",
+      "clutch": "heal_self",
+      "defense": "quick_step"
+    },
+    "behavior": {
+      "sleep": 10,
+      "rest": 2,
+      "train": 2,
+      "out": 2,
+      "free": 8,
+      "job": 0
+    }
+  },
+  "barney": {
+    "name": "Barney",
+    "description": "This is a character",
+    "cost": 50,
+    "health": 27,
+    "power": 10,
+    "focus": 6,
+    "speed": 12,
+    "traits": {
+      "attack": "none",
+      "breaker": "none",
+      "clutch": "none",
+      "defense": "none"
+    },
+    "behavior": {
+      "sleep": 8,
+      "rest": 2,
+      "train": 4,
+      "out": 6,
+      "free": 4,
+      "job": 0
+    }
+  },
+  "charles": {
+    "name": "Charles",
+    "description": "This is a character",
+    "cost": 50,
+    "health": 40,
+    "power": 10,
+    "focus": 8,
+    "speed": 8,
+    "traits": {
+      "attack": "berserk",
+      "breaker": "gang_up",
+      "clutch": "powerup",
+      "defense": "backup"
+    },
+    "behavior": {
+      "sleep": 8,
+      "rest": 2,
+      "train": 4,
+      "out": 6,
+      "free": 4,
+      "job": 7
+    }
+  },
+  "doug": {
+    "name": "Doug the Dog",
+    "description": "This is a character",
+    "cost": 50,
+    "health": 50,
+    "power": 12,
+    "focus": 20,
+    "speed": 12,
+    "traits": {
+      "attack": "none",
+      "breaker": "none",
+      "clutch": "none",
+      "defense": "none"
+    },
+    "behavior": {
+      "sleep": 8,
+      "rest": 2,
+      "train": 4,
+      "out": 2,
+      "free": 8,
+      "job": 0
+    }
+  },
+  "emanon": {
+    "name": "Emanon",
+    "description": "This is a character",
+    "cost": 50,
+    "health": 50,
+    "power": 8,
+    "focus": 8,
+    "speed": 6,
+    "traits": {
+      "attack": "none",
+      "breaker": "none",
+      "clutch": "none",
+      "defense": "none"
+    },
+    "behavior": {
+      "sleep": 8,
+      "rest": 2,
+      "train": 4,
+      "out": 6,
+      "free": 4,
+      "job": 2
+    }
+  },
+  "faze": {
+    "name": "Faze",
+    "description": "This is a character",
+    "cost": 50,
+    "health": 50,
+    "power": 4,
+    "focus": 10,
+    "speed": 6,
+    "traits": {
+      "attack": "none",
+      "breaker": "none",
+      "clutch": "none",
+      "defense": "none"
+    },
+    "behavior": {
+      "sleep": 8,
+      "rest": 2,
+      "train": 4,
+      "out": 6,
+      "free": 4,
+      "job": 0
+    }
+  },
+  "gemma": {
+    "name": "Gemma",
+    "description": "This is a character",
+    "cost": 50,
+    "health": 50,
+    "power": 6,
+    "focus": 8,
+    "speed": 8,
+    "traits": {
+      "attack": "none",
+      "breaker": "none",
+      "clutch": "none",
+      "defense": "none"
+    },
+    "behavior": {
+      "sleep": 8,
+      "rest": 2,
+      "train": 4,
+      "out": 6,
+      "free": 4,
+      "job": 0
+    }
+  },
+  "haramatsu": {
+    "name": "Haramatsu",
+    "description": "This is a character",
+    "cost": 80,
+    "health": 30,
+    "power": 8,
+    "focus": 10,
+    "speed": 4,
+    "traits": {
+      "attack": "none",
+      "breaker": "none",
+      "clutch": "none",
+      "defense": "none"
+    },
+    "behavior": {
+      "sleep": 8,
+      "rest": 2,
+      "train": 4,
+      "out": 6,
+      "free": 4,
+      "job": 0
+    }
+  },
+  "isolde": {
+    "name": "Isolde",
+    "description": "This is a character",
+    "cost": 50,
+    "health": 50,
+    "power": 8,
+    "focus": 12,
+    "speed": 6,
+    "traits": {
+      "attack": "none",
+      "breaker": "none",
+      "clutch": "none",
+      "defense": "none"
+    },
+    "behavior": {
+      "sleep": 8,
+      "rest": 2,
+      "train": 4,
+      "out": 6,
+      "free": 4,
+      "job": 0
+    }
+  },
+  "jarome": {
+    "name": "Jarome",
+    "description": "This is a character",
+    "cost": 50,
+    "health": 35,
+    "power": 10,
+    "focus": 20,
+    "speed": 10,
+    "traits": {
+      "attack": "none",
+      "breaker": "none",
+      "clutch": "none",
+      "defense": "none"
+    },
+    "behavior": {
+      "sleep": 8,
+      "rest": 2,
+      "train": 4,
+      "out": 6,
+      "free": 4,
+      "job": 0
+    }
+  },
+  "kori": {
+    "name": "Kori",
+    "description": "This is a character",
+    "cost": 50,
+    "health": 40,
+    "power": 4,
+    "focus": 4,
+    "speed": 6,
+    "traits": {
+      "attack": "none",
+      "breaker": "none",
+      "clutch": "none",
+      "defense": "none"
+    },
+    "behavior": {
+      "sleep": 8,
+      "rest": 2,
+      "train": 4,
+      "out": 6,
+      "free": 4,
+      "job": 0
+    }
+  },
+  "leif": {
+    "name": "Leif",
+    "description": "This is a character",
+    "cost": 50,
+    "health": 55,
+    "power": 6,
+    "focus": 6,
+    "speed": 10,
+    "traits": {
+      "attack": "none",
+      "breaker": "none",
+      "clutch": "none",
+      "defense": "none"
+    },
+    "behavior": {
+      "sleep": 8,
+      "rest": 2,
+      "train": 4,
+      "out": 6,
+      "free": 4,
+      "job": 8
+    }
+  },
+  "melvin": {
+    "name": "Melvin",
+    "description": "This is a character",
+    "cost": 50,
+    "health": 49,
+    "power": 8,
+    "focus": 12,
+    "speed": 6,
+    "traits": {
+      "attack": "none",
+      "breaker": "none",
+      "clutch": "none",
+      "defense": "none"
+    },
+    "behavior": {
+      "sleep": 8,
+      "rest": 2,
+      "train": 4,
+      "out": 6,
+      "free": 4,
+      "job": 0
+    }
+  },
+  "niamh": {
+    "name": "Niamh",
+    "description": "This is a character",
+    "cost": 50,
+    "health": 50,
+    "power": 4,
+    "focus": 8,
+    "speed": 6,
+    "traits": {
+      "attack": "focus_self",
+      "breaker": "powerup",
+      "clutch": "quick_step",
+      "defense": "focus_team"
+    },
+    "behavior": {
+      "sleep": 8,
+      "rest": 2,
+      "train": 4,
+      "out": 6,
+      "free": 4,
+      "job": 6
+    }
+  },
+  "orick": {
+    "name": "Orick",
+    "description": "This is a character",
+    "cost": 50,
+    "health": 50,
+    "power": 4,
+    "focus": 10,
+    "speed": 6,
+    "traits": {
+      "attack": "none",
+      "breaker": "none",
+      "clutch": "none",
+      "defense": "none"
+    },
+    "behavior": {
+      "sleep": 8,
+      "rest": 2,
+      "train": 4,
+      "out": 6,
+      "free": 4,
+      "job": 0
+    }
+  },
+  "petra": {
+    "name": "Petra",
+    "description": "This is a character",
+    "cost": 50,
+    "health": 35,
+    "power": 12,
+    "focus": 6,
+    "speed": 8,
+    "traits": {
+      "attack": "snipe",
+      "breaker": "snipe",
+      "clutch": "snipe",
+      "defense": "crossfire"
+    },
+    "behavior": {
+      "sleep": 8,
+      "rest": 2,
+      "train": 4,
+      "out": 6,
+      "free": 4,
+      "job": 0
+    }
+  },
+  "quill": {
+    "name": "Quill",
+    "description": "This is a character",
+    "cost": 50,
+    "health": 50,
+    "power": 8,
+    "focus": 10,
+    "speed": 6,
+    "traits": {
+      "attack": "none",
+      "breaker": "none",
+      "clutch": "none",
+      "defense": "none"
+    },
+    "behavior": {
+      "sleep": 8,
+      "rest": 2,
+      "train": 4,
+      "out": 6,
+      "free": 4,
+      "job": 0
+    }
+  },
+  "ray": {
+    "name": "Ray Louis",
+    "description": "This is a character",
+    "cost": 50,
+    "health": 50,
+    "power": 12,
+    "focus": 6,
+    "speed": 8,
+    "traits": {
+      "attack": "none",
+      "breaker": "none",
+      "clutch": "none",
+      "defense": "none"
+    },
+    "behavior": {
+      "sleep": 8,
+      "rest": 2,
+      "train": 4,
+      "out": 6,
+      "free": 4,
+      "job": 0
+    }
+  },
+  "sara": {
+    "name": "Sara",
+    "description": "This is a character",
+    "cost": 50,
+    "health": 50,
+    "power": 6,
+    "focus": 10,
+    "speed": 6,
+    "traits": {
+      "attack": "followup",
+      "breaker": "heal_ally",
+      "clutch": "heal_self",
+      "defense": "heal_team"
+    },
+    "behavior": {
+      "sleep": 8,
+      "rest": 2,
+      "train": 4,
+      "out": 6,
+      "free": 4,
+      "job": 0
+    }
+  },
+  "tomoe": {
+    "name": "Tomoe",
+    "description": "This is a character",
+    "cost": 20,
+    "health": 60,
+    "power": 12,
+    "focus": 10,
+    "speed": 12,
+    "traits": {
+      "attack": "punishment",
+      "breaker": "powerup",
+      "clutch": "side_step",
+      "defense": "none"
+    },
+    "behavior": {
+      "sleep": 6,
+      "rest": 2,
+      "train": 6,
+      "out": 8,
+      "free": 2,
+      "job": 8
+    }
+  },
+  "umber": {
+    "name": "Umber",
+    "description": "This is a character",
+    "cost": 50,
+    "health": 50,
+    "power": 4,
+    "focus": 10,
+    "speed": 6,
+    "traits": {
+      "attack": "none",
+      "breaker": "none",
+      "clutch": "none",
+      "defense": "none"
+    },
+    "behavior": {
+      "sleep": 8,
+      "rest": 2,
+      "train": 4,
+      "out": 6,
+      "free": 4,
+      "job": 0
+    }
+  },
+  "vera": {
+    "name": "Vera",
+    "description": "This is a character",
+    "cost": 50,
+    "health": 50,
+    "power": 4,
+    "focus": 10,
+    "speed": 6,
+    "traits": {
+      "attack": "none",
+      "breaker": "none",
+      "clutch": "none",
+      "defense": "none"
+    },
+    "behavior": {
+      "sleep": 8,
+      "rest": 2,
+      "train": 4,
+      "out": 6,
+      "free": 4,
+      "job": 0
+    }
+  },
+  "winston": {
+    "name": "Winston",
+    "description": "This is a character",
+    "cost": 50,
+    "health": 25,
+    "power": 10,
+    "focus": 8,
+    "speed": 8,
+    "traits": {
+      "attack": "none",
+      "breaker": "none",
+      "clutch": "none",
+      "defense": "none"
+    },
+    "behavior": {
+      "sleep": 8,
+      "rest": 2,
+      "train": 4,
+      "out": 6,
+      "free": 4,
+      "job": 0
+    }
+  },
+  "xia": {
+    "name": "Ming Xia",
+    "description": "This is a character",
+    "cost": 0,
+    "health": 55,
+    "power": 20,
+    "focus": 20,
+    "speed": 20,
+    "traits": {
+      "attack": "focus_team",
+      "breaker": "mastery",
+      "clutch": "powerup",
+      "defense": "heal_team"
+    },
+    "behavior": {
+      "sleep": 9,
+      "rest": 2,
+      "train": 4,
+      "out": 6,
+      "free": 3,
+      "job": 0
+    }
+  },
+  "yumi": {
+    "name": "Yumi",
+    "description": "This is a character",
+    "cost": 35,
+    "health": 45,
+    "power": 8,
+    "focus": 8,
+    "speed": 6,
+    "traits": {
+      "attack": "mastery",
+      "breaker": "none",
+      "clutch": "heal_ally",
+      "defense": "side_step"
+    },
+    "behavior": {
+      "sleep": 7,
+      "rest": 3,
+      "train": 8,
+      "out": 2,
+      "free": 4,
+      "job": 3
+    }
+  },
+  "zylo": {
+    "name": "Zylo",
+    "description": "This is a character",
+    "cost": 60,
+    "health": 60,
+    "power": 12,
+    "focus": 20,
+    "speed": 4,
+    "traits": {
+      "attack": "none",
+      "breaker": "none",
+      "clutch": "none",
+      "defense": "none"
+    },
+    "behavior": {
+      "sleep": 8,
+      "rest": 2,
+      "train": 4,
+      "out": 6,
+      "free": 4,
+      "job": 0
+    }
+  }
+}

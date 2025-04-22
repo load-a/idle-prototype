@@ -4,13 +4,14 @@ class Match
   include CombatOutput
   include CombatMethods
 
-  attr_accessor :player_team, :cpu_team, :round_number, :log
+  attr_accessor :player_team, :cpu_team, :round_number, :log, :winner
 
   def initialize(player_team, cpu_team_team)
     self.player_team = player_team
     self.cpu_team = cpu_team_team
     self.round_number = 0
     self.log = []
+    self.winner = nil
   end
 
   def play
@@ -24,12 +25,11 @@ class Match
       direction = teams.first == player_team ? '>>>' : '<<<'
 
       log << "Round #{round_number}".center(120)
-      log << bracket(direction).map {|line| line.center(120)}
+      log << bracket(direction).map { |line| line.center(120) }
       log << "\n"
 
       # Run all combat
       teams[0].members.each do |member|
-
         break if teams[1].members.empty?
         next if member.down?
 
@@ -37,25 +37,26 @@ class Match
         teams[1].members.delete_if { |opponent| opponent.down? }
 
         if member.up?
-          member.charge_focus 
-          log << "#{member.name} is ready to BREAK" if member.charged? 
+          member.charge_focus
+          log << "#{member.name} is ready to BREAK" if member.charged?
         end
 
         log << "\n"
       end
 
-      teams[0].members.delete_if {|teammate| teammate.down? }
+      teams[0].members.delete_if { |teammate| teammate.down? }
 
-      if teams.any?(&:empty?)
+      next unless teams.any?(&:empty?)
 
-        if (teams[0] & cpu_team).none?
-          log << "you win"
-        else
-          log << "you lose"
-        end
-
-        break
+      if (teams[0].members & cpu_team.members).none?
+        log << 'you win'
+        self.winner = :player
+      else
+        log << 'you lose'
+        self.winner = :cpu
       end
+
+      break
     end
   end
 
@@ -88,4 +89,3 @@ class Match
     alert_downs(attacker_team, defender_team)
   end
 end
-

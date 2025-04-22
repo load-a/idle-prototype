@@ -2,6 +2,7 @@
 
 class Trait
   attr_accessor :name, :id, :description, :use_text, :components
+
   def initialize(name, id, description)
     self.id = id
     self.name = name
@@ -15,6 +16,6 @@ class Trait
   end
 
   def to_s
-    '%-16s -- %s' % [name, description]
+    format('%-16s -- %s', name, description)
   end
 end

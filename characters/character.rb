@@ -4,8 +4,8 @@ require_relative 'specials'
 require_relative 'team'
 
 module Information
-  def status_bar(stat, max, length = 10)
-    bars = ((stat.to_f / max) * length).ceil
+  def status_bar(current, max, length = 10)
+    bars = ((current.to_f / max) * length).ceil
     lines = length - bars
 
     "#{'█' * bars}#{'-' * lines}"
@@ -13,37 +13,39 @@ module Information
 
   def brief(reverse = false)
     if reverse
-      '(%s)MP (%s %02i/%02i)HP :%16s' % [status_bar(focus, max_focus).reverse, status_bar(health, max_health).reverse, health, max_health, name]
+      format('(%s)MP (%s %02i/%02i)HP :%16s', status_bar(focus, max_focus).reverse,
+             status_bar(health, max_health).reverse, health, max_health, name)
     else
-      '%-16s: HP(%02i/%02i %s) MP(%s)' % [name, health, max_health, status_bar(health, max_health), status_bar(focus, max_focus)]
+      format('%-16s: HP(%02i/%02i %s) MP(%s)', name, health, max_health, status_bar(health, max_health),
+             status_bar(focus, max_focus))
     end
   end
 
   def status
-    format('%s: HP(%2i/%2i) MP(%2i/%2i) P(%2i) S(%2i) %s%s', 
-    name, health, max_health, focus, max_focus, power, speed,
-    (" BREAKER(#{traits[:breaker].id.capitalize})" if charged? && traits[:breaker].id != 'none'),
-    (" CLUTCH(#{traits[:clutch].id.capitalize})" if low_health? && traits[:clutch].id != 'none'))
+    format('%s: HP(%2i/%2i) MP(%2i/%2i) P(%2i) S(%2i) %s%s',
+           name, health, max_health, focus, max_focus, power, speed,
+           (" BREAKER(#{traits[:breaker].id.capitalize})" if charged? && traits[:breaker].id != 'none'),
+           (" CLUTCH(#{traits[:clutch].id.capitalize})" if low_health? && traits[:clutch].id != 'none'))
   end
 
   def to_s
-    format('%16s: HEALTH(%i/%i) FOCUS(%i/%i) POWER(%i) SPEED(%i) TRAITS(%s, %s, %s, %s)', 
-      name, health, max_health, focus, max_focus, power, speed,
-      traits[:attack].id.capitalize, traits[:breaker].id.capitalize, 
-      traits[:clutch].id.capitalize, traits[:defense].id.capitalize)
+    format('%16s: HEALTH(%i/%i) FOCUS(%i/%i) POWER(%i) SPEED(%i) ABILITIES(%s, %s, %s, %s)',
+           name, health, max_health, focus, max_focus, power, speed,
+           traits[:attack].id.capitalize, traits[:breaker].id.capitalize,
+           traits[:clutch].id.capitalize, traits[:defense].id.capitalize)
   end
 
   def attribute_chart
     {
       name: "~#{name}'s Stats~",
-      health: format("%-6s: %2i/%2i", 'Health', health, max_health),
-      focus: format("%-6s: %2i/%2i", 'Focus', focus, max_focus),
-      power: format("%-6s: %2i", 'Power', power),
-      speed: format("%-6s: %2i", 'Speed', speed),
-      attack: format("%-16s: %s", 'Critical Attack', traits[:attack].name),
-      defense: format("%-16s: %s", 'Critical Defense', traits[:defense].name),
-      breaker: format("%-16s: %s", 'Focus Breaker', traits[:breaker].name),
-      clutch: format("%-16s: %s", 'Clutch Play', traits[:clutch].name),
+      health: format('%-6s: %2i/%2i', 'Health', health, max_health),
+      focus: format('%-6s: %2i/%2i', 'Focus', focus, max_focus),
+      power: format('%-6s: %2i', 'Power', power),
+      speed: format('%-6s: %2i', 'Speed', speed),
+      attack: format('%-16s: %s', 'Critical Attack', traits[:attack].name),
+      defense: format('%-16s: %s', 'Critical Defense', traits[:defense].name),
+      breaker: format('%-16s: %s', 'Focus Breaker', traits[:breaker].name),
+      clutch: format('%-16s: %s', 'Clutch Play', traits[:clutch].name)
     }
   end
 end
@@ -51,11 +53,12 @@ end
 class Character
   include Information
 
-  attr_accessor :name, :health, :max_health, :power, :max_focus, :speed, 
-  :traits, :focus, :behavior, :assignment, :schedule, :tasks, :cost, :max_cost
+  attr_accessor :name, :id, :health, :max_health, :power, :max_focus, :speed,
+                :traits, :focus, :behavior, :assignment, :schedule, :tasks, :cost, :max_cost
 
-  def initialize(name, health, power, max_focus, speed)
+  def initialize(name, id, health, power, max_focus, speed)
     self.name = name
+    self.id = id
     self.max_health = health
     self.power = power
     self.max_focus = max_focus
@@ -63,7 +66,7 @@ class Character
     self.traits = {}
     self.behavior = {}
     self.schedule = []
-    self.assignment = "free"
+    self.assignment = 'free'
 
     full_reset
   end
@@ -96,6 +99,10 @@ class Character
 
   def low_health?
     health <= max_health / 4
+  end
+
+  def same_as?(character)
+    self.id == character.id
   end
 
   def full_heal
@@ -146,5 +153,18 @@ class Character
     else
       Specials.send(traits[type].id, self, type, encounter)
     end
+  end
+
+  def from_zero
+    character = self.dup
+    character.power = 4
+    character.max_health = 20
+    character.max_focus = 20
+    character.speed = 20
+    character.full_reset
+
+    character.traits.transform_values! {|trait| Trait.new(:none)}
+
+    character
   end
 end

@@ -1,0 +1,37 @@
+[
+	{
+		"name": "Adventure Club",
+		"members": ["alyssa", "tomoe", "xia", "yumi"],
+		"description": "Description."
+	},
+	{
+		"name": "Group",
+		"members": ["emanon", "faze", "umber", "zylo"],
+		"description": "Description."
+	},
+	{
+		"name": "The Closing Shift",
+		"members": ["charles", "sara", "niamh", "petra"],
+		"description": "Most of the normal closing crew for the Holy Mole cafe."
+	},
+	{
+		"name": "Isolde and the Boys",
+		"members": ["isolde", "ray", "melvin", "jarome"],
+		"description": "A crew of mercs and their captain. Things may go wrong but they always get the job done."
+	},
+	{
+		"name": "High Society",
+		"members": ["haramatsu", "vera", "quill"],
+		"description": "The second, third and fourth richest participants in the League."
+	},
+	{
+		"name": "Support Squad",
+		"members": ["leif", "kori", "gemma"],
+		"description": "Description."
+	},
+	{
+		"name": "The Carriagehouses",
+		"members": ["barney", "orick"],
+		"description": "Ranger Barney and his grandson Orick."
+	}
+]

@@ -5,7 +5,7 @@ module OffTime
 
   def check_times(character)
     hours = character.behavior.dup
-    hours.reject! {|task, hours| task == :job}
+    hours.reject! { |task, _hours| task == :job }
     hours = hours.values.sum
 
     raise "#{character.name}'s hours do not sum to 24 #{character.behavior}" if hours != 24
@@ -23,13 +23,13 @@ module OffTime
         when :sleep
           sleep_time << type
         when :free
-          if character.assignment == :job && schedule.count(:job) < character.behavior[:job]
-            schedule << :job 
-          elsif %i[job free].include? character.assignment
-            schedule << %i[train rest out].sample
-          else
-            schedule << character.assignment
-          end
+          schedule << if character.assignment == :job && schedule.count(:job) < character.behavior[:job]
+                        :job
+                      elsif %i[job free].include? character.assignment
+                        %i[train rest out].sample
+                      else
+                        character.assignment
+                      end
         when :job
           next
         else

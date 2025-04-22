@@ -2,11 +2,10 @@
 
 module CombatMethods
   def process_critical_attack(attacker, round)
-    log << alert("Nice offense", '// ')
-      
+    log << alert('Nice offense', '// ')
+
     return if attacker.traits[:attack].id == :none
 
-    critical_message = "#{attacker.name} attacked with #{attacker.traits[:attack].name}"
     # log << alert(critical_message, '^^ ')
     log << alert(attacker.use_trait(:attack, round), '   ')
   end
@@ -21,11 +20,10 @@ module CombatMethods
   end
 
   def process_critical_defense(defender, round)
-    log << alert("Solid defense", '// ')
+    log << alert('Solid defense', '// ')
 
     return if defender.traits[:defense].id == :none
 
-    critical_message = "#{defender.name} defended using #{defender.traits[:defense].name}"
     # log << alert(critical_message, '^^ ')
     log << alert(defender.use_trait(:defense, round), '   ')
   end
@@ -40,7 +38,7 @@ module CombatMethods
   end
 
   def process_clutch(defender, round)
-    return if defender.traits[:clutch] == TRAITS[:none]
+    return if defender.traits[:clutch] == ABILITIES[:none]
 
     saving_throw = Dice.roll(20).result
 

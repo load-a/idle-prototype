@@ -9,7 +9,7 @@ class Round
     self.results = {
       attack_team: attacker_team,
       defense_team: defender_team,
-      attack: 0, 
+      attack: 0,
       defense: 0,
       counter: 0,
       crit_attack: false,
@@ -22,11 +22,11 @@ class Round
   end
 
   def [](key)
-    self.results[key]
+    results[key]
   end
 
   def []=(key, value)
-    self.results[key] = value
+    results[key] = value
   end
 
   def roll_encounter
@@ -63,9 +63,9 @@ class Round
   def to_s
     log = []
 
-    log << '%-16s: %s' % ['attacker', attacker.name]
-    log << '%-16s: %s' % ['defender', defender.name]
-    results.each { |label, value| log << '%-15s: %s' % [label, value] }
+    log << (format('%-16s: %s', 'attacker', attacker.name))
+    log << (format('%-16s: %s', 'defender', defender.name))
+    results.each { |label, value| log << (format('%-15s: %s', label, value)) }
     log << "\n"
 
     log.join("\n")

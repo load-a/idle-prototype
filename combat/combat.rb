@@ -9,10 +9,10 @@ module Combat
   module_function
 
   def start(home_team, away_team)
-    game = Match.new(home_team, away_team)
+    encounter = Match.new(home_team, away_team)
 
-    game.play
+    encounter.play
 
-    game.log
+    encounter
   end
 end

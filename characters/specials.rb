@@ -7,18 +7,17 @@ module Specials
   module_function
 
   SPEED_KEY = {
-    "2" => 3.5,
-    "4" => 3,
-    "6" => 2.5,
-    "8" => 2,
-    "10" => 1.5,
-    "12" => 1, 
-    "20" => 0.5
+    '2' => 3.5,
+    '4' => 3,
+    '6' => 2.5,
+    '8' => 2,
+    '10' => 1.5,
+    '12' => 1,
+    '20' => 0.5
   }.freeze
 
-
   def none(_source, _type, _round)
-    "...but nothing happened."
+    '...but nothing happened.'
   end
 
   def followup(source, type, round)

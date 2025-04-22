@@ -1,0 +1,71 @@
+{
+	"abilities": {
+		"none": {
+			"description": "This trait has not been developed."
+		},
+		"followup": {
+			"description": "Adds a POWER roll to outcome."
+		},
+		"powerup": {
+			"description": "Adds POWER to the roll."
+		},
+		"opportunity": {
+			"description": "Adds FOCUS roll to the outcome."
+		},
+		"punishment": {
+			"description": "Adds full FOCUS to the roll"
+		},
+		"side_step": {
+			"description": "Rolls a multiplier based on SPEED; multiplies it by POWER and adds product to roll."
+		},
+		"quick_step": {
+			"description": "Applies a multiplier based on SPEED to the roll."
+		},
+		"heal_self": {
+			"description": "Heals self for 10 HEALTH."
+		},
+		"heal_ally": {
+			"description": "A random ally (or yourself) recovers HEALTH."
+		},
+		"heal_team": {
+			"description": "Your entire team recovers HEALTH."
+		},
+		"focus_self": {
+			"description": "Heals self for 10 FOCUS."
+		},
+		"focus_ally": {
+			"description": "A random ally (or yourself) recovers FOCUS."
+		},
+		"focus_team": {
+			"description": "Your entire team recovers FOCUS."
+		},
+		"berserk": {
+			"description": "Sacrifice half of your HP to lash out at the other team."
+		},
+		"snipe": {
+			"description": "Deal full POWER damage to a random opponent."
+		},
+		"crossfire": {
+			"description": "A random enemy takes some POWER damage."
+		},
+		"backup": {
+			"description": "A random ally lends you their POWER."
+		},
+		"gang_up": {
+			"description": "The whole team comes out to help."
+		},
+		"mastery": {
+			"description": "A completely BUSTED move that adds the sum of all your stats to the roll."
+		}
+	},
+	"consumables": {
+		"potion": {
+			"description": "an item"
+		}
+	},
+	"skills": {
+		"chef": {
+			"description": "Resting recovers more Health."
+		}
+	}
+}
