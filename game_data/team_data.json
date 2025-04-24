@@ -5,14 +5,14 @@
 		"description": "Description."
 	},
 	{
-		"name": "Group",
-		"members": ["emanon", "faze", "umber", "zylo"],
-		"description": "Description."
-	},
-	{
 		"name": "The Closing Shift",
 		"members": ["charles", "sara", "niamh", "petra"],
 		"description": "Most of the normal closing crew for the Holy Mole cafe."
+	},
+	{
+		"name": "Group",
+		"members": ["emanon", "faze", "umber", "zylo"],
+		"description": "Description."
 	},
 	{
 		"name": "Isolde and the Boys",

@@ -1,16 +1,24 @@
 # frozen_string_literal: true
 
 class Response
-  attr_accessor :raw
+  DEFAULT = '<???>'
+
+  attr_accessor :raw, :default
+
   def initialize(raw)
     self.raw = raw
+    self.default = raw.strip.gsub(/\W/, '').empty?
   end
 
   def text
-    raw.strip.downcase
+    return DEFAULT if default
+
+    raw.strip.downcase.gsub(/\W/, '')
   end
 
   def character
+    return DEFAULT[1] if default
+
     text[0]
   end
   alias char character
@@ -32,11 +40,12 @@ module Input
   module_function
 
   def ask(prompt)
+    ARGV.clear
     puts prompt
     Response.new(gets)
   end
 
-  def ask_number(prompt, digits)
+  def ask_number(prompt, _digits)
     loop do
       puts prompt
       break if Response.new(gets).number?

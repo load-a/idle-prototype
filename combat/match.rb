@@ -34,7 +34,7 @@ class Match
         next if member.down?
 
         play_round(member, teams[1].sample, teams[0], teams[1])
-        teams[1].members.delete_if { |opponent| opponent.down? }
+        teams[1].remove_defeated
 
         if member.up?
           member.charge_focus
@@ -44,17 +44,22 @@ class Match
         log << "\n"
       end
 
-      teams[0].members.delete_if { |teammate| teammate.down? }
+      teams[0].remove_defeated
 
-      next unless teams.any?(&:empty?)
+      next unless teams.any?(&:defeated?)
 
-      if (teams[0].members & cpu_team.members).none?
+      if player_team.defeated? && cpu_team.defeated?
+        log << 'Draw!'
+        winner == :draw
+      elsif cpu_team.defeated?
         log << 'you win'
         self.winner = :player
       else
         log << 'you lose'
         self.winner = :cpu
       end
+
+      teams.each(&:restore_defeated)
 
       break
     end

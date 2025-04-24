@@ -10,6 +10,10 @@ class Calendar
     self.hour = 10
   end
 
+  def hour_array
+    Array.new(24) { |index| (index == hour ? '-> %02i:00' : '%02i:00') % index }
+  end
+
   def advance_hour(amount = 1)
     amount.times do
       self.hour += 1
@@ -54,16 +58,24 @@ class Calendar
     end
   end
 
+  def day_month
+    format('%s, %s %s', day_of_the_week, months_of_the_year, day)
+  end
+
+  def time
+    format('%02i:00', hour)
+  end
+
   def date
-    format('%s, %s %i %02i:00 ~ %i/%02i/%02i', day_of_the_week, months_of_the_year, day, hour, year, month, day)
+    full_date
   end
 
   def full_date
-    format('%s, %s %i %02i:00', day_of_the_week, months_of_the_year, day, hour, year, month, day)
+    day_month + ' ~ ' + time
   end
 
-  def brief_date
-    format('%02i:00 ~ %i/%02i/%02i', hour, year, month, day)
+  def slash_date
+    format('%i/%02i/%02i', year, month, day)
   end
 
   def day_of_the_week(day_of_the_month = self.day)
@@ -87,9 +99,5 @@ class Calendar
 
   def months_of_the_year(month = self.month)
     %w[Zember Monoa Duon Trips Qhad Pennet Hesset Sennah Ower Nowary Dezzer][month]
-  end
-
-  def time_has_passed?(check_time)
-    check_time < hour
   end
 end

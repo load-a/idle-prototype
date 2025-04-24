@@ -63,9 +63,9 @@ class Round
   def to_s
     log = []
 
-    log << (format('%-16s: %s', 'attacker', attacker.name))
-    log << (format('%-16s: %s', 'defender', defender.name))
-    results.each { |label, value| log << (format('%-15s: %s', label, value)) }
+    log << format('%-16s: %s', 'attacker', attacker.name)
+    log << format('%-16s: %s', 'defender', defender.name)
+    results.each { |label, value| log << format('%-15s: %s', label, value) }
     log << "\n"
 
     log.join("\n")

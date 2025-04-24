@@ -28,7 +28,7 @@ module Output
     ]
 
     player.schedule.each_with_index do |activity, hour|
-      times << (format(SCHEDULE_TEMPLATE, (calendar.hour == hour ? '-> ' : '   '), hour, activity))
+      times << format(SCHEDULE_TEMPLATE, calendar.hour == hour ? '-> ' : '   ', hour, activity)
     end
 
     times
@@ -38,25 +38,49 @@ module Output
     list = []
 
     array.each_with_index do |element, index|
-      list << (format('%i. %s', index + 1, element))
+      list << format('%i. %s', index + 1, element)
     end
 
     list
   end
 
-  def columns(width, elements)
+  def columns(texts, row_headers: nil, left_div: '', right_div: '', right_edge: '', left_edge: '', header_just: :ljust,
+              content_just: :ljust)
+    texts = [texts] unless texts.is_a? Array
+    row_headers = [row_headers] unless row_headers.nil? || row_headers.is_a?(Array)
+    elements = texts.length
+
     output = []
-    line = ''
     row = 0
 
-    elements[0].length.times do
-      elements.each do |element|
-        line += "#{element[row]}".ljust(width) || ''
-      end
+    ornament_widths = (elements * (right_div.length + left_div.length)) + right_edge.length + left_edge.length
+    header_width = row_headers.nil? ? 0 : row_headers.map(&:length).max
 
-      output << line
+    row_width = 120 - ornament_widths - header_width
+
+    width = row_width / texts.length
+
+    texts.map! do |element|
+      element.is_a?(Array) ? element : [element]
+    end
+
+    length = texts.map(&:length).max
+
+    length.times do
       line = ''
+      texts.each { |text| line += left_div + "#{text[row]}".send(content_just, width) + right_div }
+      line += left_edge
+      output << line
       row += 1
+    end
+
+    return output.map { |line| right_edge + line } if header_width.zero?
+
+    row = -1
+
+    output.map! do |line|
+      row += 1
+      right_edge + "#{row_headers[row]}".send(header_just, header_width) + line
     end
 
     output
@@ -70,10 +94,6 @@ module Output
 
     list = team.members.map(&:attribute_chart).map(&:values)
 
-    columns(30, list).each do |row|
-      output << row
-    end
-
-    output
+    columns(list)
   end
 end

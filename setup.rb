@@ -25,16 +25,15 @@ end
 
 ITEM_FILE = File.read('game_data/item_data.json').freeze
 ITEM_DATA = JSON.parse(ITEM_FILE).freeze
-ABILITY_DATA = ITEM_DATA["abilities"]
+ABILITY_DATA = ITEM_DATA['abilities']
 ABILITIES = {}
 
-ABILITY_DATA.each do |id, ability|
+ABILITY_DATA.each do |id, _ability|
   id = id.to_sym
 
   ABILITIES[id] = Trait.new(id)
 end
 ABILITIES.freeze
-
 
 CHARACTER_FILE = File.read('game_data/character_data.json').freeze
 CHARACTER_DATA = JSON.parse(CHARACTER_FILE).freeze

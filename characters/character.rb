@@ -5,8 +5,13 @@ require_relative 'team'
 
 module Information
   def status_bar(current, max, length = 10)
-    bars = ((current.to_f / max) * length).ceil
+    bars = ((current.to_f / max) * length).round
+
+    raise "BARS #{current} #{max} #{length} :: bars#{bars}" if bars.negative?
+
     lines = length - bars
+
+    raise "LINES #{current} #{max} #{length} :: bars#{bars} :: lines#{lines}" if lines.negative?
 
     "#{'█' * bars}#{'-' * lines}"
   end
@@ -19,13 +24,6 @@ module Information
       format('%-16s: HP(%02i/%02i %s) MP(%s)', name, health, max_health, status_bar(health, max_health),
              status_bar(focus, max_focus))
     end
-  end
-
-  def status
-    format('%s: HP(%2i/%2i) MP(%2i/%2i) P(%2i) S(%2i) %s%s',
-           name, health, max_health, focus, max_focus, power, speed,
-           (" BREAKER(#{traits[:breaker].id.capitalize})" if charged? && traits[:breaker].id != 'none'),
-           (" CLUTCH(#{traits[:clutch].id.capitalize})" if low_health? && traits[:clutch].id != 'none'))
   end
 
   def to_s
@@ -102,7 +100,7 @@ class Character
   end
 
   def same_as?(character)
-    self.id == character.id
+    id == character.id
   end
 
   def full_heal
@@ -114,10 +112,11 @@ class Character
     reset_focus
   end
 
-  def recover(amount)
+  def recover(amount = 1)
     self.health += amount
     self.health = max_health if self.health > max_health
   end
+  alias heal recover
 
   def reset_cost
     self.cost = max_cost
@@ -130,18 +129,50 @@ class Character
   def do_task(hour)
     case schedule[hour]
     when :sleep
-      self.health = 20 if health < 20
+      recover(4)
     when :rest
-      self.health += 1 unless health > max_health + 10
+      recover(2)
     when :train
-      self.focus += 1 unless focus >= max_focus
-    when :job
+      charge_focus(2)
+    when :free
+      recover
+      charge_focus
+    when :work
       self.cost -= 1
     end
+
+    "#{name} did #{schedule[hour]}"
   end
 
   def do_assignment
     case_assignment
+  end
+
+  def set_schedule
+    schedule.clear
+
+    sleeping = []
+    working = []
+
+    behavior.each do |activity, max_time|
+      case activity
+      when :sleep
+        sleeping += Array.new(rand(max_time - 3..max_time), :sleep)
+      when :job
+        working += Array.new(rand(0..max_time), :work)
+      else
+        schedule << Array.new(rand(0..max_time), activity)
+      end
+    end
+
+    schedule.fill(:free, schedule.length, 24 - schedule.length)
+    schedule.flatten!
+    self.schedule = schedule.shuffle.sample(24 - (working + sleeping).length)
+    schedule.insert(rand(0..schedule.length - working.length), *working)
+    schedule.prepend(sleeping)
+    schedule.flatten!
+
+    schedule.rotate!(rand(2..5))
   end
 
   def use_trait(type, encounter)
@@ -156,14 +187,14 @@ class Character
   end
 
   def from_zero
-    character = self.dup
+    character = dup
     character.power = 4
     character.max_health = 20
     character.max_focus = 20
     character.speed = 20
     character.full_reset
 
-    character.traits.transform_values! {|trait| Trait.new(:none)}
+    character.traits.transform_values! { |_trait| Trait.new(:none) }
 
     character
   end

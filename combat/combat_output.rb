@@ -7,7 +7,7 @@ module CombatOutput
     sign = []
 
     [right, left].map(&:length).max.times do |number|
-      sign << (format('%55s %s %-55s', left[number], splitter, right[number]))
+      sign << format('%55s %s %-55s', left[number], splitter, right[number])
     end
 
     sign

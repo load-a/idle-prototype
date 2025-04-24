@@ -46,7 +46,7 @@ module OffTime
       start_time = rand(0...latest_start)
       end_time = start_time + (shift - 1)
 
-      character.schedule.fill(:job, (start_time..end_time))
+      character.schedule.fill(:job, start_time..end_time)
     end
 
     character.schedule += sleep_time
