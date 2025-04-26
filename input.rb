@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+require 'io/console'
+
 class Response
   DEFAULT = '<???>'
 
@@ -50,5 +52,17 @@ module Input
       puts prompt
       break if Response.new(gets).number?
     end
+  end
+
+  def ask_char(prompt)
+    puts prompt
+    character = ''
+
+    STDIN.raw do |stdin|
+      character = stdin.getc
+    end
+
+    # character =~ /\w/ ? Response.new(character) : Response.new('?')
+    Response.new(character)
   end
 end

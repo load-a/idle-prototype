@@ -6,7 +6,7 @@ module TimeMenu
       system 'clear'
       show_time_screen
 
-      response = Input.ask('Pick an action').character
+      response = Input.ask_char('Pick an action (or go [B]ack)').character
       case response
       when 'b', 'q'
         break

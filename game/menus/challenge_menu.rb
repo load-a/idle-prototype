@@ -26,7 +26,7 @@ module ChallengeMenu
     challengers = generate_challengers
     show_challengers(challengers)
 
-    pick = Input.ask('Enter pick a team (number)').number - 1
+    pick = Input.ask_char('Enter pick a team (number)').number - 1
 
     if (0..challengers.length - 1).include?(pick)
       challenger = challengers[pick]

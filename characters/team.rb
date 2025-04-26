@@ -61,16 +61,21 @@ module TeamFetch
   def all_members
     members + downed
   end
+
+  def leader
+    all_members.find {|member| member.name = lineup.first}
+  end
 end
 
 class Team
   include TeamQueries
   include TeamFetch
 
-  attr_accessor :name, :members, :description, :downed
+  attr_accessor :name, :members, :description, :downed, :lineup
 
   def initialize(members, name = nil, description = nil)
     self.members = members
+    self.lineup = members.map(&:name)
     self.name = name || "#{members[0].name}'s Team"
     self.description = description || "#{members[0].name}'s Team"
 

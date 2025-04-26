@@ -57,10 +57,12 @@ class Game
   def main_menu
     loop do
       system 'clear'
-      puts Output.columns([["$#{player.money}"], [calendar.date]], row_headers: [player.name], left_div: ' ')
+      puts Output.columns([["$#{player.money}"], [calendar.date], 
+                          [format("Today's opponent: %-16s", next_opponent&.leader&.name)]], 
+                          row_headers: [player.name], left_div: ' ')
       puts player.team
       puts Output.columns([log.last(14)], row_headers: HELP_MENU, left_div: ' > ')
-      response = Input.ask('Pick an action').character
+      response = Input.ask_char('Enter a command:').character
 
       case response
       when 'c'
@@ -75,6 +77,7 @@ class Game
         end
       when 'm'
         puts player.team
+        Input.ask_char('(go [B]ack)')
       when 't'
         time_menu
       when 'q'
@@ -89,7 +92,7 @@ class Game
     system 'clear'
     puts combat_log
 
-    Input.ask('[B]ack')
+    Input.ask_char('[B]ack')
   end
 
   def run_combat
