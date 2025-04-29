@@ -8,7 +8,7 @@
     "focus": 12,
     "speed": 4,
     "traits": {
-      "attack": "powerup",
+      "attack": "mimicry",
       "breaker": "punishment",
       "clutch": "heal_self",
       "defense": "quick_step"
@@ -517,7 +517,7 @@
       "attack": "focus_team",
       "breaker": "mastery",
       "clutch": "powerup",
-      "defense": "heal_team"
+      "defense": "mimicry"
     },
     "behavior": {
       "sleep": 9,
@@ -553,7 +553,7 @@
     "name": "Zylo",
     "description": "This is a character",
     "cost": 60,
-    "health": 60,
+    "health": 30,
     "power": 12,
     "focus": 20,
     "speed": 4,

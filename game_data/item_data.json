@@ -56,16 +56,33 @@
 		},
 		"mastery": {
 			"description": "A completely BUSTED move that adds the sum of all your stats to the roll."
+		},
+		"mimicry": {
+			"description": "Use any ability at random."
 		}
 	},
 	"consumables": {
 		"potion": {
-			"description": "an item"
+			"description": "heals 10 Health",
+			"cost": 250
+		}
+	},
+	"upgrades": {
+		"dice": {
+			"description": "Raises dice by one level.",
+			"cost": 1200
+		}
+	},
+	"subscriptions": {
+		"housecleaning": {
+			"type": "monthly",
+			"description": "Someone comes to clean up the house for the team every month, boosting REST by 5.",
+			"cost": 80
 		}
 	},
 	"skills": {
 		"chef": {
-			"description": "Resting recovers more Health."
+			"description": "Everyone on the team recovers +3 health when Resting."
 		}
 	}
 }

@@ -122,32 +122,6 @@ class Character
     self.cost = max_cost
   end
 
-  def pass_time(hour)
-    do_task(hour)
-  end
-
-  def do_task(hour)
-    case schedule[hour]
-    when :sleep
-      recover(4)
-    when :rest
-      recover(2)
-    when :train
-      charge_focus(2)
-    when :free
-      recover
-      charge_focus
-    when :work
-      self.cost -= 1
-    end
-
-    "#{name} did #{schedule[hour]}"
-  end
-
-  def do_assignment
-    case_assignment
-  end
-
   def set_schedule
     schedule.clear
 

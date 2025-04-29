@@ -40,7 +40,7 @@ module CombatMethods
   def process_clutch(defender, round)
     return if defender.traits[:clutch] == ABILITIES[:none]
 
-    saving_throw = Dice.roll(20).result
+    saving_throw = Dice.roll(20)
 
     return log << alert("#{defender.name} tried to clutch up but choked", '.. ') if saving_throw < defender.power
 

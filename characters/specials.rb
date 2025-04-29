@@ -21,7 +21,7 @@ module Specials
   end
 
   def followup(source, type, round)
-    modifier = Dice.roll(source.power).result
+    modifier = Dice.roll(source.power)
     round[type] += modifier
     "#{source.name} followed up the #{type} for +#{modifier}"
   end
@@ -32,7 +32,7 @@ module Specials
   end
 
   def opportunity(source, type, round)
-    modifier = Dice.roll(source.max_focus).result
+    modifier = Dice.roll(source.max_focus)
     round[type] += modifier
     "#{source.name} saw an opportunity and took it for +#{modifier} to #{type}"
   end
@@ -82,13 +82,13 @@ module Specials
   def crossfire(source, _type, round)
     target = opposing_team(source, round).sample
 
-    target.take_damage(Dice.roll(source.power).result)
+    target.take_damage(Dice.roll(source.power))
 
     "#{target.name} took #{source.power} damage in the commotion"
   end
 
   def heal_self(source, _type, _round)
-    mending = Dice.roll(source.power).result
+    mending = Dice.roll(source.power)
     source.recover(mending)
     "#{source.name} healed +#{mending} HP"
   end
@@ -96,14 +96,14 @@ module Specials
   def heal_ally(source, _type, round)
     ally = source_team(source, round).sample
 
-    mending = Dice.roll(source.power).result
+    mending = Dice.roll(source.power)
     ally.recover(mending)
 
     "#{source.name} healed #{ally.name} for +#{mending} health"
   end
 
   def heal_team(source, _type, round)
-    mending = Dice.roll(source.power).result
+    mending = Dice.roll(source.power)
 
     source_team(source, round).each { |teammate| teammate.recover(mending) }
 
@@ -111,7 +111,7 @@ module Specials
   end
 
   def focus_self(source, _type, _round)
-    charge = Dice.roll(source.power).result
+    charge = Dice.roll(source.power)
     source.charge_focus(charge)
     "#{source.name} locked in for +#{charge} focus"
   end
@@ -119,14 +119,14 @@ module Specials
   def focus_ally(source, _type, round)
     ally = source_team(source, round).sample
 
-    charge = Dice.roll(source.power).result
+    charge = Dice.roll(source.power)
     ally.charge_focus(charge)
 
     "#{ally.name} got inspired for +#{charge} focus"
   end
 
   def focus_team(source, _type, round)
-    charge = Dice.roll(source.power).result
+    charge = Dice.roll(source.power)
 
     source_team(source, round).each { |teammate| teammate.charge_focus(charge) }
 
@@ -138,7 +138,7 @@ module Specials
 
     backup = allies(source, round)
     ally = backup.sample
-    assist = Dice.roll(ally.power).result
+    assist = Dice.roll(ally.power)
 
     round[type] += assist
 
@@ -152,12 +152,17 @@ module Specials
     assist = 0
 
     backup.each do |ally|
-      assist += Dice.roll(ally.power).result
+      assist += Dice.roll(ally.power)
     end
 
     round[type] += assist
 
     "#{source.name}'s whole squad came out to help with +#{assist} #{type}"
+  end
+
+  def mimicry(source, type, round)
+    abilities = ABILITIES.keys.select {|id| id != :mimicry}
+    send(abilities.sample, source, type, round)
   end
 
   def mastery(source, type, round)

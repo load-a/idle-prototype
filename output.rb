@@ -69,18 +69,18 @@ module Output
     length.times do
       line = ''
       texts.each { |text| line += left_div + "#{text[row]}".send(content_just, width) + right_div }
-      line += left_edge
+      line += right_edge
       output << line
       row += 1
     end
 
-    return output.map { |line| right_edge + line } if header_width.zero?
+    return output.map { |line| left_edge + line } if header_width.zero?
 
     row = -1
 
     output.map! do |line|
       row += 1
-      right_edge + "#{row_headers[row]}".send(header_just, header_width) + line
+      left_edge + "#{row_headers[row]}".send(header_just, header_width) + line
     end
 
     output

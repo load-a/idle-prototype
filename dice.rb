@@ -3,11 +3,33 @@
 module Dice
   module_function
 
-  Roll = Struct.new(:result, :crit)
+  DiceRoll = Struct.new(:result, :crit)
 
-  def roll(sides = 6)
-    result = rand(1..sides)
+  def roll(sides)
+    rand(1..sides)
+  end
 
-    Roll.new(result, result == sides)
+  def roll_low(sides, on_crit: nil)
+    result = roll(sides)
+    crit = result == 1
+
+    return DiceRoll.new(result, crit) unless crit && on_crit
+
+    result = roll(sides) if on_crit == :reroll
+    result += roll(sides) if on_crit == :add
+
+    DiceRoll.new(result, crit)
+  end
+
+  def roll_high(sides, on_crit: nil)
+    result = roll(sides)
+    crit = result == sides
+
+    return DiceRoll.new(result, crit) unless crit && on_crit
+
+    result = roll(sides) if on_crit == :reroll
+    result += roll(sides) if on_crit == :add
+
+    DiceRoll.new(result, crit)
   end
 end

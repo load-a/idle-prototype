@@ -3,11 +3,29 @@
 class Calendar
   attr_accessor :year, :month, :day, :hour
 
+  DAYS_OF_THE_WEEK = %w[Sunday Moonday Emberday Washday Gailday Earthday Starday]
+
   def initialize
-    self.year = 3019
+    self.year = 3025
     self.month = 1
     self.day = 1
     self.hour = 10
+  end
+
+  def serialize_date(year: self.year, month: self.month, day: self.day)
+    '%04i%02i%02i' % [year, month, day]
+  end
+
+  def deserialize_date(date)
+    '%i/%i/%i' % [date[0...4], date[4...6], date[6...8]]
+  end
+
+  def add_to_date(date, year: 0, month: 0, day: 0)
+    y = date[0...4].to_i + year
+    m = date[4...6].to_i + month
+    d = date[6...8].to_i + day
+
+    serialize_date(year: y, month: m, day: d)
   end
 
   def hour_array
@@ -50,11 +68,6 @@ class Calendar
   def advance_year(amount = 1)
     amount.times do
       self.year += 1
-
-      if year >= 3020
-        # Check for win condition
-        # End main game
-      end
     end
   end
 
@@ -79,25 +92,10 @@ class Calendar
   end
 
   def day_of_the_week(day_of_the_month = self.day)
-    case day_of_the_month % 7
-    when 0
-      'Sunday'
-    when 1
-      'Moonday'
-    when 2
-      'Emberday'
-    when 3
-      'Washday'
-    when 4
-      'Gailday'
-    when 5
-      'Earthenday'
-    when 6
-      'Starday'
-    end
+    DAYS_OF_THE_WEEK[day_of_the_month % 7]
   end
 
   def months_of_the_year(month = self.month)
-    %w[Zember Monoa Duon Trips Qhad Pennet Hesset Sennah Ower Nowary Dezzer][month]
+    %w[Zember Monoa Duon Trips Qhad Pennet Hesset Sennah Ower Nowary Dezzer][month - 1]
   end
 end
