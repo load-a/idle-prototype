@@ -7,7 +7,7 @@ module CombatMethods
     return if attacker.traits[:attack].id == :none
 
     # log << alert(critical_message, '^^ ')
-    log << alert(attacker.use_trait(:attack, round), '   ')
+    log << alert(attacker.use_item(:attack, round), '   ')
   end
 
   def apply_counter_damage(attacker, defender, round)
@@ -25,16 +25,16 @@ module CombatMethods
     return if defender.traits[:defense].id == :none
 
     # log << alert(critical_message, '^^ ')
-    log << alert(defender.use_trait(:defense, round), '   ')
+    log << alert(defender.use_item(:defense, round), '   ')
   end
 
   def process_breaker(attacker, round)
     return if attacker.traits[:breaker].id == :none
 
-    attacker.reset_focus
-
     log << alert("#{attacker.name} unleashed their Breaker", '// ')
-    log << alert(attacker.use_trait(:breaker, round), '   ')
+    log << alert(attacker.use_item(:breaker, round), '   ')
+
+    attacker.reset_focus
   end
 
   def process_clutch(defender, round)
@@ -45,7 +45,7 @@ module CombatMethods
     return log << alert("#{defender.name} tried to clutch up but choked", '.. ') if saving_throw < defender.power
 
     log << alert("#{defender.name} clutched it!", '// ')
-    log << alert(defender.use_trait(:clutch, round), '   ')
+    log << alert(defender.use_item(:clutch, round), '   ')
   end
 
   def apply_encounter_damage(defender, round)

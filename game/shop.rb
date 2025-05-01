@@ -10,8 +10,12 @@ class Item
     self.cost = cost
   end
 
-  def to_s
+  def inventory_line
     "#{name} - #{description}"
+  end
+
+  def store_line
+    format("%s")
   end
 end
 

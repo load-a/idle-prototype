@@ -1,7 +1,7 @@
 {
   "alyssa": {
     "name": "Alyssa",
-    "description": "This is a character",
+    "description": "A psychic and incredibly fast learner. Her goal is to learn everyone's signature moves before graduating.",
     "cost": 40,
     "health": 25,
     "power": 4,
@@ -23,7 +23,7 @@
   },
   "barney": {
     "name": "Barney",
-    "description": "This is a character",
+    "description": "A retired park ranger. He and his grandson, Orick, first discovered the Sport.",
     "cost": 50,
     "health": 27,
     "power": 10,
@@ -45,7 +45,7 @@
   },
   "charles": {
     "name": "Charles",
-    "description": "This is a character",
+    "description": "Drummer whose day job is line cook at the cafe.",
     "cost": 50,
     "health": 40,
     "power": 10,
@@ -67,7 +67,7 @@
   },
   "doug": {
     "name": "Doug the Dog",
-    "description": "This is a character",
+    "description": "An akita who transforms into a master swordsman whenever he picks up a magical sword. Can't talk.",
     "cost": 50,
     "health": 50,
     "power": 12,
@@ -89,7 +89,7 @@
   },
   "emanon": {
     "name": "Emanon",
-    "description": "This is a character",
+    "description": "Leads some group",
     "cost": 50,
     "health": 50,
     "power": 8,
@@ -111,7 +111,7 @@
   },
   "faze": {
     "name": "Faze",
-    "description": "This is a character",
+    "description": "Is part of a certain group with Emanon, Vera and Quill",
     "cost": 50,
     "health": 50,
     "power": 4,
@@ -155,7 +155,7 @@
   },
   "haramatsu": {
     "name": "Haramatsu",
-    "description": "This is a character",
+    "description": "A showman who lives for drama and gossip. Plays as a clown at the children's hospital.",
     "cost": 80,
     "health": 30,
     "power": 8,
@@ -177,7 +177,7 @@
   },
   "isolde": {
     "name": "Isolde",
-    "description": "This is a character",
+    "description": "Leader of a certain mercenary group. Somehow always completes the mission despite her subordinates' antics.",
     "cost": 50,
     "health": 50,
     "power": 8,
@@ -199,7 +199,7 @@
   },
   "jarome": {
     "name": "Jarome",
-    "description": "This is a character",
+    "description": "Logistic mastermind for a certain mercenary group. Is brave to the point of complete foolishness.",
     "cost": 50,
     "health": 35,
     "power": 10,
@@ -221,7 +221,7 @@
   },
   "kori": {
     "name": "Kori",
-    "description": "This is a character",
+    "description": "A very kind soul. Makes certain content to help pay for her Biochem degree.",
     "cost": 50,
     "health": 40,
     "power": 4,
@@ -243,7 +243,7 @@
   },
   "leif": {
     "name": "Leif",
-    "description": "This is a character",
+    "description": "Calligrapher and Zen practitioner. Also use to work at the cafe, before marrying Xia.",
     "cost": 50,
     "health": 55,
     "power": 6,
@@ -265,7 +265,7 @@
   },
   "melvin": {
     "name": "Melvin",
-    "description": "This is a character",
+    "description": "Spy for a certain mercenary group. Usually tries to run some scheme that ultimately backfires.",
     "cost": 50,
     "health": 49,
     "power": 8,
@@ -287,7 +287,7 @@
   },
   "niamh": {
     "name": "Niamh",
-    "description": "This is a character",
+    "description": "Barista at the cafe.",
     "cost": 50,
     "health": 50,
     "power": 4,
@@ -309,7 +309,7 @@
   },
   "orick": {
     "name": "Orick",
-    "description": "This is a character",
+    "description": "College freshman. Used to be good friends with Alyssa, but has become distant over the years.",
     "cost": 50,
     "health": 50,
     "power": 4,
@@ -353,7 +353,7 @@
   },
   "quill": {
     "name": "Quill",
-    "description": "This is a character",
+    "description": "A writer, philosopher and lover of all things dramatic. Will not hesitate to roast you.",
     "cost": 50,
     "health": 50,
     "power": 8,
@@ -375,7 +375,7 @@
   },
   "ray": {
     "name": "Ray Louis",
-    "description": "This is a character",
+    "description": "The muscle for a certain mercenary group. He loves and raises chickens.",
     "cost": 50,
     "health": 50,
     "power": 12,
@@ -397,7 +397,7 @@
   },
   "sara": {
     "name": "Sara",
-    "description": "This is a character",
+    "description": "Shift lead at the local cafe. She (secretly) has the ability to hear other people's thoughts.",
     "cost": 50,
     "health": 50,
     "power": 6,
@@ -419,7 +419,7 @@
   },
   "tomoe": {
     "name": "Tomoe",
-    "description": "This is a character",
+    "description": "A mechanical engineer and mech pilot. Afraid of ghosts, despite coming from a family of Necromancers.",
     "cost": 20,
     "health": 60,
     "power": 12,
@@ -441,7 +441,7 @@
   },
   "umber": {
     "name": "Umber",
-    "description": "This is a character",
+    "description": "A deeply troubled girl who tries her best despite everything.",
     "cost": 50,
     "health": 50,
     "power": 4,
@@ -507,7 +507,7 @@
   },
   "xia": {
     "name": "Ming Xia",
-    "description": "This is a character",
+    "description": "A master Technomancer. She's funding the whole league.",
     "cost": 0,
     "health": 55,
     "power": 20,
@@ -529,7 +529,7 @@
   },
   "yumi": {
     "name": "Yumi",
-    "description": "This is a character",
+    "description": "A world-class martial artist (and legally a princess). She is friends with basically everyone.",
     "cost": 35,
     "health": 45,
     "power": 8,
@@ -551,11 +551,11 @@
   },
   "zylo": {
     "name": "Zylo",
-    "description": "This is a character",
+    "description": "A lone wolf who uses his speed to defeat even the strongest opponents. Never takes off his sunglasses.",
     "cost": 60,
-    "health": 30,
+    "health": 23,
     "power": 12,
-    "focus": 20,
+    "focus": 10,
     "speed": 4,
     "traits": {
       "attack": "none",

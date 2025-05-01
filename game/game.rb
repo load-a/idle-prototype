@@ -21,7 +21,7 @@ class Game
     self.log = Array.new(16, ' ')
     self.combat_log = []
     self.inventory = {
-      abilities: [Item.new('mastery', 'asdf', 'ability', 5000)],
+      abilities: [ABILITIES[:intimidate], ABILITIES[:inspire_team], ABILITIES[:boost_ally], ABILITIES[:berserk]],
       consumables: [],
       upgrades: []
     }

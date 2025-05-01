@@ -1,10 +1,10 @@
 # frozen_string_literal: true
 
-require_relative 'specials'
 require_relative 'team'
 
 module Information
   def status_bar(current, max, length = 10)
+    current = current.clamp(0, max)
     bars = ((current.to_f / max) * length).round
 
     raise "BARS #{current} #{max} #{length} :: bars#{bars}" if bars.negative?
@@ -37,13 +37,13 @@ module Information
     {
       name: "~#{name}'s Stats~",
       health: format('%-6s: %2i/%2i', 'Health', health, max_health),
-      focus: format('%-6s: %2i/%2i', 'Focus', focus, max_focus),
-      power: format('%-6s: %2i', 'Power', power),
-      speed: format('%-6s: %2i', 'Speed', speed),
-      attack: format('%-16s: %s', 'Critical Attack', traits[:attack].name),
-      defense: format('%-16s: %s', 'Critical Defense', traits[:defense].name),
-      breaker: format('%-16s: %s', 'Focus Breaker', traits[:breaker].name),
-      clutch: format('%-16s: %s', 'Clutch Play', traits[:clutch].name)
+      power: format('%-6s: %2i %s', 'Power', power, ('*' if proficiency == :power)),
+      focus: format('%-6s: %2i/%2i %s', 'Focus', focus, max_focus, ('*' if proficiency == :focus)),
+      speed: format('%-6s: %2i (x%s) %s', 'Speed', speed, speed_multiplier, ('*' if proficiency == :speed)),
+      attack: format('%-13s: %s', 'Crit. Attack', traits[:attack].name),
+      defense: format('%-13s: %s', 'Crit. Defense', traits[:defense].name),
+      breaker: format('%-13s: %s', 'Focus Breaker', traits[:breaker].name),
+      clutch: format('%-13s: %s', 'Clutch Move', traits[:clutch].name)
     }
   end
 end
@@ -52,7 +52,7 @@ class Character
   include Information
 
   attr_accessor :name, :id, :health, :max_health, :power, :max_focus, :speed,
-                :traits, :focus, :behavior, :assignment, :schedule, :tasks, :cost, :max_cost
+                :traits, :focus, :behavior, :assignment, :schedule, :tasks, :cost, :max_cost, :speed_multiplier
 
   def initialize(name, id, health, power, max_focus, speed)
     self.name = name
@@ -65,8 +65,37 @@ class Character
     self.behavior = {}
     self.schedule = []
     self.assignment = 'free'
+    self.speed_multiplier = SPEED_MULTIPLIER[speed.to_s]
 
     full_reset
+  end
+
+  def dice
+    {
+      power: power,
+      focus: max_focus,
+      speed: speed
+    }
+  end
+
+  # @return [Symbol]
+  def proficiency
+    list = {
+      power: power,
+      focus: focus == power ? focus + 1 : focus,
+      speed: Dice.inverse_die(speed)
+    }
+    main = list.values.max
+    list.key(main)
+  end
+
+  # @return [Integer]
+  def proficiency_value
+    {
+      power: power,
+      focus: focus,
+      speed: Dice.inverse_die(speed)
+    }.values.max
   end
 
   def take_damage(damage)
@@ -149,14 +178,28 @@ class Character
     schedule.rotate!(rand(2..5))
   end
 
-  def use_trait(type, encounter)
-    case type
-    when :breaker
-      Specials.send(traits[type].id, self, :attack, encounter)
-    when :clutch
-      Specials.send(traits[type].id, self, :defense, encounter)
+  def use_item(trait, encounter)
+    case traits[trait].type
+    when :ability
+      use_ability(trait, encounter)
+    when :consumable
+      message = Consumables.send(traits[trait].id, self)
+      traits[trait] = NONE
+    when :none
+      '...but nothing happened'
     else
-      Specials.send(traits[type].id, self, type, encounter)
+      raise "Invalid item in #{name}'s #{trait} (this should only be an Ability or Consumable): #{traits[trait]}"
+    end
+  end
+
+  def use_ability(trait, encounter)
+    case trait
+    when :breaker
+      Abilities.send(traits[trait].id, self, :attack, encounter)
+    when :clutch
+      Abilities.send(traits[trait].id, self, :defense, encounter)
+    else
+      Abilities.send(traits[trait].id, self, trait, encounter)
     end
   end
 

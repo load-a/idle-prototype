@@ -1,64 +1,149 @@
 {
 	"abilities": {
-		"none": {
-			"description": "This trait has not been developed."
-		},
+		// Basic Additions and Rerolls
 		"followup": {
-			"description": "Adds a POWER roll to outcome."
+			"cost": 1000,
+			"description": "Adds POWER roll to the action."
 		},
 		"powerup": {
-			"description": "Adds POWER to the roll."
+			"cost": 1000,
+			"description": "Adds POWER stat to the action."
 		},
 		"opportunity": {
-			"description": "Adds FOCUS roll to the outcome."
+			"cost": 1000,
+			"description": "Adds FOCUS roll to the action."
 		},
 		"punishment": {
-			"description": "Adds full FOCUS to the roll"
+			"cost": 1000,
+			"description": "Adds FOCUS to the action."
 		},
 		"side_step": {
-			"description": "Rolls a multiplier based on SPEED; multiplies it by POWER and adds product to roll."
+			"cost": 1000,
+			"description": "Multiplies your action by your Speed Multiplier."
 		},
 		"quick_step": {
-			"description": "Applies a multiplier based on SPEED to the roll."
+			"cost": 1000,
+			"description": "Adds the product of your Speed Multiplier times your Proficiency Value to the action."
 		},
+		// POWER-based Recovery
 		"heal_self": {
-			"description": "Heals self for 10 HEALTH."
+			"cost": 1000,
+			"description": "Recover a POWER roll's worth of HEALTH."
 		},
 		"heal_ally": {
-			"description": "A random ally (or yourself) recovers HEALTH."
+			"cost": 1000,
+			"description": "A random ally (or yourself) recovers a POWER roll's worth of HEALTH."
 		},
 		"heal_team": {
-			"description": "Your entire team recovers HEALTH."
+			"cost": 1000,
+			"description": "Your entire team recovers a POWER roll's worth of HEALTH."
 		},
 		"focus_self": {
-			"description": "Heals self for 10 FOCUS."
+			"cost": 1000,
+			"description": "Charge a POWER roll's worth of FOCUS."
 		},
 		"focus_ally": {
-			"description": "A random ally (or yourself) recovers FOCUS."
+			"cost": 1000,
+			"description": "A random ally (or yourself) charges a POWER roll's worth of FOCUS."
 		},
 		"focus_team": {
-			"description": "Your entire team recovers FOCUS."
+			"cost": 1000,
+			"description": "Your entire team charges a POWER roll's worth of HEALTH."
 		},
-		"berserk": {
-			"description": "Sacrifice half of your HP to lash out at the other team."
+		// FOCUS-based Recovery
+		"soothe_self": {
+			"cost": 1000,
+			"description": "Recover a (max) FOCUS roll's worth of HEALTH."
 		},
+		"soothe_ally": {
+			"cost": 1000,
+			"description": "A random ally (or yourself) recovers a (max) FOCUS roll's worth of HEALTH."
+		},
+		"soothe_team": {
+			"cost": 1000,
+			"description": "Your entire team recovers a (max) FOCUS roll's worth of HEALTH."
+		},
+		"inspire_self": {
+			"cost": 1000,
+			"description": "Charge a (max) FOCUS roll's worth of FOCUS."
+		},
+		"inspire_ally": {
+			"cost": 1000,
+			"description": "A random ally (or yourself) charges a (max) FOCUS roll's worth of FOCUS."
+		},
+		"inspire_team": {
+			"cost": 1000,
+			"description": "Your entire team charges a (max) FOCUS roll's worth of HEALTH."
+		},
+		// SPEED-based Recovery
+		"boost_self": {
+			"cost": 1000,
+			"description": "Recover a SPEED roll's worth of HEALTH."
+		},
+		"boost_ally": {
+			"cost": 1000,
+			"description": "A random ally (or yourself) recovers a SPEED roll's worth of HEALTH."
+		},
+		"boost_team": {
+			"cost": 1000,
+			"description": "Your entire team recovers a SPEED roll's worth of HEALTH."
+		},
+		"motivate_self": {
+			"cost": 1000,
+			"description": "Charge a SPEED roll's worth of FOCUS."
+		},
+		"motivate_ally": {
+			"cost": 1000,
+			"description": "A random ally (or yourself) charges a SPEED roll's worth of FOCUS."
+		},
+		"motivate_team": {
+			"cost": 1000,
+			"description": "Your entire team charges a SPEED roll's worth of HEALTH."
+		},
+		// Collateral Damage
 		"snipe": {
-			"description": "Deal full POWER damage to a random opponent."
+			"cost": 1000,
+			"description": "Hit a random opponent for damage equal to your POWER die."
 		},
 		"crossfire": {
-			"description": "A random enemy takes some POWER damage."
+			"cost": 1000,
+			"description": "Hit a random opponent for a POWER roll's worth of damage."
 		},
+		// Risk-Reward 
+		"berserk": {
+			"cost": 1000,
+			"description": "You and a random opponent take damage equal to half your current HEALTH."
+		},
+		// Team-up
 		"backup": {
-			"description": "A random ally lends you their POWER."
+			"cost": 1000,
+			"description": "A random ally rolls POWER and adds it to the action."
 		},
 		"gang_up": {
-			"description": "The whole team comes out to help."
+			"cost": 1000,
+			"description": "All allies add their POWER to the action."
 		},
+		// Reductive 
+		"intimidate": {
+			"cost": 1000,
+			"description": "Rolls POWER and subtracts the result from your opponent's action."
+		},
+		"anticipate": {
+			"cost": 1000,
+			"description": "Rolls FOCUS and subtracts the result from your opponent's action."
+		},
+		"dodge": {
+			"cost": 1000,
+			"description": "Rolls SPEED and subtracts the result from your opponent's action."
+		},
+		// Other
 		"mastery": {
+			"cost": 10000,
 			"description": "A completely BUSTED move that adds the sum of all your stats to the roll."
 		},
 		"mimicry": {
-			"description": "Use any ability at random."
+			"cost": 5000,
+			"description": "Use a random Ability."
 		}
 	},
 	"consumables": {
@@ -75,7 +160,7 @@
 	},
 	"subscriptions": {
 		"housecleaning": {
-			"type": "monthly",
+			"regularity": "monthly",
 			"description": "Someone comes to clean up the house for the team every month, boosting REST by 5.",
 			"cost": 80
 		}

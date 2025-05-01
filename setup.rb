@@ -9,29 +9,27 @@ require_relative 'characters/character'
 require_relative 'dice'
 require_relative 'game/game'
 require_relative 'combat/combat'
+require_relative 'items/item'
 
-class Trait
-  attr_accessor :id
-
-  def initialize(id)
-    self.id = id
-    raise "Trait ID is too long for Four Stat Screen: #{id}" if id.to_s.length > 11
-  end
-
-  def name
-    id.to_s.split('_').map(&:capitalize).join(' ')
-  end
-end
+SPEED_MULTIPLIER = {
+  '2' => 3.5,
+  '4' => 3,
+  '6' => 2.5,
+  '8' => 2,
+  '10' => 1.5,
+  '12' => 1,
+  '20' => 0.5
+}.freeze
 
 ITEM_FILE = File.read('game_data/item_data.json').freeze
 ITEM_DATA = JSON.parse(ITEM_FILE).freeze
 ABILITY_DATA = ITEM_DATA['abilities']
 ABILITIES = {}
 
-ABILITY_DATA.each do |id, _ability|
+ABILITY_DATA.each do |id, ability|
   id = id.to_sym
 
-  ABILITIES[id] = Trait.new(id)
+  ABILITIES[id] = Item.new(id, :ability, ability['cost'],  ability['description'])
 end
 ABILITIES.freeze
 
@@ -48,7 +46,11 @@ CHARACTER_DATA.each do |id, data|
                                  data['focus'].to_i, data['speed'].to_i)
 
   data['traits'].each do |type, trait_name|
-    CHARACTERS[id].traits[type.to_sym] = ABILITIES[trait_name.to_sym]
+    if trait_name == "none"
+      CHARACTERS[id].traits[type.to_sym] = NO_ITEM
+    else
+      CHARACTERS[id].traits[type.to_sym] = ABILITIES[trait_name.to_sym]
+    end
   end
 
   data['behavior'].each do |type, length|

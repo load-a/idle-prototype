@@ -5,6 +5,8 @@ module Dice
 
   DiceRoll = Struct.new(:result, :crit)
 
+  LEVELS = [2, 4, 6, 8, 10, 12, 20].freeze
+
   def roll(sides)
     rand(1..sides)
   end
@@ -31,5 +33,22 @@ module Dice
     result += roll(sides) if on_crit == :add
 
     DiceRoll.new(result, crit)
+  end
+
+  def level(level)
+    level = (level - 1).clamp(0, 6)
+    LEVELS[level]
+  end
+
+  def inverse_die(die)
+    {
+      '2' => 20,
+      '4' => 12,
+      '6' => 10,
+      '8' => 8,
+      '10' => 6,
+      '12' => 4,
+      '20' => 2
+    }[die.to_s]
   end
 end
