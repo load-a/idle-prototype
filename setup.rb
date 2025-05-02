@@ -23,15 +23,40 @@ SPEED_MULTIPLIER = {
 
 ITEM_FILE = File.read('game_data/item_data.json').freeze
 ITEM_DATA = JSON.parse(ITEM_FILE).freeze
-ABILITY_DATA = ITEM_DATA['abilities']
-ABILITIES = {}
 
-ABILITY_DATA.each do |id, ability|
+ABILITIES = {}
+SUBSCRIPTIONS = {}
+CONSUMABLES = {}
+UPGRADES = {}
+
+ITEM_DATA['abilities'].each do |id, ability|
   id = id.to_sym
 
   ABILITIES[id] = Item.new(id, :ability, ability['cost'],  ability['description'])
 end
 ABILITIES.freeze
+
+ITEM_DATA['consumables'].each do |id, ability|
+  id = id.to_sym
+
+  CONSUMABLES[id] = Item.new(id, :consumables, ability['cost'],  ability['description'])
+end
+CONSUMABLES.freeze
+
+ITEM_DATA['upgrades'].each do |id, ability|
+  id = id.to_sym
+
+  UPGRADES[id] = Item.new(id, :upgrades, ability['cost'],  ability['description'])
+end
+UPGRADES.freeze
+
+ITEM_DATA['subscriptions'].each do |id, ability|
+  id = id.to_sym
+
+  SUBSCRIPTIONS[id] = Item.new(id, :subscriptions, ability['cost'],  ability['description'])
+end
+SUBSCRIPTIONS.freeze
+
 
 CHARACTER_FILE = File.read('game_data/character_data.json').freeze
 CHARACTER_DATA = JSON.parse(CHARACTER_FILE).freeze

@@ -47,10 +47,13 @@ module Input
     Response.new(gets)
   end
 
-  def ask_number(prompt, _digits)
+  def ask_number(prompt)
+    response = ''
+
     loop do
       puts prompt
-      break if Response.new(gets).number?
+      response = Response.new(gets)
+      break response if response.number?
     end
   end
 
@@ -64,5 +67,17 @@ module Input
 
     # character =~ /\w/ ? Response.new(character) : Response.new('?')
     Response.new(character)
+  end
+
+  def ask_option(*options)
+    list = []
+
+    options.each_with_index do |option, index|
+      list << "[#{index + 1}] " + "#{option}".capitalize
+    end
+
+    selection = self.ask_number('Make a selection: ' + list.join(', '))
+
+    options[selection.number - 1]
   end
 end

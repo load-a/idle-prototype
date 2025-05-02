@@ -10,7 +10,7 @@ class Game
   include Menus
 
   HELP_MENU = ['Command List', '', '[C]hallengers', '[E]xpense Report', 'Combat [L]og','[H]ouse Stats',
-  '[I]nventory', '[M]anage Team', '[P]ass the Time', '[T]imetable', '', '[Q]uit']
+  '[I]nventory', '[M]anage Team', '[P]ass the Time', '[S]tore', '[T]imetable', '', '[Q]uit']
 
   attr_accessor :player, :calendar, :log, :next_opponent, :combat_log, :expenses, :house, :inventory
 
@@ -83,7 +83,20 @@ class Game
         hours = number_of_hours
         pass_time(hours)
       when 's'
-        puts "STORE"
+        store = {
+          abilities: [ABILITIES[:crossfire]],
+          consumables: [CONSUMABLES[:potion]],
+          upgrades: [UPGRADES[:dice]],
+          subscriptions: [SUBSCRIPTIONS[:housecleaning]]
+        }
+
+        store.each do |category, selection|
+          puts "// #{category.capitalize} //"
+          selection.each {|item| puts item.store_line}
+        end
+
+        selection = Input.ask_option(:abilities, :consumables, :upgrades, :subscriptions)
+        log << "Chose #{selection}"
       when 't'
         time_menu
       when 'q'

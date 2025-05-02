@@ -22,5 +22,7 @@ end
 class Shop
   attr_accessor :items
 
-  def generate; end
+  def initialize(items)
+    self.items = items
+  end
 end
