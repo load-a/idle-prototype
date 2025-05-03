@@ -11,6 +11,16 @@ require_relative 'game/game'
 require_relative 'combat/combat'
 require_relative 'items/item'
 
+class String
+  def fill(character = ' ', length = self.length)
+    return self if length < self.length
+    
+    filler_length = length - self.length
+
+    "#{self}#{character * filler_length}"
+  end
+end
+
 SPEED_MULTIPLIER = {
   '2' => 3.5,
   '4' => 3,

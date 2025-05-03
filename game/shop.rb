@@ -1,28 +1,31 @@
 # frozen_string_literal: true
 
-class Item
-  attr_accessor :name, :description, :type, :cost
-
-  def initialize(name, description, type, cost)
-    self.name = name
-    self.description = description
-    self.type = type
-    self.cost = cost
-  end
-
-  def inventory_line
-    "#{name} - #{description}"
-  end
-
-  def store_line
-    format("%s")
-  end
-end
-
 class Shop
   attr_accessor :items
 
-  def initialize(items)
+  def initialize(items = {abilities: [], consumables: [], upgrades: [], subscriptions: []})
     self.items = items
+  end
+
+  def generate
+    self.items = {
+      abilities: ABILITIES.values.sample(rand(1..4)),
+      consumables: CONSUMABLES.values.sample(rand(1..4)),
+      upgrades: UPGRADES.values.sample(rand(1..4)),
+      subscriptions: SUBSCRIPTIONS.values.sample(rand(1..4))
+    }
+  end
+
+  def show_selection
+    items.each do |category, selection|
+      puts "#{category.capitalize}".fill('.', 120)
+      selection.each {|item| puts item.store_line}
+    end
+  end
+
+  def show_category(category)
+    puts category.to_s.capitalize.center(120)
+    items[category.to_sym].each { |item| puts item.store_line }
+    items[category.to_sym]
   end
 end

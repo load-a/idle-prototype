@@ -12,7 +12,7 @@ class Game
   HELP_MENU = ['Command List', '', '[C]hallengers', '[E]xpense Report', 'Combat [L]og','[H]ouse Stats',
   '[I]nventory', '[M]anage Team', '[P]ass the Time', '[S]tore', '[T]imetable', '', '[Q]uit']
 
-  attr_accessor :player, :calendar, :log, :next_opponent, :combat_log, :expenses, :house, :inventory
+  attr_accessor :player, :calendar, :log, :next_opponent, :combat_log, :expenses, :house, :inventory, :shop
 
   def initialize
     self.player = Player.new('Player')
@@ -28,6 +28,8 @@ class Game
 
     self.next_opponent = nil
     self.house = House.new
+    self.shop = Shop.new
+    shop.generate
 
     initialize_expenses
 
@@ -83,26 +85,37 @@ class Game
         hours = number_of_hours
         pass_time(hours)
       when 's'
-        store = {
-          abilities: [ABILITIES[:crossfire]],
-          consumables: [CONSUMABLES[:potion]],
-          upgrades: [UPGRADES[:dice]],
-          subscriptions: [SUBSCRIPTIONS[:housecleaning]]
-        }
-
-        store.each do |category, selection|
-          puts "// #{category.capitalize} //"
-          selection.each {|item| puts item.store_line}
-        end
-
-        selection = Input.ask_option(:abilities, :consumables, :upgrades, :subscriptions)
-        log << "Chose #{selection}"
+        show_shop_menu
       when 't'
         time_menu
       when 'q'
         exit
       else
         notify "DEBUG: Invalid action: Main Menu > [#{response.upcase}]" if response != '?'
+      end
+    end
+  end
+
+  def show_shop_menu
+    system 'clear'
+    shop.show_selection
+
+    selection = Input.ask_option('abilities', 'consumables', 'upgrades', 'subscriptions', prompt: 'Choose a type')
+
+    unless selection.default?
+      system 'clear'
+      items = shop.show_category(selection.text) 
+      purchase = Input.ask_option(*items.map(&:name), prompt: 'select an item')
+
+      return if purchase.default?
+
+      purchase = items[purchase.index]
+
+      if Input.confirm?("Purchase #{purchase.name} for $#{purchase.cost}?")
+        log << "Purchased #{purchase.name} (-$#{purchase.cost})"
+        inventory[purchase.type] << purchase
+      else
+        log << 'Cancelled purchase'
       end
     end
   end

@@ -31,7 +31,7 @@ class Item
     end
 
     def store_line
-      format("%-14s: $%i\n  %s", name, cost, description)
+      format("%-14s $%i\n  %s", name, cost, description)
     end
 
     def inventory_line

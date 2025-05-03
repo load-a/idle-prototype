@@ -5,11 +5,12 @@ require 'io/console'
 class Response
   DEFAULT = '<???>'
 
-  attr_accessor :raw, :default
+  attr_accessor :raw, :default, :index
 
-  def initialize(raw)
+  def initialize(raw, index: nil)
     self.raw = raw
     self.default = raw.strip.gsub(/\W/, '').empty?
+    self.index = index
   end
 
   def text
@@ -35,6 +36,10 @@ class Response
 
   def number?
     text.to_i.to_s == text
+  end
+
+  def default?
+    text == DEFAULT
   end
 end
 
@@ -69,15 +74,27 @@ module Input
     Response.new(character)
   end
 
-  def ask_option(*options)
+  def ask_option(*options, prompt: 'Make a selection: ')
     list = []
 
     options.each_with_index do |option, index|
       list << "[#{index + 1}] " + "#{option}".capitalize
     end
 
-    selection = self.ask_number('Make a selection: ' + list.join(', '))
+    selection = if options.length > 9
+      self.ask_number(prompt + ": \n" + list.join(', '))
+    else
+      self.ask_char(prompt + ": \n" + list.join(', '))
+    end
 
-    options[selection.number - 1]
+    index = selection.number - 1
+
+    return Response.new('') if selection.number.zero? || options[index].nil?
+
+    Response.new(options[index], index: index)
+  end
+
+  def confirm?(prompt)
+    ask_char(prompt).character == 'y'
   end
 end
