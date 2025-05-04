@@ -23,9 +23,13 @@ class Shop
     end
   end
 
-  def show_category(category)
+  def show_category(category, money)
     puts category.to_s.capitalize.center(120)
-    items[category.to_sym].each { |item| puts item.store_line }
+    items[category.to_sym].each do |item| 
+      line = Rainbow(item.store_line) 
+      puts (item.cost > money ? line.faint : line)
+    end
+
     items[category.to_sym]
   end
 end

@@ -180,7 +180,7 @@ class Character
 
   def use_item(trait, encounter)
     case traits[trait].type
-    when :ability
+    when :abilities
       use_ability(trait, encounter)
     when :consumable
       message = Consumables.send(traits[trait].id, self)

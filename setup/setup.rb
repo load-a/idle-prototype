@@ -3,23 +3,14 @@
 require 'json'
 require 'rainbow'
 
+require_relative 'string'
 require_relative 'input'
 require_relative 'output'
-require_relative 'characters/character'
-require_relative 'dice'
-require_relative 'game/game'
-require_relative 'combat/combat'
-require_relative 'items/item'
-
-class String
-  def fill(character = ' ', length = self.length)
-    return self if length < self.length
-    
-    filler_length = length - self.length
-
-    "#{self}#{character * filler_length}"
-  end
-end
+require_relative '../characters/character'
+require_relative '../dice'
+require_relative '../game/game'
+require_relative '../combat/combat'
+require_relative '../items/item'
 
 SPEED_MULTIPLIER = {
   '2' => 3.5,
@@ -42,7 +33,7 @@ UPGRADES = {}
 ITEM_DATA['abilities'].each do |id, ability|
   id = id.to_sym
 
-  ABILITIES[id] = Item.new(id, :ability, ability['cost'],  ability['description'])
+  ABILITIES[id] = Item.new(id, :abilities, ability['cost'],  ability['description'])
 end
 ABILITIES.freeze
 

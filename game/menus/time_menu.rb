@@ -121,6 +121,7 @@ module TimeMenu
     notify calendar.day_month
     pay_due_expenses
     team.each(&:set_schedule)
+    shop.generate
     self.next_opponent = nil
   end
 

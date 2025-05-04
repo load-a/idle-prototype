@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class House
-  attr_accessor :free, :train, :rest, :sleep, :work
+  attr_accessor :free, :train, :rest, :sleep, :work, :subscriptions
 
   Boost = Struct.new(:increment, :cap)
 
@@ -11,6 +11,7 @@ class House
     self.rest = Boost.new(2, 100)
     self.sleep = Boost.new(1, 200)
     self.work = Boost.new(1, 200)
+    self.subscriptions = []
   end
 
   def to_s
@@ -20,7 +21,8 @@ class House
       template % ['Training', train.increment, 'FOCUS', train.cap],
       template % ['Relaxation', rest.increment, 'HEALTH', rest.cap],
       template % ['Sleeping', sleep.increment, 'HEALTH', sleep.cap],
-      template % ['Working', work.increment, 'Money', work.cap]
+      template % ['Working', work.increment, 'Money', work.cap],
+      "Subscriptions: #{subscriptions.map(&:name).join(', ')}"
     ].join("\n")
   end
 

@@ -23,7 +23,8 @@ class Game
     self.inventory = {
       abilities: [ABILITIES[:intimidate], ABILITIES[:inspire_team], ABILITIES[:boost_ally], ABILITIES[:berserk]],
       consumables: [],
-      upgrades: []
+      upgrades: [],
+      subscriptions: []
     }
 
     self.next_opponent = nil
@@ -67,11 +68,12 @@ class Game
       when 'e'
         expense_menu
       when 'h'
+        house.subscriptions = inventory[:subscriptions]
         puts house.to_s
         Input.ask_char('...')
       when 'i'
         inventory_screen
-        Input.ask_char('...')
+        Input.ask_option(*inventory.keys[...3].map(&:to_s))
       when 'l'
         next notify('No combat log') if combat_log.empty? 
 
@@ -97,27 +99,40 @@ class Game
   end
 
   def show_shop_menu
-    system 'clear'
-    shop.show_selection
-
-    selection = Input.ask_option('abilities', 'consumables', 'upgrades', 'subscriptions', prompt: 'Choose a type')
-
-    unless selection.default?
+    loop do
       system 'clear'
-      items = shop.show_category(selection.text) 
-      purchase = Input.ask_option(*items.map(&:name), prompt: 'select an item')
+      shop.show_selection
 
-      return if purchase.default?
+      category = Input.ask_option('abilities', 'consumables', 'upgrades', 'subscriptions', prompt: 'Choose a category')
 
-      purchase = items[purchase.index]
+      break if category.default?
 
-      if Input.confirm?("Purchase #{purchase.name} for $#{purchase.cost}?")
-        log << "Purchased #{purchase.name} (-$#{purchase.cost})"
-        inventory[purchase.type] << purchase
-      else
-        log << 'Cancelled purchase'
-      end
+      purchase = purchase_item(category)
+
+      next if purchase.nil?
     end
+  end
+
+  def purchase_item(category)
+    system 'clear'
+    items = shop.show_category(category.text, player.money) 
+    selection = Input.ask_option(*items.map(&:name), prompt: 'select an item')
+
+    return nil if selection.default?
+
+    purchase = items[selection.index]
+
+    return nil if purchase.cost > player.money
+
+    if Input.confirm?("Purchase #{purchase.name} for $#{purchase.cost}?")
+      log << "Purchased #{purchase.name} (-$#{purchase.cost})"
+      inventory[purchase.type] << purchase
+      items.delete_at(selection.index)
+    else
+      log << 'Cancelled purchase'
+    end
+
+    purchase
   end
 
   def show_combat_log

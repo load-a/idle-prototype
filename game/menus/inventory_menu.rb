@@ -7,7 +7,7 @@ module InventoryMenu
     system 'clear'
 
     puts header, divider
-    puts Output.columns(inventory.values.map{|list| list.map(&:inventory_line)}, left_edge: '|', right_div: '|')
+    puts Output.columns(inventory.values[...3].map{|list| list.map(&:inventory_line)}, left_edge: '|', right_div: '|')
     puts divider.gsub('-', '_')
   end
 end
