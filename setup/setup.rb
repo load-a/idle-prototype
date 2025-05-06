@@ -4,6 +4,7 @@ require 'json'
 require 'rainbow'
 
 require_relative 'string'
+require_relative 'integer'
 require_relative 'input'
 require_relative 'output'
 require_relative '../characters/character'

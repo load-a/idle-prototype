@@ -9,6 +9,7 @@ require_relative 'menus/menus'
 class Game
   include Menus
 
+  MAIN_LOG_SIZE = 16
   HELP_MENU = ['Command List', '', '[C]hallengers', '[E]xpense Report', 'Combat [L]og','[H]ouse Stats',
   '[I]nventory', '[M]anage Team', '[P]ass the Time', '[S]tore', '[T]imetable', '', '[Q]uit']
 
@@ -18,14 +19,11 @@ class Game
     self.player = Player.new('Player')
     # player.team = TEAMS[0]
     self.calendar = Calendar.new
-    self.log = Array.new(16, ' ')
+    self.log = Array.new(MAIN_LOG_SIZE, ' ')
     self.combat_log = []
-    self.inventory = {
-      abilities: [ABILITIES[:intimidate], ABILITIES[:inspire_team], ABILITIES[:boost_ally], ABILITIES[:berserk]],
-      consumables: [],
-      upgrades: [],
-      subscriptions: []
-    }
+    self.inventory = Inventory.new
+    inventory.abilities = [ABILITIES[:intimidate], ABILITIES[:inspire_team], ABILITIES[:boost_ally], ABILITIES[:berserk]]
+    inventory.upgrades = [UPGRADES[:d6]]
 
     self.next_opponent = nil
     self.house = House.new
@@ -40,7 +38,7 @@ class Game
   def notify(text)
     log << text
     log.flatten!
-    while log.size > 16
+    while log.size > MAIN_LOG_SIZE
       log.shift
     end
   end
@@ -73,7 +71,6 @@ class Game
         Input.ask_char('...')
       when 'i'
         inventory_screen
-        Input.ask_option(*inventory.keys[...3].map(&:to_s))
       when 'l'
         next notify('No combat log') if combat_log.empty? 
 
