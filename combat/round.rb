@@ -43,7 +43,11 @@ class Round
   end
 
   def roll_defense
-    defense = Dice.roll_low(defender.power, on_crit: :reroll)
+    if defender.traits[:defense] == NO_ITEM
+      defense = Dice.roll_high(defender.power, on_crit: :add)
+    else
+      defense = Dice.roll_low(defender.power, on_crit: :reroll)
+    end
     results[:defense] = defense.result
     results[:crit_defense] = defense.crit
   end

@@ -123,7 +123,7 @@ class Game
 
     if Input.confirm?("Purchase #{purchase.name} for $#{purchase.cost}?")
       log << "Purchased #{purchase.name} (-$#{purchase.cost})"
-      inventory[purchase.type] << purchase
+      inventory.send(purchase.type) << purchase
       items.delete_at(selection.index)
     else
       log << 'Cancelled purchase'

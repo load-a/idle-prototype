@@ -4,9 +4,8 @@ module CombatMethods
   def process_critical_attack(attacker, round)
     log << alert('Nice offense', '// ')
 
-    return if attacker.traits[:attack].id == :none
+    return if attacker.traits[:attack] == NO_ITEM
 
-    # log << alert(critical_message, '^^ ')
     log << alert(attacker.use_item(:attack, round), '   ')
   end
 
@@ -22,14 +21,14 @@ module CombatMethods
   def process_critical_defense(defender, round)
     log << alert('Solid defense', '// ')
 
-    return if defender.traits[:defense].id == :none
+    return if defender.traits[:defense] == NO_ITEM
 
     # log << alert(critical_message, '^^ ')
     log << alert(defender.use_item(:defense, round), '   ')
   end
 
   def process_breaker(attacker, round)
-    return if attacker.traits[:breaker].id == :none
+    return if attacker.traits[:breaker] == NO_ITEM
 
     log << alert("#{attacker.name} unleashed their Breaker", '// ')
     log << alert(attacker.use_item(:breaker, round), '   ')
@@ -38,7 +37,7 @@ module CombatMethods
   end
 
   def process_clutch(defender, round)
-    return if defender.traits[:clutch] == ABILITIES[:none]
+    return if defender.traits[:clutch] == NO_ITEM
 
     saving_throw = Dice.roll(20)
 

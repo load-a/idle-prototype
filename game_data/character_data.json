@@ -245,15 +245,15 @@
     "name": "Leif",
     "description": "Calligrapher and Zen practitioner. Also use to work at the cafe, before marrying Xia.",
     "cost": 50,
-    "health": 55,
+    "health": 44,
     "power": 6,
-    "focus": 6,
+    "focus": 10,
     "speed": 10,
     "traits": {
-      "attack": "none",
-      "breaker": "none",
-      "clutch": "none",
-      "defense": "none"
+      "attack": "punishment",
+      "breaker": "soothe_self",
+      "clutch": "opportunity",
+      "defense": "anticipate"
     },
     "behavior": {
       "sleep": 8,

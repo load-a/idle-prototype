@@ -59,10 +59,11 @@ class Match
         self.winner = :cpu
       end
 
-      teams.each(&:restore_defeated)
-
+      player_team.restore_defeated
       break
     end
+
+      cpu_team.members.each(&:full_heal)
   end
 
   def play_round(attacker, defender, attacker_team, defender_team)

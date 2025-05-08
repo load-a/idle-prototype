@@ -34,12 +34,14 @@ module Information
   end
 
   def attribute_chart
+    speed_line = 'Speed : %2i x%s %s' 
+    
     {
       name: "~#{name}'s Stats~",
       health: format('%-6s: %2i/%2i', 'Health', health, max_health),
       power: format('%-6s: %2i %s', 'Power', power, ('*' if proficiency == :power)),
       focus: format('%-6s: %2i/%2i %s', 'Focus', focus, max_focus, ('*' if proficiency == :focus)),
-      speed: format('%-6s: %2i (x%s) %s', 'Speed', speed, speed_multiplier, ('*' if proficiency == :speed)),
+      speed: speed_line % [speed, speed_multiplier, ("* [#{Dice.inverse_die(speed)}]" if proficiency == :speed)],
       attack: format('%-13s: %s', 'Crit. Attack', traits[:attack].name),
       defense: format('%-13s: %s', 'Crit. Defense', traits[:defense].name),
       breaker: format('%-13s: %s', 'Focus Breaker', traits[:breaker].name),
@@ -96,6 +98,10 @@ class Character
       focus: focus,
       speed: Dice.inverse_die(speed)
     }.values.max
+  end
+
+  def promult
+    (proficiency_value * speed_multiplier).round
   end
 
   def take_damage(damage)
@@ -182,9 +188,10 @@ class Character
     case traits[trait].type
     when :abilities
       use_ability(trait, encounter)
-    when :consumable
+    when :consumables
       message = Consumables.send(traits[trait].id, self)
-      traits[trait] = NONE
+      traits[trait] = NO_ITEM
+      message
     when :none
       '...but nothing happened'
     else

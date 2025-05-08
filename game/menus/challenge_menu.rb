@@ -11,7 +11,7 @@ module ChallengeMenu
       challengers << Team.new(potential_opponents.sample(player.team.size))
     end
 
-    challengers
+    challengers.uniq
   end
 
   def show_challengers(challengers)
@@ -41,7 +41,9 @@ module ChallengeMenu
     show_time_screen
     time = Input.ask('Pick a time').number
 
-    return notify 'Matchmaking cancelled' unless (0..24).include?(time) && player.team.free?(time)
+    unless (0..24).include?(time) && player.team.free?(time) && calendar.hour <= time
+      return notify 'Matchmaking cancelled' 
+    end
 
     notify format('Match Scheduled for %02<time>i:00 against %<name>s', { time: time, name: challenger.name })
     self.next_opponent = challenger

@@ -23,7 +23,7 @@
 		},
 		"quick_step": {
 			"cost": 1000,
-			"description": "Adds the product of your Speed Multiplier times your Proficiency Value to the action."
+			"description": "Rolls your Proficiency times your SPEED Multiplier (PROMULT) and adds it to the action."
 		},
 		// POWER-based Recovery
 		"heal_self": {
@@ -75,30 +75,30 @@
 			"cost": 1000,
 			"description": "Your entire team charges a (max) FOCUS roll's worth of HEALTH."
 		},
-		// SPEED-based Recovery
+		// SPEED-based Recovery. Note: PROMULT is (PROficiency times Speed MULTiplier)
 		"boost_self": {
 			"cost": 1000,
-			"description": "Recover a SPEED roll's worth of HEALTH."
+			"description": "Recover a PROMULT roll's worth of HEALTH."
 		},
 		"boost_ally": {
 			"cost": 1000,
-			"description": "A random ally (or yourself) recovers a SPEED roll's worth of HEALTH."
+			"description": "A random ally (or yourself) recovers a PROMULT roll's worth of HEALTH."
 		},
 		"boost_team": {
 			"cost": 1000,
-			"description": "Your entire team recovers a SPEED roll's worth of HEALTH."
+			"description": "Your entire team recovers a PROMULT roll's worth of HEALTH."
 		},
 		"motivate_self": {
 			"cost": 1000,
-			"description": "Charge a SPEED roll's worth of FOCUS."
+			"description": "Charge a PROMULT roll's worth of FOCUS."
 		},
 		"motivate_ally": {
 			"cost": 1000,
-			"description": "A random ally (or yourself) charges a SPEED roll's worth of FOCUS."
+			"description": "A random ally (or yourself) charges a PROMULT roll's worth of FOCUS."
 		},
 		"motivate_team": {
 			"cost": 1000,
-			"description": "Your entire team charges a SPEED roll's worth of HEALTH."
+			"description": "Your entire team charges a PROMULT roll's worth of HEALTH."
 		},
 		// Collateral Damage
 		"snipe": {
@@ -134,7 +134,7 @@
 		},
 		"dodge": {
 			"cost": 1000,
-			"description": "Rolls SPEED and subtracts the result from your opponent's action."
+			"description": "Rolls PROMULT and subtracts the result from your opponent's action."
 		},
 		// Other
 		"mastery": {
@@ -148,28 +148,28 @@
 	},
 	"consumables": {
 		"coffee": {
-			"description": "Charges 4 FOCUS.",
-			"cost": 250
+			"description": "Recover 10 HEALTH.",
+			"cost": 25
 		},
-		"potion": {
-			"description": "heals 10 Health",
-			"cost": 250
+		"energy_drink": {
+			"description": "Recover 15 HEALTH.",
+			"cost": 50
 		},
-		"potion": {
-			"description": "heals 10 Health",
-			"cost": 250
+		"water": {
+			"description": "Recover 20 HEALTH.",
+			"cost": 75
 		},
-		"potion": {
-			"description": "heals 10 Health",
-			"cost": 250
+		"candy": {
+			"description": "Charge 4 FOCUS",
+			"cost": 25
 		},
-		"potion": {
-			"description": "heals 10 Health",
-			"cost": 250
+		"chips": {
+			"description": "Charge 8 FOCUS",
+			"cost": 50
 		},
-		"potion": {
-			"description": "heals 10 Health",
-			"cost": 250
+		"snack_bar": {
+			"description": "Charge 12 FOCUS",
+			"cost": 75
 		}
 	},
 	"upgrades": {

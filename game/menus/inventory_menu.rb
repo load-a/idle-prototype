@@ -59,20 +59,20 @@ module InventoryMenu
   end
 
   def inventory_action
-    action = Input.ask_char('Pick an action: ')
+    action = Input.ask_option(*%w[give upgrade stash delete], prompt: 'Pick an action: ')
 
     return unless %w[g u s t].include?(action.char)
     
-    case action.char
-    when 'g' # Give
+    case action.index
+    when 0 # Give
       puts 'Give Item'
       give_item
-    when 'u' # Use
+    when 1 # Use
       use_upgrade
-    when 's' # Stash
+    when 2 # Stash
       puts 'Store item'
       stash_item
-    when 't' # Trash
+    when 3 # Trash
       puts 'Delete item'
       trash_item
     end

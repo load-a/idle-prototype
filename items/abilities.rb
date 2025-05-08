@@ -3,11 +3,13 @@
 require_relative 'abilities/power'
 require_relative 'abilities/focus'
 require_relative 'abilities/speed'
+require_relative 'abilities/reductions'
 
 module Abilities
   extend PowerAbilities
   extend FocusAbilities
   extend SpeedAbilities
+  extend ReductionAbilities
 
   module_function
 
@@ -77,6 +79,10 @@ module Abilities
     full_power = (actor.power + actor.max_focus) * SPEED_MULTIPLIER[actor.speed.to_s]
     round_data[action] += full_power.round
     "#{actor.name}'s eyes are glowing..."
+  end
+
+  def opposing_action(action)
+    action == :attack ? :defense : :attack
   end
 
   def opponent(action, round_data)
