@@ -87,6 +87,22 @@ module InventoryMenu
     NO_SELECTION
   end
 
+  def use_upgrade
+    # return if empty
+    return if inventory.upgrades.empty?
+
+    # Select item
+    item_selection = select_item_from_inventory(Selection.new(inventory.upgrades, :upgrades))
+    return if item_selection == NO_SELECTION
+
+    # Select character
+    character_selection = select_character
+    return inventory.take(item_selection.object) if character_selection == NO_SELECTION
+
+    stat = select_stat
+    Upgrades.send(item_selection.object.id, character_selection.object, stat.object)
+  end
+
   def give_item
     # return if empty
     category_selection = select_category
@@ -159,6 +175,14 @@ module InventoryMenu
     return NO_SELECTION unless (0..3).include? trait_index
 
     Selection.new(character.traits.keys[trait_index], trait_index)
+  end
+
+  def select_stat
+    stat = Input.ask_option(*%w[health power speed focus], prompt: 'Which stat: ')
+    
+    return NO_SELECTION unless (0..3).include? stat.index
+
+    Selection.new(stat.text, stat.index)
   end
 
   def replace_item(character_selection, trait_selection, item_selection)

@@ -23,7 +23,7 @@ class Game
     self.combat_log = []
     self.inventory = Inventory.new
     inventory.abilities = [ABILITIES[:intimidate], ABILITIES[:inspire_team], ABILITIES[:boost_ally], ABILITIES[:berserk]]
-    inventory.upgrades = [UPGRADES[:d6]]
+    inventory.upgrades = [UPGRADES[:one_up], UPGRADES[:one_down]]
 
     self.next_opponent = nil
     self.house = House.new

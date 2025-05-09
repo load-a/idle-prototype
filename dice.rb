@@ -6,6 +6,7 @@ module Dice
   DiceRoll = Struct.new(:result, :crit)
 
   LEVELS = [2, 4, 6, 8, 10, 12, 20].freeze
+  HEALTH_LEVELS = Array.new(9) {|index| (index * 5) + 20}.freeze
 
   def roll(sides)
     rand(1..sides)
@@ -38,6 +39,10 @@ module Dice
   def level(level)
     level = (level - 1).clamp(0, 6)
     LEVELS[level]
+  end
+
+  def find_level(stat)
+    LEVELS.index(stat) + 1
   end
 
   def inverse_die(die)

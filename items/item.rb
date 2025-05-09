@@ -1,5 +1,6 @@
 require_relative 'abilities'
 require_relative 'consumables'
+require_relative 'upgrades'
 
 # @todo Design Goals:
 #       POWER items should just be a straightforward reroll or modifier

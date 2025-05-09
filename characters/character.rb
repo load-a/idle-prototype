@@ -199,6 +199,19 @@ class Character
     end
   end
 
+  def upgrade_stat(stat, levels)
+    case stat.to_sym
+    when :power, :focus
+      current_level = Dice.find_level(send(stat))
+      new_level = Dice.level((current_level + levels).clamp(1, 7))
+      send("#{stat}=", new_level)
+    when :health
+    when :speed
+    else
+      raise "#{name} cannot upgrade stat: #{stat}"
+    end
+  end
+
   def use_ability(trait, encounter)
     case trait
     when :breaker

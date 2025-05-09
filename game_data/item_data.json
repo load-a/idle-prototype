@@ -173,41 +173,13 @@
 		}
 	},
 	"upgrades": {
-		"d2": {
-			"description": "Converts a POWER or FOCUS die into a 2-sided die.",
-			"cost": 1200
+		"one_up": {
+			"description": "Raises stat by one level.",
+			"cost": 5
 		},
-		"d4": {
-			"description": "Converts a POWER or FOCUS die into a 4-sided die.",
-			"cost": 1600
-		},
-		"d6": {
-			"description": "Converts a POWER or FOCUS die into a 6-sided die.",
-			"cost": 2000
-		},
-		"d8": {
-			"description": "Converts a POWER or FOCUS die into a 8-sided die.",
-			"cost": 2400
-		},
-		"d10": {
-			"description": "Converts a POWER or FOCUS die into a 10-sided die.",
-			"cost": 2800
-		},
-		"d12": {
-			"description": "Converts a POWER or FOCUS die into a 12-sided die.",
-			"cost": 3200
-		},
-		"d20": {
-			"description": "Converts a POWER or FOCUS die into a 20-sided die.",
-			"cost": 4000
-		},
-		"speed_reducer": {
-			"description": "Lowers a SPEED die by one level (i.e. D20 -> D12).",
-			"cost": 1500
-		},
-		"health_booster": {
-			"description": "Boosts your maximum HEALTH by 5.",
-			"cost": 2000
+		"one_down": {
+			"description": "Lowers stat by one level.",
+			"cost": 5
 		}
 	},
 	"subscriptions": {
