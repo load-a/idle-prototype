@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-module CombatOutput
+module MatchOutput
   def bracket(splitter = '...')
     right = cpu_team.members.map(&:brief)
     left = player_team.members.map { |member| member.brief(true) }

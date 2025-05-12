@@ -2,7 +2,7 @@
 
 module FocusAbilities
   def opportunity(actor, action, round_data)
-    return cant_focus(actor.name) if actor.focus.zero?
+    return cant_focus_text(actor.name) if actor.focus.zero?
 
     modifier = Dice.roll(actor.focus)
     round_data[action] += modifier
@@ -10,7 +10,7 @@ module FocusAbilities
   end
 
   def punishment(actor, action, round_data)
-    return cant_focus(actor.name) if actor.focus.zero?
+    return cant_focus_text(actor.name) if actor.focus.zero?
 
     focus = actor.focus
     round_data[action] += focus
@@ -20,7 +20,7 @@ module FocusAbilities
   ####
 
   def soothe_self(actor, _action, _round_data)
-    return cant_focus(actor.name) if actor.focus.zero?
+    return cant_focus_text(actor.name) if actor.focus.zero?
 
     mending = Dice.roll(actor.focus)
     actor.recover(mending)
@@ -28,7 +28,7 @@ module FocusAbilities
   end
 
   def soothe_ally(actor, _action, round_data)
-    return cant_focus(actor.name) if actor.focus.zero?
+    return cant_focus_text(actor.name) if actor.focus.zero?
 
     ally = actor_team(actor, round_data).sample
 
@@ -43,7 +43,7 @@ module FocusAbilities
   end
 
   def soothe_team(actor, _action, round_data)
-    return cant_focus(actor.name) if actor.focus.zero?
+    return cant_focus_text(actor.name) if actor.focus.zero?
 
     mending = Dice.roll(actor.focus)
 
@@ -53,7 +53,7 @@ module FocusAbilities
   end
 
   def inspire_self(actor, _action, _round_data)
-    return cant_focus(actor.name) if actor.focus.zero?
+    return cant_focus_text(actor.name) if actor.focus.zero?
 
     charge = Dice.roll(actor.focus)
     actor.charge_focus(charge)
@@ -61,7 +61,7 @@ module FocusAbilities
   end
 
   def inspire_ally(actor, _action, round_data)
-    return cant_focus(actor.name) if actor.focus.zero?
+    return cant_focus_text(actor.name) if actor.focus.zero?
 
     ally = actor_team(actor, round_data).sample
 
@@ -76,7 +76,7 @@ module FocusAbilities
   end
 
   def inspire_team(actor, _action, round_data)
-    return cant_focus(actor.name) if actor.focus.zero?
+    return cant_focus_text(actor.name) if actor.focus.zero?
 
     charge = Dice.roll(actor.focus)
 
@@ -85,7 +85,7 @@ module FocusAbilities
     "Everyone on #{actor.name}'s team was reinvigorated for +#{charge} FOCUS"
   end
 
-  def cant_focus(actor_name)
+  def cant_focus_text(actor_name)
     [
       "...but #{actor_name} just doesn't have it in them right now",
       "...but #{actor_name} isn't ready yet",

@@ -11,7 +11,7 @@ module ReductionAbilities
   end
 
   def anticipate(actor, action, round_data)
-    return cant_focus if actor.focus.zero?
+    return cant_focus_text(actor.name) if actor.focus.zero?
 
     opponent_action = opposing_action(action)
     reduction = Dice.roll(actor.focus)

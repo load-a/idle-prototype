@@ -1,21 +1,5 @@
 # frozen_string_literal: true
 
-class Screen
-  attr_accessor :header_template, :content_template
-
-  def initialize(header_template = '%s', content_template = '%s')
-    self.header_template = header_template
-    self.content_template = content_template
-  end
-
-  def show(header = '', content = '', spacer: '')
-    content = [content] unless content.is_a? Array
-
-    puts "#{header_template % header}#{spacer}"
-    puts(*content.map { |value| "#{content_template % value}#{spacer}" })
-  end
-end
-
 module Output
   module_function
 

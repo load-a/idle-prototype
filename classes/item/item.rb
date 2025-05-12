@@ -1,6 +1,4 @@
-require_relative 'abilities'
-require_relative 'consumables'
-require_relative 'upgrades'
+require_relative 'modules/modules'
 
 # @todo Design Goals:
 #       POWER items should just be a straightforward reroll or modifier
@@ -40,5 +38,3 @@ class Item
       format("%14s: %-21s", name, short_description)
     end
 end
-
-NO_ITEM = Item.new(:none, :none, 0, 'No Item')

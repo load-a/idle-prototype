@@ -1,9 +1,9 @@
 # frozen_string_literal: true
 
-require_relative 'abilities/power'
-require_relative 'abilities/focus'
-require_relative 'abilities/speed'
-require_relative 'abilities/reductions'
+require_relative 'power'
+require_relative 'focus'
+require_relative 'speed'
+require_relative 'reductions'
 
 module Abilities
   extend PowerAbilities

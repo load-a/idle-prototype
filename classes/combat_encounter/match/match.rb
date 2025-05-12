@@ -1,8 +1,13 @@
 # frozen_string_literal: true
 
+require_relative 'match_methods'
+require_relative 'match_output'
+require_relative 'round'
+
+
 class Match
-  include CombatOutput
-  include CombatMethods
+  include MatchOutput
+  include MatchMethods
 
   attr_accessor :player_team, :cpu_team, :round_number, :log, :winner
 

@@ -1,7 +1,5 @@
 # frozen_string_literal: true
 
-require_relative 'team'
-
 module Information
   def status_bar(current, max, length = 10)
     current = current.clamp(0, max)

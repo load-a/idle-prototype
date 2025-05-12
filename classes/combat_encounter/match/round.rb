@@ -18,7 +18,7 @@ class Round
       clutch: false
     }
 
-    roll_encounter
+    roll_actions
   end
 
   def [](key)
@@ -29,7 +29,7 @@ class Round
     results[key] = value
   end
 
-  def roll_encounter
+  def roll_actions
     roll_attack
     roll_counter
     roll_defense

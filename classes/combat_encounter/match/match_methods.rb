@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-module CombatMethods
+module MatchMethods
   def process_critical_attack(attacker, round)
     log << alert('Nice offense', '// ')
 

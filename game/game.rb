@@ -152,7 +152,7 @@ class Game
       ''
     ]
 
-    encounter = Combat.start(allied_team, opposing_team)
+    encounter = CombatEncounter.new(allied_team, opposing_team)
     encounter.log.prepend(match_header)
     encounter
   end

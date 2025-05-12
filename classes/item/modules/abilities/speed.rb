@@ -6,7 +6,7 @@ module SpeedAbilities
 
     round_data[action] = (round_data[action] * actor.speed_multiplier).round
 
-    "#{actor.name} stepped to the side and multiplied their #{action} by #{actor.speed_multiplier}"
+    "#{actor.name} stepped into a solid position, multiplying their #{action} by #{actor.speed_multiplier}"
   end
 
   def quick_step(actor, action, round_data)    
@@ -14,8 +14,6 @@ module SpeedAbilities
     round_data[action] += boost
     "#{actor.name} got +#{boost} to #{action} using their quick footwork"
   end
-
-  ####
 
   def boost_self(actor, _action, _round_data)
     mending = Dice.roll(actor.promult)
