@@ -8,4 +8,8 @@ class String
 
     "#{self}#{character * filler_length}"
   end
+
+  def integer?
+    to_i.to_s == self
+  end
 end

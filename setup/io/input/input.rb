@@ -3,36 +3,54 @@
 require 'io/console'
 
 require_relative 'response'
+require_relative 'prompt'
 
 module Input
   module_function
 
-  def ask(prompt)
-    ARGV.clear
-    puts prompt
-    Response.new(gets)
-  end
-
-  def ask_number(prompt)
-    response = ''
-
-    loop do
-      puts prompt
-      response = Response.new(gets)
-      break response if response.number?
-    end
-  end
-
-  def ask_char(prompt)
-    puts prompt
+  def read_char
     character = ''
 
+    ARGV.clear
     STDIN.raw do |stdin|
       character = stdin.getc
     end
 
-    # character =~ /\w/ ? Response.new(character) : Response.new('?')
-    Response.new(character)
+    character
+  end
+
+  def ask(prompt, input_type = :default)
+    ARGV.clear
+    print Prompt.new(prompt, input_type)
+    Response.new(gets)
+  end
+
+  def ask_line(prompt)
+    ask(prompt, :line).line
+  end
+
+  def ask_number(prompt)
+    ask(prompt, :number).number
+  end
+
+  def ask_char(prompt)
+    print Prompt.new(prompt, :character)
+    Response.new(read_char).character
+  end
+
+  def ask_digit(prompt)
+    print Prompt.new(prompt, :digit)
+    Response.new(read_char).digit
+  end
+
+  def confirm?(prompt)
+    print Prompt.new(prompt, :confirm)
+    Response.new(read_char).character == 'y'
+  end
+
+  def ask_keypress(prompt = 'Press any key to continue.')
+    print Prompt.new(prompt, :none)
+    read_char
   end
 
   def ask_option(*options, prompt: 'Make a selection: ')
@@ -42,20 +60,18 @@ module Input
       list << "[#{index + 1}] " + "#{option}".capitalize
     end
 
-    selection = if options.length > 9
-      self.ask_number(prompt + ": \n" + list.join(', '))
+    prompt += (": \n" + list.join(', '))
+
+    selection = if options.length <= 9
+      self.ask_digit(prompt)
     else
-      self.ask_char(prompt + ": \n" + list.join(', '))
+      self.ask_number(prompt)
     end
 
-    index = selection.number - 1
+    index = selection - 1
 
-    return Response.new('') if selection.number.zero? || options[index].nil?
+    return BLANK_RESPONSE if index.negative? || options[index].nil?
 
     Response.new(options[index], index: index)
-  end
-
-  def confirm?(prompt)
-    ask_char(prompt).character == 'y'
   end
 end

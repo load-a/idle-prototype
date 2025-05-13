@@ -22,7 +22,7 @@ class Expense
   end
 end
 
-module ExpenseMenu
+module GameExpenses
   def expense_menu
     system 'clear'
 
@@ -40,7 +40,7 @@ module ExpenseMenu
       puts Rainbow(total).italic
     end
 
-    Input.ask_char('...')
+    Input.ask_keypress
   end
 
   def initialize_expenses

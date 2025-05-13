@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 NO_ITEM = Item.new(:none, :none, 0, 'No Item')
+BLANK_RESPONSE = Response.new('', index: 0)
 
 SPEED_MULTIPLIER = {
   '2' => 3.5,

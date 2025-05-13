@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 # Handles all the logic for challenge matches and match scheduling
-module ChallengeMenu
+module GameChallenges
   def generate_challengers
 
     potential_opponents = CHARACTERS.values.reject { |character| player.team.include? character }
@@ -26,7 +26,8 @@ module ChallengeMenu
     challengers = generate_challengers
     show_challengers(challengers)
 
-    pick = Input.ask_char('Enter pick a team (number)').number - 1
+    # @todo Change into option
+    pick = Input.ask_number('Enter pick a team (number)') - 1
 
     if (0..challengers.length - 1).include?(pick)
       challenger = challengers[pick]
@@ -39,7 +40,7 @@ module ChallengeMenu
 
   def pick_time(challenger)
     show_time_screen
-    time = Input.ask('Pick a time').number
+    time = Input.ask_number('Pick a time')
 
     unless (0..24).include?(time) && player.team.free?(time) && calendar.hour <= time
       return notify 'Matchmaking cancelled' 

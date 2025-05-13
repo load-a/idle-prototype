@@ -1,9 +1,8 @@
 # frozen_string_literal: true
 
 require_relative 'setup/setup'
-require_relative 'game/game'
 
-game = Game.new
+game = Game.new(Player.new('Abcd'), Calendar.new, Inventory.new, House.new, Shop.new)
 
 system 'clear'
 game.test_play

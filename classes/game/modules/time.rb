@@ -1,12 +1,12 @@
 # frozen_string_literal: true
 
-module TimeMenu
+module GameTime
   def time_menu
     loop do
       system 'clear'
       show_time_screen
 
-      response = Input.ask_char('Pick an action (or go [B]ack)').character
+      response = Input.ask_char('Pick an action (or go [B]ack)')
       case response
       when 'b', 'q', '?'
         break
@@ -85,7 +85,7 @@ module TimeMenu
   end
 
   def number_of_hours
-    hours = Input.ask('How many hours: ').number
+    hours = Input.ask_number('How many hours: ')
 
     if (0..24).include?(hours)
       hours

@@ -1,8 +1,8 @@
 class Player
   attr_accessor :name, :character, :team, :money
 
-  def initialize(_name)
-    self.name = Response.new('allysa').text # Input.ask("what is your name?").text
+  def initialize(name)
+    self.name = name # Input.ask("what is your name?").text
 
     character = CHARACTERS.find { |id, _character| id.to_s.start_with?(name[0]) }&.last || CHARACTERS[:alyssa]
 

@@ -47,7 +47,7 @@ class Inventory
   end
 end
 
-module InventoryMenu
+module GameInventory
 
   Selection = Struct.new(:object, :index)
   NO_SELECTION = Selection.new(nil, nil)
@@ -61,7 +61,7 @@ module InventoryMenu
   def inventory_action
     action = Input.ask_option(*%w[give upgrade stash delete], prompt: 'Pick an action: ')
 
-    return unless %w[g u s t].include?(action.char)
+    return unless %w[g u s t].include?(action.character)
     
     case action.index
     when 0 # Give
@@ -79,7 +79,7 @@ module InventoryMenu
   end
 
   def select_category
-    category_id = Input.ask_option(*inventory.item_hash.keys.map(&:to_s)).text.to_sym
+    category_id = Input.ask_option(*inventory.item_hash.keys.map(&:to_s)).line.to_sym
     category_array = inventory.send(category_id)
 
     Selection.new(category_array, category_id)
@@ -152,7 +152,7 @@ module InventoryMenu
     category_id = category_selection.index
 
     inventory.list(category_id, display: true)
-    item_index = Input.ask_number('Enter item number: ').number - 1
+    item_index = Input.ask_number('Enter item number: ') - 1
 
     return NO_SELECTION unless (0...category_selection.object.length).include? item_index
 
@@ -163,7 +163,7 @@ module InventoryMenu
 
   def select_character
     character_pick = Input.ask_option(*player.team.members.map(&:name), prompt: "Which character: ")
-    character = player.team.members.select {|member| member.name.downcase == character_pick.text}[0]
+    character = player.team.members.select {|member| member.name.downcase == character_pick.line}[0]
 
     Selection.new(character, character_pick.index)
   end

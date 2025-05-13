@@ -4,6 +4,7 @@ class Calendar
   attr_accessor :year, :month, :day, :hour
 
   DAYS_OF_THE_WEEK = %w[Sunday Moonday Emberday Washday Gailday Earthday Starday]
+  MONTHS_OF_THE_YEAR = %w[Zember Monoa Duon Trips Qhad Pennet Hesset Sennah Ower Nowary Dezzer]
 
   def initialize
     self.year = 3025
@@ -96,6 +97,6 @@ class Calendar
   end
 
   def months_of_the_year(month = self.month)
-    %w[Zember Monoa Duon Trips Qhad Pennet Hesset Sennah Ower Nowary Dezzer][month - 1]
+    MONTHS_OF_THE_YEAR[month - 1]
   end
 end

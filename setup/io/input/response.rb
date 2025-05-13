@@ -3,40 +3,23 @@
 class Response
   DEFAULT = '<???>'
 
-  attr_accessor :raw, :default, :index
+  attr_accessor :raw, :line, :index
 
-  def initialize(raw, index: nil)
+  def initialize(raw, index: 0)
     self.raw = raw
-    self.default = raw.strip.gsub(/\W/, '').empty?
+    self.line = raw.gsub(/\W/, '').strip.downcase
     self.index = index
   end
 
-  def text
-    return DEFAULT if default
-
-    raw.strip.downcase.gsub(/\W/, '')
-  end
-
   def character
-    return DEFAULT[1] if default
-
-    text[0]
+    line[0]
   end
-  alias char character
 
   def number
-    text.to_i
+    line.to_i
   end
 
-  def [](*args)
-    text.call('[]', args)
-  end
-
-  def number?
-    text.to_i.to_s == text
-  end
-
-  def default?
-    text == DEFAULT
+  def digit
+    number.abs.to_s[0].to_i
   end
 end
