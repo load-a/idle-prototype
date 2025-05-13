@@ -22,4 +22,8 @@ class Response
   def digit
     number.abs.to_s[0].to_i
   end
+
+  def blank?
+    self == BLANK_RESPONSE
+  end
 end

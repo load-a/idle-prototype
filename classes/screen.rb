@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 class Screen
-
   TEXT_HEIGHT = 28
   PROMPT_HEIGHT = 2
 

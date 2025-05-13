@@ -2,9 +2,7 @@
 
 module GameCombat
   def show_combat_log
-    system 'clear'
-    puts combat_log
-
+    Output.new_screen(combat_log)
     Input.ask_keypress
   end
 

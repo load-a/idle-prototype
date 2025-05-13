@@ -3,7 +3,7 @@
 module GameShopping
   def show_shop_menu
     loop do
-      system 'clear'
+      Output.new_screen
       shop.show_selection
 
       category = Input.ask_option('abilities', 'consumables', 'upgrades', 'subscriptions', prompt: 'Choose a category')
@@ -17,7 +17,7 @@ module GameShopping
   end
 
   def purchase_item(category)
-    system 'clear'
+    Output.new_screen
     items = shop.show_category(category.line, player.money) 
     selection = Input.ask_option(*items.map(&:name), prompt: 'select an item')
 
@@ -28,11 +28,11 @@ module GameShopping
     return nil if purchase.cost > player.money
 
     if Input.confirm?("Purchase #{purchase.name} for $#{purchase.cost}?")
-      log << "Purchased #{purchase.name} (-$#{purchase.cost})"
+      notify "Purchased #{purchase.name} (-$#{purchase.cost})"
       inventory.send(purchase.type) << purchase
       items.delete_at(selection.index)
     else
-      log << 'Cancelled purchase'
+      notify 'Cancelled purchase'
     end
 
     purchase

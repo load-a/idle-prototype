@@ -1,23 +1,42 @@
 # frozen_string_literal: true
 
 module GameTime
+  SLEEP_TEXT = [
+    'had a weird dream', 'was visited by the Sandman', 'slept', 'snored really loudly', 'talked in their sleep',
+    'restored the old tissues with an hour of the dreamless', "didn't dream", 'counted sheep',
+    'woke up to pee', 'had a nice dream', 'had a bad dream', 'fell out of bed', "couldn't sleep"
+  ]
+  FREE_TEXT = [
+    'enjoyed some free time', 'went for a walk', 'visited a friend', 'meditated', 
+    'read a book', 'enjoyed their hobby'
+  ]
+  WORK_TEXT = [
+    'got that bag', 'was at work', 'made some money', 'scrolled online while at work'
+  ]
+  TRAINING_TEXT = [
+    'hit up the iron church', 'got some reps in', 'trained', 'worked out', 'studied the ancient texts',
+    'worked on their technique', 'practiced', 'did some stretches'
+  ]
+  REST_TEXT = [
+    'took a nap', 'ate something', 'drank some water', 'took a shower', 
+    'took a bath', 'had some tea', 'had a snack'
+  ]
+  
   def time_menu
     loop do
-      system 'clear'
+      Output.new_screen
       show_time_screen
 
-      response = Input.ask_char('Pick an action (or go [B]ack)')
-      case response
-      when 'b', 'q', '?'
-        break
-      when 'e'
-        puts 'Edit not implemented'
-      when 'p'
+      response = Input.ask_option(*%w[pass], prompt: 'Pick an action')
+      case response.line
+      # when 'edit'
+      #   puts 'Edit not implemented'
+      when 'pass'
         hours = number_of_hours
         pass_time(hours)
         break
       else
-        notify "DEBUG: Invalid Input: Timetable > [#{response}]"
+        break
       end
     end
   end
@@ -151,30 +170,15 @@ module GameTime
   def notify_activity(task)
     case task
     when :sleep
-      [
-        'had a weird dream', 'was visited by the Sandman', 'slept', 'snored really loudly', 'talked in their sleep',
-        'restored the old tissues with an hour of the dreamless', "didn't dream", 'counted sheep',
-        'woke up to pee', 'had a nice dream', 'had a bad dream', 'fell out of bed', "couldn't sleep"
-      ].sample
+      SLEEP_TEXT.sample
     when :free
-      [
-        'enjoyed some free time', 'went for a walk', 'visited a friend', 'meditated', 
-        'read a book', 'enjoyed their hobby'
-      ].sample
+      FREE_TEXT.sample
     when :work
-      [
-        'got that bag', 'was at work', 'made some money', 'scrolled online while at work'
-      ].sample
+      WORK_TEXT.sample
     when :train
-      [
-        'hit up the iron church', 'got some reps in', 'trained', 'worked out', 'studied the ancient texts',
-        'worked on their technique', 'practiced', 'did some stretches'
-      ].sample
+      TRAINING_TEXT.sample
     when :rest
-      [
-        'took a nap', 'ate something', 'drank some water', 'took a shower', 
-        'took a bath', 'had some tea', 'had a snack'
-      ].sample
+      REST_TEXT.sample
     else
       raise "Activity not accounted for: #{task}"
     end

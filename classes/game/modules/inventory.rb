@@ -1,65 +1,18 @@
 # frozen_string_literal: true
 
-class Inventory
-  attr_accessor :abilities, :consumables, :upgrades, :subscriptions
-
-  def initialize
-    self.abilities = []
-    self.consumables = []
-    self.upgrades = []
-    self.subscriptions = []
-  end
-
-  def to_h
-    item_hash.merge({ subscriptions: subscriptions })
-  end
-
-  def item_hash
-    {
-      abilities: abilities,
-      consumables: consumables,
-      upgrades: upgrades
-    }
-  end
-
-  def show_items
-    header = Output.columns(%w[Abilities Consumables Upgrades], content_just: :center, left_edge: '|', right_div: '|')
-    divider = header.join.gsub(/\w|\s/, '-')
-
-    puts header, divider
-    puts Output.columns(item_hash.values.map{|list| list.map(&:inventory_line)}, left_edge: '|', right_div: '|')
-    puts divider.gsub('-', '_')
-  end
-
-  def take(item)
-    send(item.type) << item
-  end
-
-  def remove(category_id, item_index)
-    send(category_id).delete_at(item_index)
-  end
-  alias give remove
-
-  def list(category_id, display: false)
-    listing = send(category_id)
-    listing.each_with_index { |item, index| puts format('%i. %s', index + 1, item.name) } if display
-    listing
-  end
-end
-
 module GameInventory
 
   Selection = Struct.new(:object, :index)
   NO_SELECTION = Selection.new(nil, nil)
 
   def inventory_screen
-    system 'clear'
+    Output.new_screen()
     inventory.show_items
     inventory_action
   end
 
   def inventory_action
-    action = Input.ask_option(*%w[give upgrade stash delete], prompt: 'Pick an action: ')
+    action = Input.ask_option(*%w[give upgrade stash trash], prompt: 'Pick an action: ')
 
     return unless %w[g u s t].include?(action.character)
     
@@ -164,6 +117,8 @@ module GameInventory
   def select_character
     character_pick = Input.ask_option(*player.team.members.map(&:name), prompt: "Which character: ")
     character = player.team.members.select {|member| member.name.downcase == character_pick.line}[0]
+
+    return NO_SELECTION if character.nil?
 
     Selection.new(character, character_pick.index)
   end

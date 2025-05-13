@@ -1,10 +1,4 @@
-require_relative 'modules/modules'
-
-# @todo Design Goals:
-#       POWER items should just be a straightforward reroll or modifier
-#       FOCUS items should make use of the FOCUS meter (less reliable but potentially stronger than POWER)
-#       SPEED items should use the Speed Multiplier to boost the effect of the action
-#       
+require_relative 'modules/modules'     
 
 class Item
   attr_accessor :id, :type, :cost, :description

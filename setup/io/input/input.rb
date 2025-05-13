@@ -49,7 +49,7 @@ module Input
   end
 
   def ask_keypress(prompt = 'Press any key to continue.')
-    print Prompt.new(prompt, :none)
+    print Prompt.new(Rainbow(prompt).faint, :none)
     read_char
   end
 
@@ -68,10 +68,10 @@ module Input
       self.ask_number(prompt)
     end
 
-    index = selection - 1
+    option_index = selection - 1
 
-    return BLANK_RESPONSE if index.negative? || options[index].nil?
+    return BLANK_RESPONSE if option_index.negative? || options[option_index].nil?
 
-    Response.new(options[index], index: index)
+    Response.new(options[option_index], index: option_index)
   end
 end

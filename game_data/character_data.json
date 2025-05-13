@@ -111,7 +111,7 @@
   },
   "faze": {
     "name": "Faze",
-    "description": "Is part of a certain group with Emanon, Vera and Quill",
+    "description": "Is part of a certain group with Emanon, Vanessa and Quill",
     "cost": 50,
     "health": 50,
     "power": 4,
@@ -199,7 +199,7 @@
   },
   "jarome": {
     "name": "Jarome",
-    "description": "Logistic mastermind for a certain mercenary group. Is brave to the point of complete foolishness.",
+    "description": "Logistic mastermind for a certain mercenary group. Is brave to the point of utter foolishness.",
     "cost": 50,
     "health": 35,
     "power": 10,
@@ -243,7 +243,7 @@
   },
   "leif": {
     "name": "Leif",
-    "description": "Calligrapher and Zen practitioner. Also use to work at the cafe, before marrying Xia.",
+    "description": "Calligrapher and Zen practitioner. Used to work at a cafe, before marrying Xia.",
     "cost": 50,
     "health": 44,
     "power": 6,
@@ -272,10 +272,10 @@
     "focus": 12,
     "speed": 6,
     "traits": {
-      "attack": "none",
+      "attack": "snipe",
       "breaker": "none",
       "clutch": "none",
-      "defense": "none"
+      "defense": "anticipate"
     },
     "behavior": {
       "sleep": 8,
@@ -309,7 +309,7 @@
   },
   "orick": {
     "name": "Orick",
-    "description": "College freshman. Used to be good friends with Alyssa, but has become distant over the years.",
+    "description": "College freshman. Used to be best friends with Alyssa, but has grown distant over the years.",
     "cost": 50,
     "health": 50,
     "power": 4,
@@ -331,7 +331,7 @@
   },
   "petra": {
     "name": "Petra",
-    "description": "This is a character",
+    "description": "A trigger witch (practitioner of bullet magic).",
     "cost": 50,
     "health": 35,
     "power": 12,
@@ -375,7 +375,7 @@
   },
   "ray": {
     "name": "Ray Louis",
-    "description": "The muscle for a certain mercenary group. He loves and raises chickens.",
+    "description": "The muscle for a certain mercenary group. He loves raising chickens.",
     "cost": 50,
     "health": 50,
     "power": 12,
@@ -441,7 +441,7 @@
   },
   "umber": {
     "name": "Umber",
-    "description": "A deeply troubled girl who tries her best despite everything.",
+    "description": "Deeply troubled; Everyone thinks they can fix her because she's so pretty.",
     "cost": 50,
     "health": 50,
     "power": 4,
@@ -462,7 +462,7 @@
     }
   },
   "vera": {
-    "name": "Vera",
+    "name": "Vanessa",
     "description": "This is a character",
     "cost": 50,
     "health": 50,
@@ -507,7 +507,7 @@
   },
   "xia": {
     "name": "Ming Xia",
-    "description": "A master Technomancer. She's funding the whole league.",
+    "description": "Xia, for short. A master Technomancer and sole financier for this whole League.",
     "cost": 0,
     "health": 55,
     "power": 20,
@@ -529,7 +529,7 @@
   },
   "yumi": {
     "name": "Yumi",
-    "description": "A world-class martial artist (and legally a princess). She is friends with basically everyone.",
+    "description": "A world-class martial artist. She is friends with basically everyone.",
     "cost": 35,
     "health": 45,
     "power": 8,
@@ -551,17 +551,17 @@
   },
   "zylo": {
     "name": "Zylo",
-    "description": "A lone wolf who uses his speed to defeat even the strongest opponents. Never takes off his sunglasses.",
+    "description": "A lone wolf who destroys his enemies with speed and agility. He never takes off his sunglasses.",
     "cost": 60,
     "health": 23,
     "power": 12,
     "focus": 10,
     "speed": 4,
     "traits": {
-      "attack": "none",
-      "breaker": "none",
-      "clutch": "none",
-      "defense": "none"
+      "attack": "quick_step",
+      "breaker": "boost_self",
+      "clutch": "mastery",
+      "defense": "dodge"
     },
     "behavior": {
       "sleep": 8,

@@ -5,6 +5,11 @@ module Output
 
   SCHEDULE_TEMPLATE = '%s%02i:00 - %s'
 
+  def new_screen(*content)
+    system 'clear'
+    content.each {|text| puts text}
+  end
+
   def show_schedule
     times = [
       "#{player.name}'s Schedule for #{calendar.day_of_the_week}, #{calendar.months_of_the_year} #{calendar.day}",

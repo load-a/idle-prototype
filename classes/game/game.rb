@@ -44,12 +44,14 @@ class Game
 
   def main_menu
     loop do
-      system 'clear'
-      puts Output.columns([["$#{player.money}"], [calendar.date], 
+      game_stats =  Output.columns([["$#{player.money}"], [calendar.date], 
       [format("Today's opponent: %-16s", next_opponent&.leader&.name)]], 
       row_headers: [player.name], left_div: ' ')
-      puts player.team
-      puts Output.columns([log], row_headers: HELP_MENU, left_div: ' > ')
+      team_view = player.team
+      game_log = Output.columns([log], row_headers: HELP_MENU, left_div: ' > ')
+
+      Output.new_screen(game_stats, team_view, game_log)
+
       response = Input.ask_char('Enter a command:')
 
       case response
@@ -58,8 +60,8 @@ class Game
       when 'e'
         expense_menu
       when 'h'
-        house.subscriptions = inventory[:subscriptions]
-        puts house.to_s
+        house.subscriptions = inventory.subscriptions
+        puts '', house.to_s
         Input.ask_keypress
       when 'i'
         inventory_screen

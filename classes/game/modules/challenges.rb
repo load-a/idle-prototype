@@ -3,21 +3,19 @@
 # Handles all the logic for challenge matches and match scheduling
 module GameChallenges
   def generate_challengers
-
     potential_opponents = CHARACTERS.values.reject { |character| player.team.include? character }
     challengers = []
 
     rand(1..4).times do
-      challengers << Team.new(potential_opponents.sample(player.team.size))
+      new_team = Team.new(potential_opponents.sample(player.team.size))
+      challengers << new_team unless challengers.any? { |team| team.same_members? new_team }
     end
 
     challengers.uniq
   end
 
   def show_challengers(challengers)
-    system 'clear'
-    puts 'Challenger Select'
-    challengers.each { |team| puts team }
+    Output.new_screen 'Challenger Select', challengers.each(&:to_s)
   end
 
   def challenge_menu
@@ -26,16 +24,13 @@ module GameChallenges
     challengers = generate_challengers
     show_challengers(challengers)
 
-    # @todo Change into option
-    pick = Input.ask_number('Enter pick a team (number)') - 1
+    pick = Input.ask_option(*challengers.map{|team| team.leader.name }, prompt: 'Pick a challenger:')
 
-    if (0..challengers.length - 1).include?(pick)
-      challenger = challengers[pick]
-      puts "Selected #{challenger.name}"
-      pick_time(challenger)
-    else
-      notify 'No challenger selected'
-    end
+    return notify('No challenger selected') if pick.blank?
+
+    challenger = challengers[pick.index]
+    puts "Selected #{challenger.name}"
+    pick_time(challenger)
   end
 
   def pick_time(challenger)
