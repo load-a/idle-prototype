@@ -29,6 +29,7 @@ module GameShopping
 
     if Input.confirm?("Purchase #{purchase.name} for $#{purchase.cost}?")
       notify "Purchased #{purchase.name} (-$#{purchase.cost})"
+      player.money -= purchase.cost
       inventory.send(purchase.type) << purchase
       items.delete_at(selection.index)
     else

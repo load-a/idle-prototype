@@ -21,6 +21,15 @@ class Team
     self.downed = []
   end
 
+  def add_member(character)
+    self.members << character.from_zero
+    character.set_schedule
+  end
+
+  def remove_member(character)
+    members.reject! {|member| member.same_as? character}
+  end
+
   def to_s
     [
       name.center(120),

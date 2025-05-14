@@ -8,7 +8,8 @@ class Game
   HELP_MENU = ['Command List', '', '[C]hallengers', '[E]xpense Report', 'Combat [L]og','[H]ouse Stats',
   '[I]nventory', '[M]anage Team', '[P]ass the Time', '[S]tore', '[T]imetable', '', '[Q]uit']
 
-  attr_accessor :player, :calendar, :log, :next_opponent, :combat_log, :expenses, :house, :inventory, :shop
+  attr_accessor :player, :calendar, :log, :next_opponent, :combat_log, :expenses, :house, :inventory, :shop, 
+                :challengers
 
   def initialize(player, calendar, inventory, house, shop)
     self.player = player
@@ -25,14 +26,25 @@ class Game
 
   def initialize_data
     shop.generate
+    generate_challengers
     initialize_expenses
     player.team.members.each { |member| member.set_schedule }
   end
 
   def devevlopment_setup
     # player.team = TEAMS[0]
-    inventory.abilities = [ABILITIES[:intimidate], ABILITIES[:inspire_team], ABILITIES[:boost_ally], ABILITIES[:berserk]]
-    inventory.upgrades = [UPGRADES[:one_up], UPGRADES[:one_down]]
+    # inventory.abilities = [ABILITIES[:intimidate], ABILITIES[:inspire_team], ABILITIES[:boost_ally], ABILITIES[:berserk]]
+    # inventory.upgrades = [UPGRADES[:one_up], UPGRADES[:one_down]]
+
+    # On Startup ONLY
+    inventory.abilities = case player.character.proficiency
+    when :speed
+      [ABILITIES[:side_step]]
+    when :focus
+      [ABILITIES[:opportunity]]
+    when :power
+      [ABILITIES[:followup]]
+    end
   end
 
   def test_play
@@ -71,9 +83,18 @@ class Game
         show_combat_log
       when 'm'
         puts player.team
-        Input.ask_keypress
+        action = Input.ask_option(*%w[Description Remove])
+        case action.index
+        when 0
+          player.team.description = Input.ask('Enter a new team description (max 100 characters)').clean[..100]
+        when 1
+          next if player.team.length == 1
+          member = Input.ask_option(*player.team.members[1..].map(&:name), prompt: 'Let go of which member?')
+          next unless Input.confirm?("Are you sure you want to let go of #{member.line}")
+          player.team.remove_member(player.team.members[member.index + 1])
+        end
       when 'p'
-        system 'clear'
+        Output.new_screen
         show_time_screen
         hours = number_of_hours
         pass_time(hours)

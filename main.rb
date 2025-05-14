@@ -2,7 +2,7 @@
 
 require_relative 'setup/setup'
 
-game = Game.new(Player.new('Abcd'), Calendar.new, Inventory.new, House.new, Shop.new)
+game = Game.new(Player.new('Saramir'), Calendar.new, Inventory.new, House.new, Shop.new)
 
 system 'clear'
 game.test_play

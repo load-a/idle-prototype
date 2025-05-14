@@ -177,13 +177,13 @@ class Character
 
   def from_zero
     character = dup
-    character.power = 4
-    character.max_health = 20
-    character.max_focus = 20
-    character.speed = 20
+    # character.power = 4
+    # character.max_health = 20
+    # character.max_focus = 20
+    # character.speed = 20
     character.full_reset
 
-    character.traits.transform_values! { |_trait| Trait.new(:none) }
+    character.traits.transform_values! { |_trait| NO_ITEM }
 
     character
   end

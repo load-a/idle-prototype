@@ -106,9 +106,10 @@ module GameTime
   def number_of_hours
     hours = Input.ask_number('How many hours: ')
 
-    if (0..24).include?(hours)
+    if (1..24).include?(hours)
       hours
     else
+      notify('NOTE: Can only pass between 1 and 24 hours.')
       0
     end
   end
@@ -134,14 +135,38 @@ module GameTime
 
   def advance_time(team)
     calendar.advance_hour
+    generate_challengers
 
     return unless calendar.hour.zero?
 
     notify calendar.day_month
     pay_due_expenses
+
+    if player.money < 0
+      puts "you lose"
+      exit
+    end
+
     team.each(&:set_schedule)
     shop.generate
     self.next_opponent = nil
+
+    new_member if rand(0...40) < player.money && player.team.length < 4
+  end
+
+  def new_member
+    character = CHARACTERS.values.sample
+
+    Output.new_screen "#{character.name} wants to join your crew.", character.attribute_chart.values[...5]
+    
+    if Input.confirm?('Let them?')
+      player.team.add_member(character)
+      notify "#{character.name} has joined the team!"
+      expenses << Expense.new(character.name, 'Daily living expenses', 40, :daily, 
+                              calendar.add_to_date(calendar.serialize_date, day: 1))
+    else
+      notify "#{character.name} has not joined the team."
+    end
   end
 
   def do_activity(character)

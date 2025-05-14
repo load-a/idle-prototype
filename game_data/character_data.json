@@ -287,7 +287,7 @@
   },
   "niamh": {
     "name": "Niamh",
-    "description": "Barista at the cafe.",
+    "description": "Barista at the cafe. A trigger witch (practitioner of bullet magic).",
     "cost": 50,
     "health": 50,
     "power": 4,
@@ -331,7 +331,7 @@
   },
   "petra": {
     "name": "Petra",
-    "description": "A trigger witch (practitioner of bullet magic).",
+    "description": "The Sniper of Love",
     "cost": 50,
     "health": 35,
     "power": 12,

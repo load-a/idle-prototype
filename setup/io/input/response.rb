@@ -7,8 +7,12 @@ class Response
 
   def initialize(raw, index: 0)
     self.raw = raw
-    self.line = raw.gsub(/\W/, '').strip.downcase
+    self.line = clean.downcase
     self.index = index
+  end
+
+  def clean
+    raw.strip
   end
 
   def character
