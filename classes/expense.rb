@@ -12,12 +12,12 @@ class Expense
   end
 
   def reduce_by(percentage)
-    percentage /= 100.00 if percentage > 1
+    percentage / 100.00 if percentage > 1
     discount = (cost * percent).round
     self.cost -= discount
   end
 
   def to_s
-    '%-20s $%4i -- %-50s (%s)' % [name, cost, description, type]
+    format('%-20s $%4i -- %-50s (%s)', name, cost, description, type)
   end
 end

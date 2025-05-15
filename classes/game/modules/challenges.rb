@@ -14,7 +14,7 @@ module GameChallenges
     new_challengers = []
 
     rand(1..4).times do
-      new_team = Team.new(potential_opponents.sample(player.team.size).map {|character| character.dup})
+      new_team = Team.new(potential_opponents.sample(player.team.size).map { |character| character.dup })
       new_team.description = DESCRIPTIONS.sample
       new_challengers << scale_back(new_team) unless new_challengers.any? { |team| team.same_members? new_team }
     end
@@ -24,7 +24,7 @@ module GameChallenges
 
   def scale_back(team)
     team.members.each do |character|
-      character.traits.transform_values! {|item| rand(0..(player.money / 100)).zero? ? NO_ITEM : item}
+      character.traits.transform_values! { |item| rand(0..(player.money / 100)).zero? ? NO_ITEM : item }
     end
 
     team
@@ -39,7 +39,7 @@ module GameChallenges
 
     show_challengers(challengers)
 
-    pick = Input.ask_option(*challengers.map{|team| team.leader.name }, prompt: 'Pick a challenger:')
+    pick = Input.ask_option(*challengers.map { |team| team.leader.name }, prompt: 'Pick a challenger:')
 
     return notify('No challenger selected') if pick.blank?
 
@@ -53,7 +53,7 @@ module GameChallenges
     time = Input.ask_number('Pick a time')
 
     unless (0..24).include?(time) && player.team.free?(time) && calendar.hour <= time
-      return notify 'Matchmaking cancelled' 
+      return notify 'Matchmaking cancelled'
     end
 
     notify format('Match Scheduled for %02<time>i:00 against %<name>s', { time: time, name: challenger.name })

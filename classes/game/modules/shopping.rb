@@ -18,7 +18,7 @@ module GameShopping
 
   def purchase_item(category)
     Output.new_screen
-    items = shop.show_category(category.line, player.money) 
+    items = shop.show_category(category.line, player.money)
     selection = Input.ask_option(*items.map(&:name), prompt: 'select an item')
 
     return nil if selection == BLANK_RESPONSE

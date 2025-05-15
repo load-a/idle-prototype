@@ -2,7 +2,7 @@
 
 module Upgrades
   module_function
-  
+
   def one_up(character, stat)
     character.upgrade_stat(stat, 1)
   end

@@ -3,7 +3,6 @@
 require_relative 'match/match'
 
 class CombatEncounter
-
   attr_accessor :log, :encounter
 
   def initialize(player_team, cpu_team)
@@ -13,7 +12,7 @@ class CombatEncounter
     self.log = encounter.log
   end
 
-  def method_missing(method_name, *args, &blk)
+  def method_missing(method_name, *_args)
     encounter.send(method_name)
   end
 end

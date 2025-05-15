@@ -32,14 +32,14 @@ module Information
   end
 
   def attribute_chart
-    speed_line = 'Speed : %2i x%s %s' 
-    
+    speed_line = 'Speed : %2i x%s %s'
+
     {
       name: "~#{name}'s Stats~",
       health: format('%-6s: %2i/%2i', 'Health', health, max_health),
       power: format('%-6s: %2i %s', 'Power', power, ('*' if proficiency == :power)),
       focus: format('%-6s: %2i/%2i %s', 'Focus', focus, max_focus, ('*' if proficiency == :focus)),
-      speed: speed_line % [speed, speed_multiplier, ("* [#{Dice.inverse_die(speed)}]" if proficiency == :speed)],
+      speed: format(speed_line, speed, speed_multiplier, ("* [#{Dice.inverse_die(speed)}]" if proficiency == :speed)),
       attack: format('%-13s: %s', 'Crit. Attack', traits[:attack].name),
       defense: format('%-13s: %s', 'Crit. Defense', traits[:defense].name),
       breaker: format('%-13s: %s', 'Focus Breaker', traits[:breaker].name),

@@ -5,14 +5,14 @@ module GameExpenses
     perform_list_maintenence
     due_dates = expenses.map(&:next_due).uniq
 
-    Output.new_screen("Expense Report".center(120), ('-' * 120))
+    Output.new_screen('Expense Report'.center(120), '-' * 120)
 
     due_dates.each do |date|
-      dates_expenses = expenses.select {|expense| expense.next_due == date}
+      dates_expenses = expenses.select { |expense| expense.next_due == date }
       total = format("\tTotal................$%4i.00", dates_expenses.map(&:cost).sum)
 
-      puts calendar.deserialize_date(date)
-      dates_expenses.each {|expense| puts "\t#{expense.to_s}"}
+      puts calendar.read_serial_date(date)
+      dates_expenses.each { |expense| puts "\t#{expense}" }
       puts Rainbow(total).italic
     end
 
@@ -24,10 +24,10 @@ module GameExpenses
     rent_day = calendar.add_to_date(rent_day, month: 1)
     self.expenses = [Expense.new('Rent', 'Apartment Rent', 400, :monthly, rent_day)]
 
-    first_daily_due_date = calendar.add_to_date(calendar.serialize_date, day: 1)
+    calendar.add_to_date(calendar.serialize_date, day: 1)
 
     player.team.members.each do |member|
-      expenses << Expense.new("#{member.name}", 'Daily living expenses', 40, :daily, first_daily_due_date)
+      expenses << Expense.new("#{member.name}", 'Daily living expenses', 40, :daily, calendar.tomorrow)
     end
   end
 
@@ -45,17 +45,18 @@ module GameExpenses
   end
 
   def pay_due_expenses
-    due_expenses = expenses.select {|expense| expense.next_due == calendar.serialize_date}
+    due_expenses = expenses.select { |expense| expense.next_due == calendar.serialize_date }
 
-    due_expenses.each do |expense| 
-      player.money -= expense.cost 
+    due_expenses.each do |expense|
+      player.money -= expense.cost
       notify "Paid $#{expense.cost} to #{expense.name} (#{expense.type})"
       set_next_due_date(expense)
     end
   end
 
   def perform_list_maintenence
-    expenses.delete_if {|expense| expense.next_due.to_i < calendar.serialize_date.to_i}
-    expenses.sort_by! {|expense| expense.next_due.to_i}
+    expenses.uniq!
+    expenses.delete_if { |expense| expense.next_due.to_i < calendar.serialize_date.to_i }
+    expenses.sort_by! { |expense| expense.next_due.to_i }
   end
 end

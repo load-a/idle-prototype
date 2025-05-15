@@ -17,18 +17,18 @@ class House
   def to_s
     template = '%-10s -> +%-2i to %16s until %i'
     [
-      template % ['Free Time', free.increment, 'HEALTH and FOCUS', free.cap],
-      template % ['Training', train.increment, 'FOCUS', train.cap],
-      template % ['Relaxation', rest.increment, 'HEALTH', rest.cap],
-      template % ['Sleeping', sleep.increment, 'HEALTH', sleep.cap],
-      template % ['Working', work.increment, 'Money', work.cap],
+      format(template, 'Free Time', free.increment, 'HEALTH and FOCUS', free.cap),
+      format(template, 'Training', train.increment, 'FOCUS', train.cap),
+      format(template, 'Relaxation', rest.increment, 'HEALTH', rest.cap),
+      format(template, 'Sleeping', sleep.increment, 'HEALTH', sleep.cap),
+      format(template, 'Working', work.increment, 'Money', work.cap),
       "Subscriptions: #{subscriptions.map(&:name).join(', ')}"
     ].join("\n")
   end
 
   def upgrade(stat, type, amount)
-    trait = self.send(stat).send(type)
+    trait = send(stat).send(type)
     boost = trait + amount
-    self.send(stat).send("#{type}=", boost)
+    send(stat).send("#{type}=", boost)
   end
 end

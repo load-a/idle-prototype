@@ -1,12 +1,11 @@
 # frozen_string_literal: true
 
 module GameInventory
-
   Selection = Struct.new(:object, :index)
   NO_SELECTION = Selection.new(nil, nil)
 
   def inventory_screen
-    Output.new_screen()
+    Output.new_screen
     inventory.show_items
     inventory_action
   end
@@ -15,7 +14,7 @@ module GameInventory
     action = Input.ask_option(*%w[give upgrade stash trash], prompt: 'Pick an action: ')
 
     return unless %w[g u s t].include?(action.character)
-    
+
     case action.index
     when 0 # Give
       puts 'Give Item'
@@ -115,8 +114,8 @@ module GameInventory
   end
 
   def select_character
-    character_pick = Input.ask_option(*player.team.members.map(&:name), prompt: "Which character: ")
-    character = player.team.members.select {|member| member.name.downcase == character_pick.line}[0]
+    character_pick = Input.ask_option(*player.team.members.map(&:name), prompt: 'Which character: ')
+    character = player.team.members.select { |member| member.name.downcase == character_pick.line }[0]
 
     return NO_SELECTION if character.nil?
 
@@ -126,7 +125,7 @@ module GameInventory
   def select_trait(character_selection)
     character = character_selection.object
     trait_index = Input.ask_option(*character.traits.values.map(&:name), prompt: 'Which slot: ').index
-    
+
     return NO_SELECTION unless (0..3).include? trait_index
 
     Selection.new(character.traits.keys[trait_index], trait_index)
@@ -134,7 +133,7 @@ module GameInventory
 
   def select_stat
     stat = Input.ask_option(*%w[health power speed focus], prompt: 'Which stat: ')
-    
+
     return NO_SELECTION unless (0..3).include? stat.index
 
     Selection.new(stat.text, stat.index)

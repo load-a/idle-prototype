@@ -14,6 +14,7 @@ module Input
     ARGV.clear
     STDIN.raw do |stdin|
       character = stdin.getc
+      return '?' if character =~ /\W/
     end
 
     character
@@ -57,16 +58,16 @@ module Input
     list = []
 
     options.each_with_index do |option, index|
-      list << "[#{index + 1}] " + "#{option}".capitalize
+      list << ("[#{index + 1}] " + "#{option}".capitalize)
     end
 
     prompt += (": \n" + list.join(', '))
 
     selection = if options.length <= 9
-      self.ask_digit(prompt)
-    else
-      self.ask_number(prompt)
-    end
+                  ask_digit(prompt)
+                else
+                  ask_number(prompt)
+                end
 
     option_index = selection - 1
 

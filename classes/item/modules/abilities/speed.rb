@@ -9,7 +9,7 @@ module SpeedAbilities
     "#{actor.name} stepped into a solid position, multiplying their #{action} by #{actor.speed_multiplier}"
   end
 
-  def quick_step(actor, action, round_data)    
+  def quick_step(actor, action, round_data)
     boost = Dice.roll(actor.promult)
     round_data[action] += boost
     "#{actor.name} got +#{boost} to #{action} using their quick footwork"

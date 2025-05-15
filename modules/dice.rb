@@ -6,7 +6,7 @@ module Dice
   DiceRoll = Struct.new(:result, :crit)
 
   LEVELS = [2, 4, 6, 8, 10, 12, 20].freeze
-  HEALTH_LEVELS = Array.new(9) {|index| (index * 5) + 20}.freeze
+  HEALTH_LEVELS = Array.new(9) { |index| (index * 5) + 20 }.freeze
 
   def roll(sides)
     rand(1..sides)

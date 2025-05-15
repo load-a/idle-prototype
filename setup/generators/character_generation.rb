@@ -13,11 +13,11 @@ CHARACTER_DATA.each do |id, data|
                                  data['focus'].to_i, data['speed'].to_i)
 
   data['traits'].each do |type, trait_name|
-    if trait_name == "none"
-      CHARACTERS[id].traits[type.to_sym] = NO_ITEM
-    else
-      CHARACTERS[id].traits[type.to_sym] = ABILITIES[trait_name.to_sym]
-    end
+    CHARACTERS[id].traits[type.to_sym] = if trait_name == 'none'
+                                           NO_ITEM
+                                         else
+                                           ABILITIES[trait_name.to_sym]
+                                         end
   end
 
   data['behavior'].each do |type, length|

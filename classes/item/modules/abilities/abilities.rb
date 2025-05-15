@@ -61,7 +61,7 @@ module Abilities
     assist = 0
 
     backup.each do |ally|
-      stat = ally.proficency
+      ally.proficiency
       assist += Dice.roll(ally.proficiency_value)
     end
 
@@ -71,7 +71,7 @@ module Abilities
   end
 
   def mimicry(actor, action, round_data)
-    abilities = ABILITIES.keys.select {|id| id != :mimicry}
+    abilities = ABILITIES.keys.select { |id| id != :mimicry }
     send(abilities.sample, actor, action, round_data)
   end
 

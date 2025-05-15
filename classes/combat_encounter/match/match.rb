@@ -4,7 +4,6 @@ require_relative 'match_methods'
 require_relative 'match_output'
 require_relative 'round'
 
-
 class Match
   include MatchOutput
   include MatchMethods
@@ -68,7 +67,8 @@ class Match
       break
     end
 
-      cpu_team.members.each(&:full_heal)
+    cpu_team.restore_defeated
+    cpu_team.members.each(&:full_heal)
   end
 
   def play_round(attacker, defender, attacker_team, defender_team)

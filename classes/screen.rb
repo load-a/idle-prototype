@@ -14,6 +14,7 @@ class Screen
 
   def display
     raise "#{self} is too tall (#{text.length}/#{TEXT_HEIGHT})" if text.length > TEXT_HEIGHT
+
     system 'clear'
     puts text, prompt
   end

@@ -7,7 +7,7 @@ module GameTime
     'woke up to pee', 'had a nice dream', 'had a bad dream', 'fell out of bed', "couldn't sleep"
   ]
   FREE_TEXT = [
-    'enjoyed some free time', 'went for a walk', 'visited a friend', 'meditated', 
+    'enjoyed some free time', 'went for a walk', 'visited a friend', 'meditated',
     'read a book', 'enjoyed their hobby'
   ]
   WORK_TEXT = [
@@ -18,10 +18,10 @@ module GameTime
     'worked on their technique', 'practiced', 'did some stretches'
   ]
   REST_TEXT = [
-    'took a nap', 'ate something', 'drank some water', 'took a shower', 
+    'took a nap', 'ate something', 'drank some water', 'took a shower',
     'took a bath', 'had some tea', 'had a snack'
   ]
-  
+
   def time_menu
     loop do
       Output.new_screen
@@ -44,16 +44,16 @@ module GameTime
   def show_time_screen
     team = player.team.members
     header = Output.columns(team.map(&:name),
-    row_headers: ['Time    '], content_just: :center,
-    right_edge: '|', left_edge: '|',
-    left_div: '|')
+                            row_headers: ['Time    '], content_just: :center,
+                            right_edge: '|', left_edge: '|',
+                            left_div: '|')
     divider = header[0].gsub(/\w|\s/, '-')
 
     puts header, divider
 
     timetable = Output.columns(team.map(&:schedule), row_headers: calendar.hour_array,
-    right_edge: '|', left_edge: '|', header_just: :rjust,
-    left_div: '|')
+                                                     right_edge: '|', left_edge: '|', header_just: :rjust,
+                                                     left_div: '|')
 
     display_timetable(timetable)
     puts divider.gsub('-', '_')
@@ -96,6 +96,7 @@ module GameTime
       notify '~~ %02i:00 ~~' % calendar.hour
       team.each do |teammate|
         break start_match if teammate.schedule[calendar.hour] == :match
+
         do_activity(teammate)
       end
 
@@ -118,6 +119,7 @@ module GameTime
     encounter = run_combat
     self.combat_log = encounter.log
     notify earn_money(encounter)
+    teammate_application
   end
 
   def earn_money(encounter)
@@ -126,7 +128,7 @@ module GameTime
     if encounter.winner == :draw
       earnings /= 2
     elsif encounter.winner == :cpu
-      earnings *= 0
+      earnings = 0
     end
 
     player.money += earnings
@@ -143,30 +145,13 @@ module GameTime
     pay_due_expenses
 
     if player.money < 0
-      puts "you lose"
+      puts 'you lose'
       exit
     end
 
     team.each(&:set_schedule)
     shop.generate
     self.next_opponent = nil
-
-    new_member if rand(0...40) < player.money && player.team.length < 4
-  end
-
-  def new_member
-    character = CHARACTERS.values.sample
-
-    Output.new_screen "#{character.name} wants to join your crew.", character.attribute_chart.values[...5]
-    
-    if Input.confirm?('Let them?')
-      player.team.add_member(character)
-      notify "#{character.name} has joined the team!"
-      expenses << Expense.new(character.name, 'Daily living expenses', 40, :daily, 
-                              calendar.add_to_date(calendar.serialize_date, day: 1))
-    else
-      notify "#{character.name} has not joined the team."
-    end
   end
 
   def do_activity(character)
@@ -175,16 +160,16 @@ module GameTime
 
     case task
     when :sleep
-      character.recover(house.sleep.increment) unless character.health >= house.sleep.cap 
+      character.recover(house.sleep.increment) unless character.health >= house.sleep.cap
     when :free
-      character.recover(house.free.increment) unless character.health >= house.free.cap 
-      character.charge_focus(house.free.increment) unless character.focus >= house.free.cap 
+      character.recover(house.free.increment) unless character.health >= house.free.cap
+      character.charge_focus(house.free.increment) unless character.focus >= house.free.cap
     when :work
-      player.money += house.work.increment unless player.money >= house.work.cap 
+      player.money += house.work.increment unless player.money >= house.work.cap
     when :train
-      character.focus += house.train.increment unless character.focus >= house.train.cap 
+      character.focus += house.train.increment unless character.focus >= house.train.cap
     when :rest
-      character.health += house.rest.increment unless character.health >= house.rest.cap 
+      character.health += house.rest.increment unless character.health >= house.rest.cap
     else
       raise "Activity not accounted for: #{task}"
     end

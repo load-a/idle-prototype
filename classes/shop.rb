@@ -3,7 +3,7 @@
 class Shop
   attr_accessor :items
 
-  def initialize(items = {abilities: [], consumables: [], upgrades: [], subscriptions: []})
+  def initialize(items = { abilities: [], consumables: [], upgrades: [], subscriptions: [] })
     self.items = items
   end
 
@@ -19,15 +19,15 @@ class Shop
   def show_selection
     items.each do |category, selection|
       puts "#{category.capitalize}".fill('.', 120)
-      selection.each {|item| puts item.store_line}
+      selection.each { |item| puts item.store_line }
     end
   end
 
   def show_category(category, money)
     puts category.to_s.capitalize.center(120)
-    items[category.to_sym].each do |item| 
-      line = Rainbow(item.store_line) 
-      puts (item.cost > money ? line.faint : line)
+    items[category.to_sym].each do |item|
+      line = Rainbow(item.store_line)
+      puts(item.cost > money ? line.faint : line)
     end
 
     items[category.to_sym]

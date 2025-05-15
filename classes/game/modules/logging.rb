@@ -11,8 +11,6 @@ module GameLogging
   def notify(text)
     log << text
     log.flatten!
-    while log.size > MAIN_LOG_SIZE
-      log.shift
-    end
+    log.shift while log.size > MAIN_LOG_SIZE
   end
 end

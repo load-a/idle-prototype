@@ -7,7 +7,7 @@ module Output
 
   def new_screen(*content)
     system 'clear'
-    content.each {|text| puts text}
+    content.each { |text| puts text }
   end
 
   def show_schedule

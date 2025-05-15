@@ -14,11 +14,17 @@ class Calendar
   end
 
   def serialize_date(year: self.year, month: self.month, day: self.day)
-    '%04i%02i%02i' % [year, month, day]
+    format('%04i%02i%02i', year, month, day)
   end
 
-  def deserialize_date(date)
-    '%i/%i/%i' % [date[0...4], date[4...6], date[6...8]]
+  def deserialize(date)
+    self.year = date[0...4].to_i
+    self.year = date[4...6].to_i
+    self.day = date[6...8].to_i
+  end
+
+  def read_serial_date(date)
+    format('%i/%i/%i', date[0...4], date[4...6], date[6...8])
   end
 
   def add_to_date(date, year: 0, month: 0, day: 0)
@@ -98,5 +104,9 @@ class Calendar
 
   def months_of_the_year(month = self.month)
     MONTHS_OF_THE_YEAR[month - 1]
+  end
+
+  def tomorrow
+    add_to_date(serialize_date, day: 1)
   end
 end

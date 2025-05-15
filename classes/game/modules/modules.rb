@@ -7,14 +7,16 @@ require_relative 'inventory'
 require_relative 'combat'
 require_relative 'shopping'
 require_relative 'logging'
+require_relative 'manager'
 
 module GameModules
   include GameTime
   include GameChallenges
   include GameExpenses
-  include GameInventory 
+  include GameInventory
   include GameCombat
   include GameInventory
   include GameShopping
   include GameLogging
+  include GameManager
 end

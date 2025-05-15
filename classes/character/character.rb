@@ -187,4 +187,31 @@ class Character
 
     character
   end
+
+  def serialize
+    {
+      id: id,
+      stats: {
+        power: power,
+        max_focus: max_focus,
+        speed: speed
+      },
+      traits: {
+        attack: traits[:attack].id,
+        defense: traits[:defense].id,
+        clutch: traits[:clutch].id,
+        breaker: traits[:breaker].id
+      }
+    }
+  end
+
+  def deserialize(serial_hash)
+    duplicate = dup
+
+    serial_hash['traits'].each do |trait, item_id|
+      duplicate.traits[trait.to_sym] = ABILITIES[item_id.to_sym] || CONSUMABLES[item_id.to_sym] || NO_ITEM
+    end
+
+    duplicate
+  end
 end

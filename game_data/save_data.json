@@ -1,0 +1,87 @@
+{
+  "player": {
+    "name": "Saramir",
+    "money": 100,
+    "team": {
+      "members": [
+        {
+          "id": "alyssa",
+          "stats": {
+            "power": 4,
+            "max_focus": 12,
+            "speed": 4
+          },
+          "traits": {
+            "attack": "mimicry",
+            "defense": "quick_step",
+            "clutch": "heal_self",
+            "breaker": "punishment"
+          }
+        },
+        {
+          "id": "tomoe",
+          "stats": {
+            "power": 12,
+            "max_focus": 10,
+            "speed": 12
+          },
+          "traits": {
+            "attack": "punishment",
+            "defense": "none",
+            "clutch": "side_step",
+            "breaker": "powerup"
+          }
+        },
+        {
+          "id": "xia",
+          "stats": {
+            "power": 20,
+            "max_focus": 20,
+            "speed": 20
+          },
+          "traits": {
+            "attack": "focus_team",
+            "defense": "mimicry",
+            "clutch": "powerup",
+            "breaker": "mastery"
+          }
+        },
+        {
+          "id": "yumi",
+          "stats": {
+            "power": 8,
+            "max_focus": 8,
+            "speed": 6
+          },
+          "traits": {
+            "attack": "mastery",
+            "defense": "side_step",
+            "clutch": "heal_ally",
+            "breaker": "none"
+          }
+        }
+      ],
+      "name": "Adventure Club",
+      "description": "Description."
+    },
+    "character": "sara"
+  },
+  "date": "30250101",
+  "hour": 10,
+  "combat_log": [],
+  "inventory": {
+    "abilities": [
+      "intimidate",
+      "inspire_team",
+      "boost_ally",
+      "berserk",
+      "side_step"
+    ],
+    "consumables": [],
+    "upgrades": [
+      "one_up",
+      "one_down"
+    ],
+    "subscriptions": []
+  }
+}

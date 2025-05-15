@@ -24,6 +24,6 @@ module TeamFetch
   end
 
   def leader
-    all_members.find {|member| member.name = lineup.first}
+    all_members.find { |member| member.name = lineup.first }
   end
 end

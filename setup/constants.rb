@@ -12,4 +12,3 @@ SPEED_MULTIPLIER = {
   '12' => 1,
   '20' => 0.5
 }.freeze
-
