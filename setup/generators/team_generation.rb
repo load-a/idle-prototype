@@ -5,11 +5,9 @@ TEAM_DATA = JSON.parse(TEAM_FILE).freeze
 TEAMS = []
 
 TEAM_DATA.each do |team|
-  group = Team.new([], team['name'], team['description'])
-
-  team['members'].each do |member_id|
-    group.members << CHARACTERS[member_id.to_sym]
+  group = team['members'].map do |member_id|
+    CHARACTERS[member_id.to_sym]
   end
 
-  TEAMS << group
+  TEAMS << Team.new(group, team['name'], team['description'])
 end

@@ -115,26 +115,6 @@ module GameTime
     end
   end
 
-  def start_match
-    encounter = run_combat
-    self.combat_log = encounter.log
-    notify earn_money(encounter)
-    teammate_application
-  end
-
-  def earn_money(encounter)
-    earnings = encounter.cpu_team.all_members.map(&:power).sum * encounter.round_number
-
-    if encounter.winner == :draw
-      earnings /= 2
-    elsif encounter.winner == :cpu
-      earnings = 0
-    end
-
-    player.money += earnings
-    "Earned $#{earnings} from the match"
-  end
-
   def advance_time(team)
     calendar.advance_hour
     generate_challengers

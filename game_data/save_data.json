@@ -1,7 +1,7 @@
 {
   "player": {
-    "name": "Saramir",
-    "money": 100,
+    "name": "Alex",
+    "money": 227,
     "team": {
       "members": [
         {
@@ -12,76 +12,290 @@
             "speed": 4
           },
           "traits": {
-            "attack": "mimicry",
-            "defense": "quick_step",
-            "clutch": "heal_self",
-            "breaker": "punishment"
-          }
-        },
-        {
-          "id": "tomoe",
-          "stats": {
-            "power": 12,
-            "max_focus": 10,
-            "speed": 12
-          },
-          "traits": {
-            "attack": "punishment",
+            "attack": "side_step",
             "defense": "none",
-            "clutch": "side_step",
-            "breaker": "powerup"
-          }
-        },
-        {
-          "id": "xia",
-          "stats": {
-            "power": 20,
-            "max_focus": 20,
-            "speed": 20
-          },
-          "traits": {
-            "attack": "focus_team",
-            "defense": "mimicry",
-            "clutch": "powerup",
-            "breaker": "mastery"
-          }
-        },
-        {
-          "id": "yumi",
-          "stats": {
-            "power": 8,
-            "max_focus": 8,
-            "speed": 6
-          },
-          "traits": {
-            "attack": "mastery",
-            "defense": "side_step",
-            "clutch": "heal_ally",
+            "clutch": "none",
             "breaker": "none"
           }
         }
       ],
-      "name": "Adventure Club",
-      "description": "Description."
+      "name": "Alex's Team",
+      "description": "Your team"
     },
-    "character": "sara"
+    "character": "alyssa"
   },
-  "date": "30250101",
-  "hour": 10,
-  "combat_log": [],
+  "date": "30250102",
+  "hour": 8,
+  "combat_log": [
+    [
+      [
+        "Alex $148                                  Emberday, Zember 2 ~ 06:00            Today's opponent: Kori         CR(-7)"
+      ],
+      "                                              Alex's Team vs. Kori's Team                                               ",
+      "                                                      Alex's Team                                                       \n~Alyssa's Stats~                                                                                                        \nHealth: 24/25                                                                                                           \nPower :  4                                                                                                              \nFocus : 12/12 *                                                                                                         \nSpeed :  4 x3                                                                                                           \nCrit. Attack : Side Step                                                                                                \nCrit. Defense: None                                                                                                     \nFocus Breaker: None                                                                                                     \nClutch Move  : None                                                                                                     \n                                                    ^^ Your team ^^                                                     ",
+      "",
+      "                                                      Kori's Team                                                       \n~Kori's Stats~                                                                                                          \nHealth: 40/40                                                                                                           \nPower :  4                                                                                                              \nFocus :  0/ 4                                                                                                           \nSpeed :  6 x2.5 * [10]                                                                                                  \nCrit. Attack : None                                                                                                     \nCrit. Defense: None                                                                                                     \nFocus Breaker: None                                                                                                     \nClutch Move  : None                                                                                                     \n                                                 ^^ Here to have fun ^^                                                 ",
+      ""
+    ],
+    "                                                        Round 1                                                         ",
+    [
+      "    (██████████)MP (██████████ 24/25)HP :          Alyssa <<< Kori            : HP(40/40 ██████████) MP(----------)     "
+    ],
+    "\n",
+    "** Kori vs Alyssa **",
+    "// Nice offense //",
+    "Kori attacked Alyssa for 4 damage",
+    "Alyssa got some hits in during the windup",
+    "-- Kori took 4 counter damage --",
+    "Alyssa blocked for 3 defense",
+    "-- Alyssa took 1 damage --",
+    "\n",
+    "                                                        Round 2                                                         ",
+    [
+      "    (██████████)MP (-█████████ 23/25)HP :          Alyssa >>> Kori            : HP(36/40 █████████-) MP(███-------)     "
+    ],
+    "\n",
+    "** Alyssa vs Kori **",
+    "Alyssa attacked Kori for 1 damage",
+    "Kori blocked for 1 defense",
+    "Kori took 0 damage",
+    "Alyssa is ready to BREAK",
+    "\n",
+    "                                                        Round 3                                                         ",
+    [
+      "    (██████████)MP (-█████████ 23/25)HP :          Alyssa <<< Kori            : HP(36/40 █████████-) MP(███-------)     "
+    ],
+    "\n",
+    "** Kori vs Alyssa **",
+    "Kori attacked Alyssa for 3 damage",
+    "Alyssa blocked for 3 defense",
+    "Alyssa took 0 damage",
+    "\n",
+    "                                                        Round 4                                                         ",
+    [
+      "    (██████████)MP (-█████████ 23/25)HP :          Alyssa >>> Kori            : HP(36/40 █████████-) MP(█████-----)     "
+    ],
+    "\n",
+    "** Alyssa vs Kori **",
+    "Alyssa attacked Kori for 3 damage",
+    "// Solid defense //",
+    "Kori blocked for 6 defense",
+    "Kori took 0 damage",
+    "Alyssa is ready to BREAK",
+    "\n",
+    "                                                        Round 5                                                         ",
+    [
+      "    (██████████)MP (-█████████ 23/25)HP :          Alyssa <<< Kori            : HP(36/40 █████████-) MP(█████-----)     "
+    ],
+    "\n",
+    "** Kori vs Alyssa **",
+    "// Nice offense //",
+    "Kori attacked Alyssa for 4 damage",
+    "Alyssa got some hits in during the windup",
+    "-- Kori took 3 counter damage --",
+    "Alyssa blocked for 2 defense",
+    "-- Alyssa took 2 damage --",
+    "\n",
+    "                                                        Round 6                                                         ",
+    [
+      "    (██████████)MP (--████████ 21/25)HP :          Alyssa >>> Kori            : HP(33/40 ████████--) MP(████████--)     "
+    ],
+    "\n",
+    "** Alyssa vs Kori **",
+    "Alyssa attacked Kori for 2 damage",
+    "Kori blocked for 1 defense",
+    "-- Kori took 1 damage --",
+    "Alyssa is ready to BREAK",
+    "\n",
+    "                                                        Round 7                                                         ",
+    [
+      "    (██████████)MP (--████████ 21/25)HP :          Alyssa <<< Kori            : HP(32/40 ████████--) MP(████████--)     "
+    ],
+    "\n",
+    "** Kori vs Alyssa **",
+    "Kori attacked Alyssa for 2 damage",
+    "Alyssa blocked for 3 defense",
+    "Alyssa took 0 damage",
+    "Kori is ready to BREAK",
+    "\n",
+    "                                                        Round 8                                                         ",
+    [
+      "    (██████████)MP (--████████ 21/25)HP :          Alyssa >>> Kori            : HP(32/40 ████████--) MP(██████████)     "
+    ],
+    "\n",
+    "** Alyssa vs Kori **",
+    "Alyssa attacked Kori for 1 damage",
+    "Kori blocked for 1 defense",
+    "Kori took 0 damage",
+    "Alyssa is ready to BREAK",
+    "\n",
+    "                                                        Round 9                                                         ",
+    [
+      "    (██████████)MP (--████████ 21/25)HP :          Alyssa <<< Kori            : HP(32/40 ████████--) MP(██████████)     "
+    ],
+    "\n",
+    "** Kori vs Alyssa **",
+    "Kori attacked Alyssa for 3 damage",
+    "Alyssa blocked for 1 defense",
+    "-- Alyssa took 2 damage --",
+    "Kori is ready to BREAK",
+    "\n",
+    "                                                        Round 10                                                        ",
+    [
+      "    (██████████)MP (--████████ 19/25)HP :          Alyssa >>> Kori            : HP(32/40 ████████--) MP(██████████)     "
+    ],
+    "\n",
+    "** Alyssa vs Kori **",
+    "Alyssa attacked Kori for 3 damage",
+    "Kori blocked for 1 defense",
+    "-- Kori took 2 damage --",
+    "Alyssa is ready to BREAK",
+    "\n",
+    "                                                        Round 11                                                        ",
+    [
+      "    (██████████)MP (--████████ 19/25)HP :          Alyssa <<< Kori            : HP(30/40 ████████--) MP(██████████)     "
+    ],
+    "\n",
+    "** Kori vs Alyssa **",
+    "// Nice offense //",
+    "Kori attacked Alyssa for 4 damage",
+    "Alyssa got some hits in during the windup",
+    "-- Kori took 2 counter damage --",
+    "Alyssa blocked for 3 defense",
+    "-- Alyssa took 1 damage --",
+    "Kori is ready to BREAK",
+    "\n",
+    "                                                        Round 12                                                        ",
+    [
+      "    (██████████)MP (---███████ 18/25)HP :          Alyssa >>> Kori            : HP(28/40 ███████---) MP(██████████)     "
+    ],
+    "\n",
+    "** Alyssa vs Kori **",
+    "// Nice offense //",
+    "   Alyssa stepped into a solid position, multiplying their attack by 3   ",
+    "Alyssa attacked Kori for 12 damage",
+    "Kori blocked for 2 defense",
+    "-- Kori took 10 damage --",
+    "Alyssa is ready to BREAK",
+    "\n",
+    "                                                        Round 13                                                        ",
+    [
+      "    (██████████)MP (---███████ 18/25)HP :          Alyssa <<< Kori            : HP(18/40 █████-----) MP(██████████)     "
+    ],
+    "\n",
+    "** Kori vs Alyssa **",
+    "Kori attacked Alyssa for 1 damage",
+    "// Solid defense //",
+    "Alyssa blocked for 6 defense",
+    "Alyssa took 0 damage",
+    "Kori is ready to BREAK",
+    "\n",
+    "                                                        Round 14                                                        ",
+    [
+      "    (██████████)MP (---███████ 18/25)HP :          Alyssa >>> Kori            : HP(18/40 █████-----) MP(██████████)     "
+    ],
+    "\n",
+    "** Alyssa vs Kori **",
+    "Alyssa attacked Kori for 3 damage",
+    "Kori blocked for 1 defense",
+    "-- Kori took 2 damage --",
+    "Alyssa is ready to BREAK",
+    "\n",
+    "                                                        Round 15                                                        ",
+    [
+      "    (██████████)MP (---███████ 18/25)HP :          Alyssa <<< Kori            : HP(16/40 ████------) MP(██████████)     "
+    ],
+    "\n",
+    "** Kori vs Alyssa **",
+    "Kori attacked Alyssa for 2 damage",
+    "Alyssa blocked for 1 defense",
+    "-- Alyssa took 1 damage --",
+    "Kori is ready to BREAK",
+    "\n",
+    "                                                        Round 16                                                        ",
+    [
+      "    (██████████)MP (---███████ 17/25)HP :          Alyssa >>> Kori            : HP(16/40 ████------) MP(██████████)     "
+    ],
+    "\n",
+    "** Alyssa vs Kori **",
+    "Alyssa attacked Kori for 3 damage",
+    "Kori blocked for 2 defense",
+    "-- Kori took 1 damage --",
+    "Alyssa is ready to BREAK",
+    "\n",
+    "                                                        Round 17                                                        ",
+    [
+      "    (██████████)MP (---███████ 17/25)HP :          Alyssa <<< Kori            : HP(15/40 ████------) MP(██████████)     "
+    ],
+    "\n",
+    "** Kori vs Alyssa **",
+    "// Nice offense //",
+    "Kori attacked Alyssa for 4 damage",
+    "Alyssa got some hits in during the windup",
+    "-- Kori took 3 counter damage --",
+    "Alyssa blocked for 1 defense",
+    "-- Alyssa took 3 damage --",
+    "Kori is ready to BREAK",
+    "\n",
+    "                                                        Round 18                                                        ",
+    [
+      "    (██████████)MP (----██████ 14/25)HP :          Alyssa >>> Kori            : HP(12/40 ███-------) MP(██████████)     "
+    ],
+    "\n",
+    "** Alyssa vs Kori **",
+    "// Nice offense //",
+    "   Alyssa stepped into a solid position, multiplying their attack by 3   ",
+    "Alyssa attacked Kori for 12 damage",
+    "Kori blocked for 3 defense",
+    "-- Kori took 9 damage --",
+    "Kori is gonna try to clutch this next one",
+    "Alyssa is ready to BREAK",
+    "\n",
+    "                                                        Round 19                                                        ",
+    [
+      "    (██████████)MP (----██████ 14/25)HP :          Alyssa <<< Kori            : HP(03/40 █---------) MP(██████████)     "
+    ],
+    "\n",
+    "** Kori vs Alyssa **",
+    "Kori attacked Alyssa for 1 damage",
+    "Alyssa blocked for 3 defense",
+    "Alyssa took 0 damage",
+    "Kori is ready to BREAK",
+    "\n",
+    "                                                        Round 20                                                        ",
+    [
+      "    (██████████)MP (----██████ 14/25)HP :          Alyssa >>> Kori            : HP(03/40 █---------) MP(██████████)     "
+    ],
+    "\n",
+    "** Alyssa vs Kori **",
+    "Alyssa attacked Kori for 2 damage",
+    "Kori blocked for 3 defense",
+    "Kori took 0 damage",
+    "Kori is gonna try to clutch this next one",
+    "Alyssa is ready to BREAK",
+    "\n",
+    "                                                        Round 21                                                        ",
+    [
+      "    (██████████)MP (----██████ 14/25)HP :          Alyssa <<< Kori            : HP(03/40 █---------) MP(██████████)     "
+    ],
+    "\n",
+    "** Kori vs Alyssa **",
+    "// Nice offense //",
+    "Kori attacked Alyssa for 4 damage",
+    "Alyssa got some hits in during the windup",
+    "-- Kori took 3 counter damage --",
+    "// Solid defense //",
+    "Alyssa blocked for 5 defense",
+    "Alyssa took 0 damage",
+    "!! Kori is down !!",
+    "\n",
+    "you win",
+    "Winnings: Strength(65) + Risk(-7) * Time(1.37) = $79"
+  ],
   "inventory": {
-    "abilities": [
-      "intimidate",
-      "inspire_team",
-      "boost_ally",
-      "berserk",
-      "side_step"
-    ],
+    "abilities": [],
     "consumables": [],
-    "upgrades": [
-      "one_up",
-      "one_down"
-    ],
+    "upgrades": [],
     "subscriptions": []
   }
 }

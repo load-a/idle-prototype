@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+SCREEN_WIDTH = 120
+
 NO_ITEM = Item.new(:none, :none, 0, 'No Item')
 BLANK_RESPONSE = Response.new('', index: 0)
 

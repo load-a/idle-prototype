@@ -59,6 +59,18 @@ class Team
     members.each { |member| member.schedule[time] = :match }
   end
 
+  def challenge_rating(other_team)
+    might - other_team.might
+  end
+
+  def might
+    members.map do |member|
+      member.power + member.max_focus + Dice.inverse_die(member.speed) + 
+      (member.traits.values.count {|trait| trait != NO_ITEM} * 12) +
+      member.max_health
+    end.sum
+  end
+
   def serialize
     serial_hash = {
       'members' => []

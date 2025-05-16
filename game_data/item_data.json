@@ -111,16 +111,16 @@
 		},
 		// Risk-Reward 
 		"berserk": {
-			"cost": 1000,
+			"cost": 800,
 			"description": "You and a random opponent take damage equal to half your current HEALTH."
 		},
 		// Team-up
 		"backup": {
-			"cost": 1000,
+			"cost": 1100,
 			"description": "A random ally rolls POWER and adds it to the action."
 		},
 		"gang_up": {
-			"cost": 1000,
+			"cost": 1200,
 			"description": "All allies add their POWER to the action."
 		},
 		// Reductive 
@@ -149,37 +149,37 @@
 	"consumables": {
 		"coffee": {
 			"description": "Recover 10 HEALTH.",
-			"cost": 25
+			"cost": 10
 		},
 		"energy_drink": {
 			"description": "Recover 15 HEALTH.",
-			"cost": 50
+			"cost": 30
 		},
 		"water": {
 			"description": "Recover 20 HEALTH.",
-			"cost": 75
+			"cost": 50
 		},
 		"candy": {
 			"description": "Charge 4 FOCUS",
-			"cost": 25
+			"cost": 10
 		},
 		"chips": {
 			"description": "Charge 8 FOCUS",
-			"cost": 50
+			"cost": 25
 		},
 		"snack_bar": {
 			"description": "Charge 12 FOCUS",
-			"cost": 75
+			"cost": 40
 		}
 	},
 	"upgrades": {
 		"one_up": {
 			"description": "Raises stat by one level.",
-			"cost": 5
+			"cost": 1500
 		},
 		"one_down": {
 			"description": "Lowers stat by one level.",
-			"cost": 5
+			"cost": 1500
 		}
 	},
 	"subscriptions": {

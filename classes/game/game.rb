@@ -6,7 +6,7 @@ class Game
   include GameModules
 
   HELP_MENU = ['Command List', '', '[C]hallengers', '[E]xpense Report', 'Combat [L]og', '[H]ouse Stats',
-               '[I]nventory', '[M]anage Team', '[O]ptions' + '[P]ass the Time', '[S]tore', '[T]imetable', '', '[Q]uit']
+               '[I]nventory', '[M]anage Team', '[O]ptions', '[P]ass the Time', '[S]tore', '[T]imetable', '', '[Q]uit']
 
   attr_accessor :player, :calendar, :log, :next_opponent, :combat_log, :expenses, :house, :inventory, :shop,
                 :challengers
@@ -32,8 +32,8 @@ class Game
   end
 
   def devevlopment_setup
-    # player.team = TEAMS[0]
-    # player.team.members.each { |member| member.set_schedule }
+    player.team = TEAMS[0]
+    player.team.members.each { |member| member.set_schedule }
 
     # inventory.abilities += [ABILITIES[:intimidate], ABILITIES[:inspire_team], ABILITIES[:boost_ally], ABILITIES[:berserk]]
     # inventory.upgrades += [UPGRADES[:one_up], UPGRADES[:one_down]]
@@ -56,15 +56,21 @@ class Game
     main_menu
   end
 
+  def hud
+    info = [
+      "$#{player.money}", calendar.date,
+      format("Today's opponent: %-12s CR(%i)", 
+             next_opponent ? next_opponent&.leader&.name : 'none',
+             next_opponent ? next_opponent&.challenge_rating(player.team) : 0)
+    ]
+    Output.columns(info, row_headers: [player.name], left_div: ' ')
+  end
+
   def main_menu
     loop do
-      game_stats = Output.columns([["$#{player.money}"], [calendar.date],
-                                   [format("Today's opponent: %-16s", next_opponent&.leader&.name)]],
-                                  row_headers: [player.name], left_div: ' ')
-      team_view = player.team
       game_log = Output.columns([log], row_headers: HELP_MENU, left_div: ' > ')
 
-      Output.new_screen(game_stats, team_view, game_log)
+      Output.new_screen(hud, player.team, game_log)
 
       response = Input.ask_char('Enter a command:')
 

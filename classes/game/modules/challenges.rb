@@ -11,20 +11,33 @@ module GameChallenges
   ]
   def generate_challengers
     potential_opponents = CHARACTERS.values.reject { |character| player.team.include? character }
-    new_challengers = []
+    new_challengers = TEAMS.select {|team| team.length == player.team.length}
+    quantity = rand(1..4)
 
-    rand(1..4).times do
+    8.times do
       new_team = Team.new(potential_opponents.sample(player.team.size).map { |character| character.dup })
       new_team.description = DESCRIPTIONS.sample
+
       new_challengers << scale_back(new_team) unless new_challengers.any? { |team| team.same_members? new_team }
+      # new_challengers << new_team unless new_challengers.any? { |team| team.same_members? new_team } # for testing
     end
 
-    self.challengers = new_challengers
+    new_challengers.reject! { |team| team.same_members? player.team }
+    self.challengers = new_challengers.sample(quantity)
   end
 
   def scale_back(team)
+    team.members.map!(&:dup)
+    risk = team.challenge_rating(player.team)
+    return team if risk.negative?
+
+    trait_keys = %i[attack defense clutch breaker]
+
     team.members.each do |character|
-      character.traits.transform_values! { |item| rand(0..(player.money / 100)).zero? ? NO_ITEM : item }
+      character.traits[:clutch] = NO_ITEM if risk > 10
+      character.traits[:breaker] = NO_ITEM if risk > 20
+      character.traits[:defense] = NO_ITEM if risk > 30
+      character.traits[:attack] = NO_ITEM if risk > 40
     end
 
     team
@@ -39,7 +52,8 @@ module GameChallenges
 
     show_challengers(challengers)
 
-    pick = Input.ask_option(*challengers.map { |team| team.leader.name }, prompt: 'Pick a challenger:')
+    pick = Input.ask_option(*challengers.map { |team| team.leader.name + " CR: #{team.challenge_rating(player.team)}" }, 
+    prompt: 'Pick a challenger:')
 
     return notify('No challenger selected') if pick.blank?
 
@@ -66,7 +80,8 @@ module GameChallenges
       notify 'The team needs more time to recover'
       false
     elsif next_opponent
-      notify 'You already have a match scheduled today'
+      Output.new_screen(hud, "Today's opponent:".center(SCREEN_WIDTH), next_opponent)
+      Input.ask_keypress
       false
     else
       true
