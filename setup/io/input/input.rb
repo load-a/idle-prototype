@@ -54,14 +54,15 @@ module Input
     read_char
   end
 
-  def ask_option(*options, prompt: 'Make a selection: ')
+  def ask_option(options, prompt: 'Make a selection: ', joiner: ', ')
+    options = [options] unless options.is_a? Array
     list = []
 
     options.each_with_index do |option, index|
       list << ("[#{index + 1}] " + "#{option}".capitalize)
     end
 
-    prompt += (": \n" + list.join(', '))
+    prompt += (": \n" + list.join(joiner))
 
     selection = if options.length <= 9
                   ask_digit(prompt)

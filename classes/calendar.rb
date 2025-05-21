@@ -109,4 +109,8 @@ class Calendar
   def tomorrow
     add_to_date(serialize_date, day: 1)
   end
+
+  def past?(time)
+    hour > time
+  end
 end

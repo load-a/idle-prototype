@@ -31,7 +31,7 @@ module GameManager
   def remove_teammate
     return notify("Can't remove #{player.character.name} from their own team.") if player.team.length == 1
 
-    character = Input.ask_option(*player.team.members[1..].map(&:name), prompt: 'Let go of which member?')
+    character = Input.ask_option(player.team.members[1..].map(&:name), prompt: 'Let go of which member?')
 
     return notify('Teammate removal canceled') if character.blank?
 

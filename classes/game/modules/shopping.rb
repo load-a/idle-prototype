@@ -6,7 +6,7 @@ module GameShopping
       Output.new_screen
       shop.show_selection
 
-      category = Input.ask_option('abilities', 'consumables', 'upgrades', 'subscriptions', prompt: 'Choose a category')
+      category = Input.ask_option(%w[abilities consumables upgrades subscriptions], prompt: 'Choose a category')
 
       break if category == BLANK_RESPONSE
 
@@ -19,7 +19,7 @@ module GameShopping
   def purchase_item(category)
     Output.new_screen
     items = shop.show_category(category.line, player.money)
-    selection = Input.ask_option(*items.map(&:name), prompt: 'select an item')
+    selection = Input.ask_option(items.map(&:name), prompt: 'select an item')
 
     return nil if selection == BLANK_RESPONSE
 

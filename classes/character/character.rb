@@ -66,6 +66,17 @@ class Character
     self.focus = max_focus if focus > max_focus
   end
 
+  def uncharge?
+    return false unless charged?
+
+    if Dice.roll(max_health) > health
+      reset_focus
+      true
+    else
+      false
+    end
+  end
+
   def charged?
     focus >= max_focus
   end
@@ -186,6 +197,10 @@ class Character
     character.traits.transform_values! { |_trait| NO_ITEM }
 
     character
+  end
+
+  def too_weak?
+    health < 20
   end
 
   def serialize

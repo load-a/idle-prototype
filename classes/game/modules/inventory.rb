@@ -11,7 +11,7 @@ module GameInventory
   end
 
   def inventory_action
-    action = Input.ask_option(*%w[give upgrade stash trash], prompt: 'Pick an action: ')
+    action = Input.ask_option(%w[give upgrade stash trash], prompt: 'Pick an action: ')
 
     return unless %w[g u s t].include?(action.character)
 
@@ -31,7 +31,7 @@ module GameInventory
   end
 
   def select_category
-    category_id = Input.ask_option(*inventory.item_hash.keys.map(&:to_s)).line.to_sym
+    category_id = Input.ask_option(inventory.item_hash.keys.map(&:to_s)).line.to_sym
     category_array = inventory.send(category_id)
 
     Selection.new(category_array, category_id)
@@ -114,7 +114,7 @@ module GameInventory
   end
 
   def select_character
-    character_pick = Input.ask_option(*player.team.members.map(&:name), prompt: 'Which character: ')
+    character_pick = Input.ask_option(player.team.members.map(&:name), prompt: 'Which character: ')
     character = player.team.members.select { |member| member.name.downcase == character_pick.line }[0]
 
     return NO_SELECTION if character.nil?
@@ -124,7 +124,7 @@ module GameInventory
 
   def select_trait(character_selection)
     character = character_selection.object
-    trait_index = Input.ask_option(*character.traits.values.map(&:name), prompt: 'Which slot: ').index
+    trait_index = Input.ask_option(character.traits.values.map(&:name), prompt: 'Which slot: ').index
 
     return NO_SELECTION unless (0..3).include? trait_index
 
@@ -132,7 +132,7 @@ module GameInventory
   end
 
   def select_stat
-    stat = Input.ask_option(*%w[health power speed focus], prompt: 'Which stat: ')
+    stat = Input.ask_option(%w[health power speed focus], prompt: 'Which stat: ')
 
     return NO_SELECTION unless (0..3).include? stat.index
 

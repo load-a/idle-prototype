@@ -23,7 +23,7 @@ module GameCombat
     challenge *= 2 if challenge.negative?
     time_bonus = 1 + ([rounds - 10, 0].max / 30.0) # No bonus for finishing in 10 or fewer rounds
     survival_bonus = rounds / 30.0 
-    earnings = ((player.team.might + challenge) * time_bonus).round
+    earnings = (player.team.might + challenge * time_bonus).round
 
     if encounter.winner == :draw
       earnings /= 2

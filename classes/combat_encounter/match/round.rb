@@ -3,12 +3,12 @@
 class Round
   attr_accessor :attacker, :defender, :results, :round, :turn
 
-  def initialize(attacker, defender, attacker_team, defender_team)
-    self.attacker = attacker
-    self.defender = defender
+  def initialize(attacker_formation, defender_formation)
+    self.attacker = attacker_formation.actor
+    self.defender = defender_formation.actor
     self.results = {
-      attack_team: attacker_team,
-      defense_team: defender_team,
+      attack_team: attacker_formation.team,
+      defense_team: defender_formation.team,
       attack: 0,
       defense: 0,
       counter: 0,

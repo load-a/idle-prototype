@@ -27,7 +27,7 @@ module GameTime
       Output.new_screen
       show_time_screen
 
-      response = Input.ask_option(*%w[pass], prompt: 'Pick an action')
+      response = Input.ask_option(%w[pass], prompt: 'Pick an action')
       case response.line
       # when 'edit'
       #   puts 'Edit not implemented'

@@ -3,6 +3,7 @@
 require_relative 'match_methods'
 require_relative 'match_output'
 require_relative 'round'
+require_relative 'formation'
 
 class Match
   include MatchOutput
@@ -37,10 +38,14 @@ class Match
         break if teams[1].members.empty?
         next if member.down?
 
-        play_round(member, teams[1].sample, teams[0], teams[1])
+        attacker_formation = Formation.new(member, teams[0])
+        defender_formation = Formation.new(teams[1].sample, teams[1])
+
+        play_round(attacker_formation, defender_formation)
         teams[1].remove_defeated
 
         if member.up?
+          log << "#{member.name} lost their focus" if member.uncharge?
           member.charge_focus
           log << "#{member.name} is ready to BREAK" if member.charged?
         end
@@ -71,8 +76,10 @@ class Match
     cpu_team.members.each(&:full_heal)
   end
 
-  def play_round(attacker, defender, attacker_team, defender_team)
-    round = Round.new(attacker, defender, attacker_team, defender_team)
+  def play_round(attacker_formation, defender_formation)
+    attacker = attacker_formation.actor
+    defender = defender_formation.actor
+    round = Round.new(attacker_formation, defender_formation)
 
     # Attack phase
     log << alert("#{attacker.name} vs #{defender.name}", '** ')
@@ -97,6 +104,6 @@ class Match
     log << "#{defender.name} is gonna try to clutch this next one" if defender.low_health? && defender.up?
 
     # Alert defeated characters
-    alert_downs(attacker_team, defender_team)
+    alert_downs(attacker_formation.team, defender_formation.team)
   end
 end

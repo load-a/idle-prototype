@@ -32,8 +32,8 @@ class Game
   end
 
   def devevlopment_setup
-    player.team = TEAMS[0]
-    player.team.members.each { |member| member.set_schedule }
+    # player.team = TEAMS[0]
+    # player.team.members.each { |member| member.set_schedule }
 
     # inventory.abilities += [ABILITIES[:intimidate], ABILITIES[:inspire_team], ABILITIES[:boost_ally], ABILITIES[:berserk]]
     # inventory.upgrades += [UPGRADES[:one_up], UPGRADES[:one_down]]
@@ -50,9 +50,6 @@ class Game
   end
 
   def test_play
-    puts calendar.date
-    puts player.team
-
     main_menu
   end
 
@@ -91,7 +88,7 @@ class Game
         show_combat_log
       when 'm'
         puts player.team
-        action = Input.ask_option(*%w[Description Remove])
+        action = Input.ask_option(%w[Description Remove])
         case action.index
         when 0
           player.team.description = Input.ask('Enter a new team description (max 100 characters)').clean[..100]
@@ -100,12 +97,12 @@ class Game
         end
       when 'o'
         Output.new_screen 'Options'
-        action = Input.ask_option(*%w[save load erase], prompt: 'Select an option:')
+        action = Input.ask_option(%w[save load erase], prompt: 'Select an option:')
         case action.index
         when 0
-          SaveSystem.save(self)
+          notify SaveSystem.save(self)
         when 1
-          SaveSystem.load(self)
+          notify SaveSystem.load(self)
         else
           notify 'not implemented'
         end

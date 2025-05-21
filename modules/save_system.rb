@@ -7,10 +7,12 @@ module SaveSystem
     save_file = File.read('game_data/save_data.json')
 
     if !save_file.empty?
-      return unless Input.confirm?("Overwrite current save data?")
+      return unless Input.confirm?("SAVE the game? (This will overwrite your save file.)")
     end
 
     IO.write('game_data/save_data.json', JSON.pretty_generate(game.serialize))
+
+    'Saved Game'
   end
 
   def load(game)
@@ -22,11 +24,11 @@ module SaveSystem
       return
     end
 
-    return unless Input.confirm?("End current game and load Save Data? This cannot be undone.")
+    return unless Input.confirm?("LOAD save data? (This will erase the current game.)")
 
     data = JSON.parse(save_file)
     game.deserialize(data)
-  end
 
-  def delete_file; end
+    'Loaded game'
+  end
 end
