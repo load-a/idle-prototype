@@ -23,16 +23,6 @@ module Output
     times
   end
 
-  def numbered_list(array)
-    list = []
-
-    array.each_with_index do |element, index|
-      list << format('%i. %s', index + 1, element)
-    end
-
-    list
-  end
-
   def columns(texts, row_headers: nil, left_div: '', right_div: '', right_edge: '', left_edge: '', header_just: :ljust,
               content_just: :ljust)
     texts = [texts] unless texts.is_a? Array

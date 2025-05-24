@@ -6,7 +6,7 @@ class String
 
     filler_length = length - self.length
 
-    "#{self}#{character * filler_length}"
+    "#{self}#{character[0] * filler_length}"
   end
 
   def integer?
